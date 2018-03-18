@@ -9,7 +9,7 @@ def number_to_pattern(n, k):
 	if k == 1:
 		return number_to_symbol(n)
 	prefixIndex = n // 4
-	r = n %\%% 4
+	r = n $%$ 4
 	symbol = number_to_symbol(r) 
 	prefix  = number_to_pattern(prefixIndex, k-1)
 	return prefix + symbol
