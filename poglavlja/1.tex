@@ -1,0 +1,288 @@
+\chapter{Gde u genomu počinje replikacija genoma?}
+\section{Uvod}
+\label{sec:uvod}
+
+Na samom početku, želimo da definišemo pojam bioinformatike i da pokušamo da shvatimo koji je njen osnovni cilj. Da bismo to postigli, pogledajmo tri definicije, iz različitih izvora:
+
+\begin{itemize}
+  \item $"$Bioinformatika je nauka koja se bavi prikupljanjem i analizom kompleksnih bioloških podataka poput genetskih kodova.$"$ - Oksfordski rečnik (engl. Oxford Dictionary)
+  \item $"$Bioinformatika predstavlja prikupljanje, klasifikaciju, čuvanje i analizu biohemijskih i bioloških informacija korišćenjem računara, a posebno se primenjuje u molekularnoj genetici i genomici.$"$ - Rečnik Meriam-Vebster (engl. Merriam-Webster Dictionary) 
+ \item $"$Bioinformatika je interdisciplinarno polje koje radi na razvoju metoda i softverskih alata za razumevanje bioloških podataka.$"$ - Vikipedija (engl. Wikipedia) 
+\end{itemize}
+
+Na osnovu ove tri definicije možemo zaključiti da:\\
+\textit{Bioinformatika predstavlja primenu računarskih tehnologija u istraživanjima u oblasti biologije i srodnih nauka.}\\\\
+Bioinformatika ima široku primenu i njene primene rastu zajedno sa razvojem discipline.\\
+Kao što možemo videti na slici ispod, primena bioinformatike se može izraziti kroz personalizovanu medicinu. Naime, na osnovu prikupljanje veće količine podataka i njihovom analizom, uz pomoć veštačke inteligencije možemo doći do informacija potrebnih da na najbolji način lečimo pacijenta ili mu odredimo terapiju koja će mu na najbolji, najbrži i najbezbolniji način pomoći da prevaziđe određene zdravstvene probleme.  
+
+\begin{figure}[h]
+\caption{Primena bioinformatike}
+\centering
+\includegraphics[width=0.7\textwidth]{poglavlja/1/slike/Primena.png}
+\end{figure} 
+
+Bioinformatika je spoj više različitih disciplina, kao što su:
+\begin{itemize}
+	\item Statistika
+	\item Istraživanje podataka	
+	\item Računarstvo
+	\item Računarska biologija
+	\item Biologija
+	\item Biostatistika
+\end{itemize}
+Prikaz preklapanja ovih disciplina možemo videti na slici 1.2.
+\begin{figure}[h]
+\caption{Preklapanjem različitih disciplina dobijamo bioinformatiku.}
+\centering
+\includegraphics[width=0.7\textwidth]{poglavlja/1/slike/Multidisciplinarnost.png}
+\end{figure}  
+
+\newpage
+
+\section{Replikacija genoma}
+\label{sec:replikacija}
+
+\subsection{DNK}
+
+Dezoksiribonukleinska kiselina (akronimi DNK ili DNA, od engl. deoxyribonucleic acid), nukleinska kiselina koja sadrži uputstva za razvoj i pravilno funkcionisanje svih živih organizama. Zajedno sa RNK i proteinima, DNK je jedan od tri glavna tipa makromolekula koji su esencijalni za sve poznate forme života. \\
+Sva živa bića svoj genetički materijal nose u obliku DNK, sa izuzetkom nekih virusa koji imaju ribonukleinsku kiselinu (RNK). DNK ima veoma važnu ulogu ne samo u prenosu genetičkih informacija sa jedne na drugu generaciju, već sadrži i uputstva za građenje neophodnih ćelijskih organela, proteina i RNK molekula. DNK segment koji prenosi ova važna uputstva se naziva gen.\\\\
+
+DNK se sastoji iz dva polimerna lanca koji imaju antiparalelnu orijentaciju, i svaki od njih je sastavljen od azotnih baza:
+\begin{itemize}
+	\item Adenin (A)
+	\item Timin (T)
+	\item Guanin (G)
+	\item Citozin (C)
+\end{itemize}
+
+\begin{figure}[h]
+\caption{Prikaz DNK, slika preuzeta sa https://ghr.nlm.nih.gov/primer/basics/dna}
+\centering
+\includegraphics[width=0.5\textwidth]{poglavlja/1/slike/DNK.png}
+\end{figure} 
+
+Lanci DNK su međusobno spojeni i to tako da se veze uspostavljaju isključivo između Adenina i Citozina ili između Guanina i Timina. Na osnovu toga, ako nam je poznat sastav jednog lanca, lako možemo zakljuciti i sastav drugog lanca, zbog čega se kaže da su DNK lanci \textbf{međusobno komplementarni}.\\\\
+Da bismo lakše manipulisali sa informacijama koje DNK nosi i približili sadržaj računarskoj struci, DNK ćemo posmatrati kao nisku nad azbukom \textit{A,C,G,T}.
+
+\subsection{Replikacija genoma u ćeliji}
+Replikacija genoma je jedan od najvažnijih zadataka ćelije. Pre nego što se podeli, ćelija mora da najpre replicira svoj genom, tako da svaka od ćerki ćelija dobije svoju kopiju. \\
+Dzejms Votson (engl. James Watson) i Fransis Krik (engl. Fransis Crick) su 1953. godine napisali rad u kome su primetili da postoji mehanizam za kopiranje genetskog materijala. Oni su uočili da se lanci roditeljskog DNK molekula odvijaju tokom replikacije i da se, potom, svaki lanac ponaša kao uzorak za sintezu novog lanca (na osnovu toga što se uvek spajaju iste aminokiseline A-C i G-T, rekreiranje lanca je moguće). Kao rezultat ovakvog ponašanja, proces replikacije počinje parom komplementarnih lanca i završaa se sa dva para komplementarnih lanaca, kao što se može videti na slici ispod.
+
+\begin{figure}[h]
+\caption{Prikaz replikacije}
+\centering
+\includegraphics[width=1\textwidth]{poglavlja/1/slike/Replikacija.png}
+\end{figure} 
+
+Replikacija počinje u regionu genoma koji se naziva \textbf{početni region replikacije} (skraćeno oriC), izvode je DNK polimeraze, koje predstavljaju mašine za kopiranje na molekularnom nivou.\\\\
+Nalaženje početnog regiona replikacije predstavlja veoma važan problem, ne samo za razumevanje funkcionisanja kako se ćelije repliciraju, već je koristan i u raznim biomedicinskim problemima. Na primer, neki metodi genskih terapija uključuju genetski izmenjene mini genome, koji se zovu virusni vektori, zbog svoje sposobnosti da prodru kroz ćelijski zid (poput pravih virusa). Virusni vektori u sebi nose veštačke gene koji unapredjuju postojeći genom. Genska terapija je prvi put uspešno izvršena 1990. godine na devojčici koja je bila toliko otporna na infekcije da je bila primorana da živi isključivo u sterilnom okruženju.\\\\
+Osnovna ideja genske terapije je da se pacijent, koji pati od nedostatka nekog bitnog gena, zarazi viralnim vektorom koji sadrži veštački gen koji enkodira terapeutski protein. Jednom kad je unutar ćelije, vektor se replicira, što dovodi do lečenja bolesti pacijenta. Da bi moglo da dodje do ovoga, biolozima je neophodno da znaju gde je oriC.
+
+\subsubsection{Kako ćelija prepoznaje oriC?}
+Pitamo se kako ćelija prepoznaje oriC? Sigurno je da postoji neka niska aminokiselina koja označava oriC, ali kako ga prepoznati?\\
+Posmatrajmo bakterijski genom, on se sastoji od jednog kružnog hromozoma. Istraživanje je pokazalo da je region, koji predstavlja oriC kod bakterija,
+dug svega nekoliko stotina nukleotida. Zbog jednostavnosti razmatraćemo samo bakterije koje imaju najčešće jedan hromozom kružnog oblika.\\
+
+\begin{figure}[h]
+\caption{Prikaz početka replikacije kod bakterija}
+\centering
+\includegraphics[width=0.7\textwidth]{poglavlja/1/slike/Replikacija_bakterija.png}
+\end{figure} 
+
+Znamo da DNKA utiče na početak replikacije. \textit{DNKA} je protein koji se vezuje na kratki segment unutar oriC, poznatiji kao \textbf{DNKA boks}. Ona predstavlja poruku unutar sekvence DNK koja govori proteinu DNKA da se veže baš tu. Postavlja se pitanje kao pronaći taj region bez prethodnog poznavanja izgleda DNKA kutije? \\\\
+
+Da bismo bolje razumeli \textit{problem skrivene poruke} uzmimo za primer priču Edgara Alana Poa - $"$Zlatni jelenak$"$ (engl. $"$The Gold-Bug$"$).
+Naime, u toj priči jedan od likova, Vilijam Legrand (engl. William Legrand), treba da dešifruje poruku :\\
+\begin{verbatim}
+53++!305))6*;4826)4+.)4+);806*;48!8`6
+0))85;]8*:+*8!83(88)5*!;46(;88*96*?;8
+)*+(;485);5*!2:*+(;4956*2(5*4)8`8*;40
+69285);)6!8)4++;1(+9;48081;8:8+1;48!8
+5;4)485!528806*81(+9;48;(88;4(+?34;48
+)4+;161;:188;+?;
+\end{verbatim}
+\\\\
+On uočava da se $"$;48$"$ pojavljuje veoma često, i da verovatno predstavlja $"$THE$"$, najčešću reč u engleskom jeziku. Znajući to, zamenjuje karaktere odgovarajućim slovima i postepeno dešifruje celu poruku.\\\\
+53++!305))6*THE26)H+.)H+)806*THE
+!E`60))E5;]E*:+*E!E3(EE)5*!TH6(T
+EE*96*?;E)*+(THE5)T5*!2:*+(TH956
+*2(5*H)E`E*TH0692E5)T)6!E)H++T1(
++9THE0E1TE:E+1THE!E5T4)HE5!52880
+6*E1(+9THET(EETH(+?34THE)H+T161T
+:1EET+?T\\\\
+Želeli bismo da ovaj princip primenimo na naš problem nalaska oriC-a. Ideja je da uvidimo da li postoje reči koje se neuobičajeno često pojavljuju. Uvedimo termin k-gram da označimo string dužine k i COUNT(Text, Pattern) da označimo broj puta kojih se k-gram Pattern pojavio u tekstu Text. Osnovna ideja je da pomeramo prozor, iste dužine kao k-gram Pattern, niz tekst, usput proveravajući da li se pojavljuje Pattern u nekome od njih. 
+
+\begin{lstlisting}
+PATTERNCOUNT(Text, Pattern)
+	count = 0
+	for i = 0 to |Text| - |Pattern|
+		if Text(i,|Pattern|) = Pattern
+			count = count + 1 
+	return count
+\end{lstlisting}
+	
+Za neki Pattern kažemo da je on \textit{najčešći k-gram} u tekstu Text, ako je njegov COUNT najveći među svim k-gramima. Na primer, \textbf{ACTAT} je najčešći 5-gram u tekstu Text = ACA\textbf{ACTAT}GCA\\\textbf{ACTAT}CGGGACA\textbf{ACTAT}CCT, a \textbf{ATA} je najčešći 3-gram u Text = CG\textbf{ATATA}TCC\textbf{ATA}G.\\\\
+Sada, problem pronalaska čestih reči možemo posmatrati kao računarski problem:\\
+\textbf{Problem čestih reči:} Pronaći najčešće k-grame u niski karaktera.\\
+Ulaz: Niska Text i ceo broj k.\\
+Izlaz: Svi najčešći k-grami u niski Text. \\\\
+
+Osnovni algoritam za pronalazak čestih k-grama u stringu Text proverava sve k-grame koji se pojavljuju u tom stringu (takvih k-grama ima |Text|-k+1) i potom izračunava koliko puta se svaki k-gram pojavljuje. Da bismo implementirali ovaj algoritam, moramo da izgenerišemo niz COUNT, gde je COUNT(i) = COUNT(Text, Pattern) za Pattern = Text(i,k).
+
+Pitamo se, sada, kolika je složenost ovakvog pristupa?\\
+Ovaj algoritam, iako uspešno nalazi ono što se od njega traži, nije najefikasniji. S obzirom na to da svaki k-gram zahteva $|Text|-k+1$ provera, svaki od njih zahteva i do k poređenja, pa je broj koraka izvršavanja funkcije PatternCount(Text, Pattern) zapravo $(|Text|-k+1)*k$. Osim toga, FrequentWords mora pozvati PatternCount $|Text|-k+1$ puta (po jednom za svaki k-gram teksta), tako da je ukupan broj koraka \textit{$(|Text|-k+1)*(|Text|-k+1)*k$}.\\Iz navedenog, možemo zaključiti da je ukupna cena izvršavanja algoritma FrequentWords \textbf{$O(|Text|^2*k)$}.
+
+\subsubsection{Primer: Pronalazak čestih reči kod bakterije \textit{Vibrio cholerae}} 
+
+Posmatrajmo, najpre, tablicu najčešćih k-grama u oriC regionu bakterije \textit{Vibrio cholerae}. Da li nam se čini da se neki k-grami pojavljuju neuobičajeno često? 
+
+\begin{figure}[h]
+\caption{Tablica najčešćih k-grama u oriC regionu bakterije Vibrio cholerae}
+\centering
+\includegraphics[width=1\textwidth]{poglavlja/1/slike/Tablica_VC.png}
+\end{figure} 
+
+Na primer, 9-gram \textbf{ATGATCAAG} se pojavljuje tri puta u oriC regionu, da li nas to iznenađuje?
+
+\begin{figure}[h]
+\caption{Prikaz 9-grama ATGATCAAG i njegovog komplementa u oriC regionu Vibrio cholerae}
+\centering
+\includegraphics[width=1\textwidth]{poglavlja/1/slike/9_VC.png}
+\end{figure} 
+
+Označili smo najčešće 9-grame, umesto nekih drugih k-grama, jer je eksperimentima pokazano da su DNKA boksovi kod bakterija dugi 9 nukleotida. Verovatnoća da postoji 9-gram koji se pojavljuje 3 ili više puta u proizvoljno generisanom DNK stringu dužine 500 je $1/1300$. Uočimo da postoje četiri različita 9-grama koji se ponavljaju tri ili više puta u ovom regionu, to su: ATGATCAAG, CTTGATCAT, TCTTGATCA i CTCTTGATC.\\\\
+
+Mala verovatnoća da se neki 9-gram toliko puta pojavi u oriC-u kolere, govori nam da neki od četiri 9-grama koje smo pronašli može biti potencijalni DNKA boks, koji započinje replikaciju. Ali, koji?\\
+
+Podsetimo se da nukleotidi A i T, kao i C i G, su komplementarni. Ako imamo jednu stranu lanca DNK i neke slobodne nukleotide, možemo lako zamisliti sintezu komplementarnog lanca, kao što se vidi na slici ispod. 
+
+\begin{figure}[h]
+\caption{Komplementarni lanci se $"$kreću$"$ u suprotnim smerovima.}
+\centering
+\includegraphics[width=1\textwidth]{poglavlja/1/slike/Komplementarni.png}
+\end{figure} 
+
+Posmatrajmo ponovo sliku 1.7. Na njoj možemo uočiti 6 pojavljivanja niski ATGATCAAG i CTTGATCAT, koji su zapravo komplementarni. Naći 9-gram koji se pojavljuje 6 puta u DNK nisci dužine 500 nukleotida, je još više iznenadjujuće, nego pronaći 9-gram koji se pojavljuje tri puta. Ovo posmatranje nas dovodi do toga da je ATGATCAAG (zajedno sa svojim komplementom) zaista DNKA boks Vibrio cholerae. Ovaj zaključak ima i smisla biološki, jer DNKA proteinu, koji se vezuje i započinje replikaciju, nije bitno za koji od dva lanca se vezuje.\\\\
+
+\subsubsection{Primer: Pronalazak čestih reči kod bakterije \textit{Thermotoga petrophila}} 
+
+Nakon što smo pronašli skrivenu poruku za Vibrio cholerae, ne bi trebalo da odmah zaključimo da je ta poruka ista kod svih bakterija. Najpre bi trebalo da proverimo da li se ona nalazi u oriC regionu drugih bakterija, možda različite bakterije, imaju drugačije DNKA boksove. Uzmimo, za primer, oriC region bakterije Thermotoga petrophila. Ona predstavlja bakteriju koja obitava u izrazito toplim regionima, na primer u vodi ispod rezervi nafte, gde temperature prelaze 80 stepeni Celzijusa. Pogledajmo kako izgleda oriC region ove bakterije.
+
+\begin{figure}[h]
+\caption{Prikaz oriC regiona Thermotoga petrophila}
+\centering
+\includegraphics[width=1\textwidth]{poglavlja/1/slike/OriC_TP.png}
+\end{figure} 
+
+Možemo lako uočiti da se u ovom regionu nigde ne javljaju niske ATGATCAAG ili CTTGATCAT, iz čega zaključujemo da različite bakterije mogu koristiti različite DNKA boksove, kako bi pružile skrivenu poruku DNKA proteinu. Odnosno, za različite genome imamo različite DNKA boksove.
+
+Najčešće reči u ovom oriC su:
+\begin{itemize}
+	\item AACCTACCA, 
+	\item ACCTACCAC,
+	\item GGTAGGTTT,
+	\item TGGTAGGTT,
+	\item AAACCTACC,
+	\item CCTACCACC
+\end{itemize}
+
+Pomoću alata koji se zove Ori-Finder, nalazimo CCTACCACC i njegov komplement GGTGGTAGG kao potencijalne DNKA boksove naše bakterije. Ove dve niske se pojavljuju ukupno 5 puta.
+
+\begin{figure}[h]
+\caption{Prikaz CCTACCACC i njenog komplementa u oriC regionu Thermotoga petrophila}
+\centering
+\includegraphics[width=1\textwidth]{poglavlja/1/slike/TP.png}
+\end{figure} 
+Naučili smo da pronađemo skrivene poruke ako je oriC
+dat, ali ne znamo da pronađemo oriC u genomu.
+
+\subsection{Pronalaženje početnog regiona replikacije}
+
+Zamislimo da pokušavamo da nađemo oriC u novom sekvenciranom genomu bakterije. Ako bismo tražili niske poput ATGATCAAG/CTTGATCAT ili CCTACCACC/GGTGGTAGG to nam verovatno ne bi bilo puno od pomoći, jer novi genom može koristiti potpuno drugačiju skrivenu poruku. Posmatrajmo, zato, drugačiji problem: umesto da tražimo grupe određenog k-grama, pokušajmo da nađemo svaki k-gram koji formira grupu u genomu. Nadajmo se da će nam lokacije ovih grupa u genomu pomoći da odredimo lokaciju oriC-a.\\Ideja je da pomeramo prozor fiksirane dužine L kroz genom, tražeći region u kome se k-gram pojavljuje više puta uzastopno. Za L ćemo uzeti vrednost 500, koja predstavlja najčešću dužinu oriC-a kod bakterija. \\\\
+Definisali smo k-gram kao \textit{grupu}, ako se pojavljuje više puta unutar kratkog intervala u genomu. Formalno, k-gram Pattern formira (L, t) grupu unutar niske Genome ako postoji interval genoma, dužine L, u kome se k-gram pojavljuje barem t puta. \\\\
+
+\textbf{Problem pronalaženja grupa.} Naći k-grame koji
+formiraju grupe unutar niske karaktera.\\
+Ulaz. Niska Genome i celi brojevi k (dužina
+podniske), L (dužina prozora) i t (broj podniski u
+grupi).\\
+Izlaz. Svi k-grami koji formiraju (L, t)-grupe u
+niski Genome.\\\\
+U genomu bakterije E.coli postoji 1904 različitih 9-
+grama koji formiraju (500,3)-grupe. Koji od njih
+ukazuje na početni region replikacije?
+
+\subsubsection{Iskrivljeni dijagrami}
+
+S obzirom na to da imamo veliku količinu statističkih podataka, pitamo se kako ih možemo upotrebiti da bismo došli do lokacije oriC-a? U tome nam mogu pomoći \textbf{iskrivljeni dijagrami}(engl. skew diagram). Osnovna ideja je da prođemo kroz genom i da računamo razliku između količine guanina(G) i citozina(C). Ako ova razlika raste, onda možemo pretpostaviti da se krećemo niz polulanac koji ide na desno (u nastavku samo polulanac, smer $5'-> 3'$), a ako razlika počne da se smanjuje, onda pretpostavljamo da smo na obrnutom polulancu ($3' -> 5'$). Zbog procesa koji se naziva deaminacija (gubljenje aminokiselina), svaki polulanac ima manjak citozina u poređenju sa guaninom, a svaki obrnuti polulanac ima manjak guanina u odnosu na citozin. 
+
+\begin{figure}[h]
+\caption{Prikaz kretanja.}
+\centering
+\includegraphics[width=1\textwidth]{poglavlja/1/slike/Polulanci_CG.png}
+\end{figure} 
+
+\begin{figure}[h]
+\caption{Iskrivljeni dijagram genoma Genome = CATGGGCATCGGCCATACGCC.}
+\centering
+\includegraphics[width=1\textwidth]{poglavlja/1/slike/skew.png}
+\end{figure} 
+
+Posmatrajmo iskrivljeni dijagram bakterije Ešerihija Koli. Lako uočavamo minimalnu vrednost skew dijagrama.
+
+\begin{figure}[h]
+\caption{Iskrivljeni dijagram Ešerihije koli.}
+\centering
+\includegraphics[width=1\textwidth]{poglavlja/1/slike/Ecoli_oriC.png}
+\end{figure} 
+
+Minimalna vrednost iz iskrivljenog dijagrama ukazuje baš na ovaj region:
+
+\begin{figure}[h]
+\caption{Region na koji pokazuje minimalna vrednost iskrivljenog dijagrama Ešerihije koli.}
+\centering
+\includegraphics[width=1\textwidth]{poglavlja/1/slike/ecoli_region.png}
+\end{figure} 
+
+Uočimo da u ovom regionu nema čestih 9-grama (koji se pojavljuju 3 ili više puta). Iz toga zaključujemo da, iako smo uspeli da nađemo oriC bakterije Ešerihija koli, nismo uspeli da nađemo DNKA boksove. Međutim, pre nego što odustanemo od potrage, osmotrimo još jednom oriC Vibrio colerae, kako bismo pokušali da nađemo način da izmenimo naš algoritam i uspemo da lociramo DNKA boksove u Ešerihiji koli. Veoma brzo, može se uvideti da osim tri pojavljivanja ATGATCAAG i tri pojavljivanja CTTGATCAT, oriC Vibrio cholerae sadrži i dodatna pojavljivanja ATGATCAAC i CATGATCAT koji se razlikuju samo u jednom nukleotidu od gornjih niski. Ovo još više povećava šanse da smo naišli na prave DNKA boksove, a ima i biološkog smisla. Naime, DNKA se može vezati i za nesavršene DNKA boksove, one koji se razlikuju u nekoliko nukleotida.\\\\
+
+
+\begin{figure}[h]
+\caption{Prikaz pojavljivanja nesavršenih niski nukleotida.}
+\centering
+\includegraphics[width=1\textwidth]{poglavlja/1/slike/nesavrseni1.png}
+\end{figure} 
+
+Cilj nam je da sada izmenimo algoritam čestih reči (FrequentWords) tako da možemo da pronađemo DNKA boksove koji su predstavljeni čestim k-gramima, sa mogućim izmenama na pojedinim nukleotidima. Ovaj problem nazvaćemo problem čestih reči sa propustima.\\\\
+\textbf{Problem čestih reči sa propustima.} Pronaći najčešće k-grame sa
+propustima u niski karaktera.\\
+Ulaz: Niska Text i celi brojevi k i d.\\
+Izlaz: Svi najčešći k-grami sa najviše d propusta u niski Text. \\
+
+Pokušajmo, još jednom, sa pronalaskom DNKA boksova kod Ešerihije koli, tako što ćemo naći najčešće 9-grame sa propustima i komplementima u regionu oriC koji nam je predložen minimalnom vrednošću iskrivljenog dijagrama. Pokušaćemo sa malim prozorom koji ili počinje ili se završava ili je centriran na poziciji najmanje iskrivljenosti. Ovakvim izvođenjem pronalazimo TTATCCACA/TGTGGATAA kao najčešći 9-gram. Međutim, ovo nije jedini 9-gram. Za ostale 9-grame još uvek ne znamo čemu služe, ali znamo da nose skrivene informacije, da se grupišu unutar genoma i da većina njih nema veze sa replikacijom. 
+
+\begin{figure}[h]
+\caption{Prikaz pronađenih niski sa propustima i komplementima u oriC regionu Ešerihije koli.}
+\centering
+\includegraphics[width=1\textwidth]{poglavlja/1/slike/ecoli_poslednji.png}
+\end{figure} 
+
+\section{Zadaci sa vežbi}
+U nastavku će biti predstavljeni zadaci sa vežbi na kursu rađeni u programskom jeziku Python.
+
+\subsection{FrequentWords}
+
+\lstinputlisting[language=Python]{poglavlja/1/kodovi/1.py}
+
+\subsection{Faster FrequentWords}
+
+\lstinputlisting[language=Python]{poglavlja/1/kodovi/3.py}
+
+\subsection{Skew Diagram}
+
+\lstinputlisting[language=Python]{poglavlja/1/kodovi/4.py}
+
+\subsection{FrequentWords With Mismatches}
+
+\lstinputlisting[language=Python]{poglavlja/1/kodovi/4.py}
+

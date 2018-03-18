@@ -1,0 +1,50 @@
+\documentclass[a4paper]{book}
+
+\include{podesavanja}
+
+\begin{document}
+
+\begin{titlepage}
+	\vspace*{0.4\textheight}
+	
+	\begin{center}
+		{\Huge \textsc{Bioinformatika}}
+	\end{center}
+	
+	\vfill
+	
+	\begin{center}
+		{\Large \today.}
+	\end{center}
+\end{titlepage}
+
+\blankpage
+
+\frontmatter
+\tableofcontents
+\blankpage
+
+\chapter*{Predgovor}
+Tekst se sastoji od proširenih beleški sa predavanja na osnovu knjige Pavel A. Pevzner, Phillip Compeau: Bioinformatics Algorithms: An Active Learning Approach. \\Tekst su sastavili studenti sa kursa održanog u školskoj 2017/2018 godini: 
+\begin{itemize}
+	\item Una Stanković 1095/2016
+\end{itemize}
+
+
+\blankpage
+
+\mainmatter
+\include{poglavlja/1/1}
+
+\backmatter
+\renewcommand{\bibname}{Literatura}
+
+\begingroup
+\raggedright
+\bibliography{bioinformatika}
+\endgroup
+
+\bibliographystyle{ieeetr}
+\addcontentsline{toc}{chapter}{Literatura}
+
+\end{document}

@@ -1,0 +1,69 @@
+% hiperlinkovi - url i href
+\usepackage{url}
+
+% dodatne matematicke oznake
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+% jezicki paketi
+\usepackage[serbian]{babel} % podrska za srpski jezik
+\usepackage[utf8]{inputenc} % podrska za utf8 kodiranje
+
+% izgled strane i boje
+\usepackage[hmarginratio=1:1, bottom = 1.5in]{geometry}
+\PassOptionsToPackage{svgnames}{xcolor}
+
+% paketi za crtanje grafike
+\usepackage{tikz}
+\usetikzlibrary{intersections, calc, backgrounds, shapes.misc, arrows, petri, topaths, decorations.markings, automata, positioning}
+
+% bojenje hiperlinkova
+\usepackage[colorlinks=true, linkcolor=red!80, citecolor=green, urlcolor=blue]{hyperref}
+
+% za podesavanje elemenata na strani
+\usepackage{adjustbox}
+
+% napredne figure i tabele
+\usepackage{caption}
+\usepackage{float}
+
+% podesavanje hedera i futera
+\usepackage{fancyhdr}	
+\pagestyle{fancy}
+\fancyhead{} 
+\fancyhead[RO,RE]{\thepage}
+\fancyhead[LO,LE]{\slshape \leftmark}
+\fancyfoot{} 
+\fancyfoot[C]{ }
+
+% za napredne kodove - koristi se okruzenje "lstlisting"
+\usepackage{listings}
+\lstset{
+	basicstyle=\ttfamily,
+	columns=fullflexible,
+	keepspaces=true,
+	showstringspaces=false,
+	escapechar=\%,
+	tabsize=4,
+	language=Python,
+	breaklines=true,
+	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+	frame=L,
+   	keywordstyle=\bfseries\color{green!40!black},
+   	commentstyle=\itshape\color{purple!40!black},
+   	identifierstyle=\color{blue},
+   	stringstyle=\color{orange}
+}
+
+% dodatna okruzenja
+\newtheorem{definicija}{Definicija}[chapter]
+\newtheorem{teorema}[definicija]{Teorema}
+\newtheorem{lema}[definicija]{Lema}
+\newtheorem{primer}[definicija]{Primer}
+\newtheorem{zadatak}[definicija]{Zadatak}
+\newtheorem*{dokaz}{Dokaz}
+
+% dodatne komande
+\newcommand{\blankpage}{\newpage\hbox{}\thispagestyle{empty}\newpage}
+\renewcommand\qedsymbol{\hspace*{\stretch{1}} $\blacksquare$}
