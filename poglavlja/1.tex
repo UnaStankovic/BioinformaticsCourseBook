@@ -74,13 +74,13 @@ Dzejms Votson (engl. James Watson) i Fransis Krik (engl. Fransis Crick) su 1953.
 \includegraphics[width=1\textwidth]{poglavlja/1/slike/Replikacija.png}
 \end{figure} 
 
-Replikacija počinje u regionu genoma koji se naziva \textbf{početni region replikacije} (skraćeno oriC), izvode je DNK polimeraze, koje predstavljaju mašine za kopiranje na molekularnom nivou.\\\\
+Replikacija počinje u regionu genoma koji se naziva \textbf{početni region replikacije} (skraćeno \textit{oriC}), izvode je DNK polimeraze, koje predstavljaju mašine za kopiranje na molekularnom nivou.\\\\
 Nalaženje početnog regiona replikacije predstavlja veoma važan problem, ne samo za razumevanje funkcionisanja kako se ćelije repliciraju, već je koristan i u raznim biomedicinskim problemima. Na primer, neki metodi genskih terapija uključuju genetski izmenjene mini genome, koji se zovu virusni vektori, zbog svoje sposobnosti da prodru kroz ćelijski zid (poput pravih virusa). Virusni vektori u sebi nose veštačke gene koji unapredjuju postojeći genom. Genska terapija je prvi put uspešno izvršena 1990. godine na devojčici koja je bila toliko otporna na infekcije da je bila primorana da živi isključivo u sterilnom okruženju.\\\\
-Osnovna ideja genske terapije je da se pacijent, koji pati od nedostatka nekog bitnog gena, zarazi viralnim vektorom koji sadrži veštački gen koji enkodira terapeutski protein. Jednom kad je unutar ćelije, vektor se replicira, što dovodi do lečenja bolesti pacijenta. Da bi moglo da dodje do ovoga, biolozima je neophodno da znaju gde je oriC.
+Osnovna ideja genske terapije je da se pacijent, koji pati od nedostatka nekog bitnog gena, zarazi viralnim vektorom koji sadrži veštački gen koji enkodira terapeutski protein. Jednom kad je unutar ćelije, vektor se replicira, što dovodi do lečenja bolesti pacijenta. Da bi moglo da dodje do ovoga, biolozima je neophodno da znaju gde je \textit{oriC}.
 
-\subsubsection{Kako ćelija prepoznaje oriC?}
-Pitamo se kako ćelija prepoznaje oriC? Sigurno je da postoji neka niska aminokiselina koja označava oriC, ali kako ga prepoznati?\\
-Posmatrajmo bakterijski genom, on se sastoji od jednog kružnog hromozoma. Istraživanje je pokazalo da je region, koji predstavlja oriC kod bakterija,
+\subsubsection{Kako ćelija prepoznaje \textit{oriC}?}
+Pitamo se kako ćelija prepoznaje \textit{oriC}? Sigurno je da postoji neka niska aminokiselina koja označava \textit{oriC}, ali kako ga prepoznati?\\
+Posmatrajmo bakterijski genom, on se sastoji od jednog kružnog hromozoma. Istraživanje je pokazalo da je region, koji predstavlja \textit{oriC} kod bakterija,
 dug svega nekoliko stotina nukleotida. Zbog jednostavnosti razmatraćemo samo bakterije koje imaju najčešće jedan hromozom kružnog oblika.\\
 
 \begin{figure}[h]
@@ -89,7 +89,7 @@ dug svega nekoliko stotina nukleotida. Zbog jednostavnosti razmatraćemo samo ba
 \includegraphics[width=0.7\textwidth]{poglavlja/1/slike/Replikacija_bakterija.png}
 \end{figure} 
 
-Znamo da DNKA utiče na početak replikacije. \textit{DNKA} je protein koji se vezuje na kratki segment unutar oriC, poznatiji kao \textbf{DNKA boks}. Ona predstavlja poruku unutar sekvence DNK koja govori proteinu DNKA da se veže baš tu. Postavlja se pitanje kao pronaći taj region bez prethodnog poznavanja izgleda DNKA kutije? \\\\
+Znamo da DNKA utiče na početak replikacije. \textit{DNKA} je protein koji se vezuje na kratki segment unutar \textit{oriC}, poznatiji kao \textbf{DNKA boks}. Ona predstavlja poruku unutar sekvence DNK koja govori proteinu DNKA da se veže baš tu. Postavlja se pitanje kao pronaći taj region bez prethodnog poznavanja izgleda DNKA kutije? \\\\
 
 Da bismo bolje razumeli \textit{problem skrivene poruke} uzmimo za primer priču Edgara Alana Poa - $"$Zlatni jelenak$"$ (engl. $"$The Gold-Bug$"$).
 Naime, u toj priči jedan od likova, Vilijam Legrand (engl. William Legrand), treba da dešifruje poruku :\\
@@ -110,7 +110,7 @@ EE*96*?;E)*+(THE5)T5*!2:*+(TH956
 +9THE0E1TE:E+1THE!E5T4)HE5!52880
 6*E1(+9THET(EETH(+?34THE)H+T161T
 :1EET+?T\\\\
-Želeli bismo da ovaj princip primenimo na naš problem nalaska oriC-a. Ideja je da uvidimo da li postoje reči koje se neuobičajeno često pojavljuju. Uvedimo termin k-gram da označimo string dužine k i COUNT(Text, Pattern) da označimo broj puta kojih se k-gram Pattern pojavio u tekstu Text. Osnovna ideja je da pomeramo prozor, iste dužine kao k-gram Pattern, niz tekst, usput proveravajući da li se pojavljuje Pattern u nekome od njih. 
+Želeli bismo da ovaj princip primenimo na naš problem nalaska \textit{oriC}-a. Ideja je da uvidimo da li postoje reči koje se neuobičajeno često pojavljuju. Uvedimo termin k-gram da označimo string dužine k i COUNT(Text, Pattern) da označimo broj puta kojih se k-gram Pattern pojavio u tekstu Text. Osnovna ideja je da pomeramo prozor, iste dužine kao k-gram Pattern, niz tekst, usput proveravajući da li se pojavljuje Pattern u nekome od njih. 
 
 \begin{lstlisting}
 PATTERNCOUNT(Text, Pattern)
@@ -134,25 +134,25 @@ Ovaj algoritam, iako uspešno nalazi ono što se od njega traži, nije najefikas
 
 \subsubsection{Primer: Pronalazak čestih reči kod bakterije \textit{Vibrio cholerae}} 
 
-Posmatrajmo, najpre, tablicu najčešćih k-grama u oriC regionu bakterije \textit{Vibrio cholerae}. Da li nam se čini da se neki k-grami pojavljuju neuobičajeno često? 
+Posmatrajmo, najpre, tablicu najčešćih k-grama u \textit{oriC} regionu bakterije \textit{Vibrio cholerae}. Da li nam se čini da se neki k-grami pojavljuju neuobičajeno često? 
 
 \begin{figure}[h]
-\caption{Tablica najčešćih k-grama u oriC regionu bakterije Vibrio cholerae}
+\caption{Tablica najčešćih k-grama u \textit{oriC} regionu bakterije Vibrio cholerae}
 \centering
 \includegraphics[width=1\textwidth]{poglavlja/1/slike/Tablica_VC.png}
 \end{figure} 
 
-Na primer, 9-gram \textbf{ATGATCAAG} se pojavljuje tri puta u oriC regionu, da li nas to iznenađuje?
+Na primer, 9-gram \textbf{ATGATCAAG} se pojavljuje tri puta u \textit{oriC} regionu, da li nas to iznenađuje?
 
 \begin{figure}[h]
-\caption{Prikaz 9-grama ATGATCAAG i njegovog komplementa u oriC regionu Vibrio cholerae}
+\caption{Prikaz 9-grama ATGATCAAG i njegovog komplementa u \textit{oriC} regionu Vibrio cholerae}
 \centering
 \includegraphics[width=1\textwidth]{poglavlja/1/slike/9_VC.png}
 \end{figure} 
 
 Označili smo najčešće 9-grame, umesto nekih drugih k-grama, jer je eksperimentima pokazano da su DNKA boksovi kod bakterija dugi 9 nukleotida. Verovatnoća da postoji 9-gram koji se pojavljuje 3 ili više puta u proizvoljno generisanom DNK stringu dužine 500 je $1/1300$. Uočimo da postoje četiri različita 9-grama koji se ponavljaju tri ili više puta u ovom regionu, to su: ATGATCAAG, CTTGATCAT, TCTTGATCA i CTCTTGATC.\\\\
 
-Mala verovatnoća da se neki 9-gram toliko puta pojavi u oriC-u kolere, govori nam da neki od četiri 9-grama koje smo pronašli može biti potencijalni DNKA boks, koji započinje replikaciju. Ali, koji?\\
+Mala verovatnoća da se neki 9-gram toliko puta pojavi u \textit{oriC}-u kolere, govori nam da neki od četiri 9-grama koje smo pronašli može biti potencijalni DNKA boks, koji započinje replikaciju. Ali, koji?\\
 
 Podsetimo se da nukleotidi A i T, kao i C i G, su komplementarni. Ako imamo jednu stranu lanca DNK i neke slobodne nukleotide, možemo lako zamisliti sintezu komplementarnog lanca, kao što se vidi na slici ispod. 
 
@@ -166,17 +166,17 @@ Posmatrajmo ponovo sliku 1.7. Na njoj možemo uočiti 6 pojavljivanja niski ATGA
 
 \subsubsection{Primer: Pronalazak čestih reči kod bakterije \textit{Thermotoga petrophila}} 
 
-Nakon što smo pronašli skrivenu poruku za Vibrio cholerae, ne bi trebalo da odmah zaključimo da je ta poruka ista kod svih bakterija. Najpre bi trebalo da proverimo da li se ona nalazi u oriC regionu drugih bakterija, možda različite bakterije, imaju drugačije DNKA boksove. Uzmimo, za primer, oriC region bakterije Thermotoga petrophila. Ona predstavlja bakteriju koja obitava u izrazito toplim regionima, na primer u vodi ispod rezervi nafte, gde temperature prelaze 80 stepeni Celzijusa. Pogledajmo kako izgleda oriC region ove bakterije.
+Nakon što smo pronašli skrivenu poruku za Vibrio cholerae, ne bi trebalo da odmah zaključimo da je ta poruka ista kod svih bakterija. Najpre bi trebalo da proverimo da li se ona nalazi u \textit{oriC} regionu drugih bakterija, možda različite bakterije, imaju drugačije DNKA boksove. Uzmimo, za primer, \textit{oriC} region bakterije Thermotoga petrophila. Ona predstavlja bakteriju koja obitava u izrazito toplim regionima, na primer u vodi ispod rezervi nafte, gde temperature prelaze 80 stepeni Celzijusa. Pogledajmo kako izgleda \textit{oriC} region ove bakterije.
 
 \begin{figure}[h]
-\caption{Prikaz oriC regiona Thermotoga petrophila}
+\caption{Prikaz \textit{oriC} regiona Thermotoga petrophila}
 \centering
-\includegraphics[width=1\textwidth]{poglavlja/1/slike/OriC_TP.png}
+\includegraphics[width=1\textwidth]{poglavlja/1/slike/\textit{oriC}_TP.png}
 \end{figure} 
 
 Možemo lako uočiti da se u ovom regionu nigde ne javljaju niske ATGATCAAG ili CTTGATCAT, iz čega zaključujemo da različite bakterije mogu koristiti različite DNKA boksove, kako bi pružile skrivenu poruku DNKA proteinu. Odnosno, za različite genome imamo različite DNKA boksove.
 
-Najčešće reči u ovom oriC su:
+Najčešće reči u ovom \textit{oriC} su:
 \begin{itemize}
 	\item AACCTACCA, 
 	\item ACCTACCAC,
@@ -189,16 +189,16 @@ Najčešće reči u ovom oriC su:
 Pomoću alata koji se zove Ori-Finder, nalazimo CCTACCACC i njegov komplement GGTGGTAGG kao potencijalne DNKA boksove naše bakterije. Ove dve niske se pojavljuju ukupno 5 puta.
 
 \begin{figure}[h]
-\caption{Prikaz CCTACCACC i njenog komplementa u oriC regionu Thermotoga petrophila}
+\caption{Prikaz CCTACCACC i njenog komplementa u \textit{oriC} regionu Thermotoga petrophila}
 \centering
 \includegraphics[width=1\textwidth]{poglavlja/1/slike/TP.png}
 \end{figure} 
-Naučili smo da pronađemo skrivene poruke ako je oriC
-dat, ali ne znamo da pronađemo oriC u genomu.
+Naučili smo da pronađemo skrivene poruke ako je \textit{oriC}
+dat, ali ne znamo da pronađemo \textit{oriC} u genomu.
 
 \subsection{Pronalaženje početnog regiona replikacije}
 
-Zamislimo da pokušavamo da nađemo oriC u novom sekvenciranom genomu bakterije. Ako bismo tražili niske poput ATGATCAAG/CTTGATCAT ili CCTACCACC/GGTGGTAGG to nam verovatno ne bi bilo puno od pomoći, jer novi genom može koristiti potpuno drugačiju skrivenu poruku. Posmatrajmo, zato, drugačiji problem: umesto da tražimo grupe određenog k-grama, pokušajmo da nađemo svaki k-gram koji formira grupu u genomu. Nadajmo se da će nam lokacije ovih grupa u genomu pomoći da odredimo lokaciju oriC-a.\\Ideja je da pomeramo prozor fiksirane dužine L kroz genom, tražeći region u kome se k-gram pojavljuje više puta uzastopno. Za L ćemo uzeti vrednost 500, koja predstavlja najčešću dužinu oriC-a kod bakterija. \\\\
+Zamislimo da pokušavamo da nađemo \textit{oriC} u novom sekvenciranom genomu bakterije. Ako bismo tražili niske poput ATGATCAAG/CTTGATCAT ili CCTACCACC/GGTGGTAGG to nam verovatno ne bi bilo puno od pomoći, jer novi genom može koristiti potpuno drugačiju skrivenu poruku. Posmatrajmo, zato, drugačiji problem: umesto da tražimo grupe određenog k-grama, pokušajmo da nađemo svaki k-gram koji formira grupu u genomu. Nadajmo se da će nam lokacije ovih grupa u genomu pomoći da odredimo lokaciju \textit{oriC}-a.\\Ideja je da pomeramo prozor fiksirane dužine L kroz genom, tražeći region u kome se k-gram pojavljuje više puta uzastopno. Za L ćemo uzeti vrednost 500, koja predstavlja najčešću dužinu \textit{oriC}-a kod bakterija. \\\\
 Definisali smo k-gram kao \textit{grupu}, ako se pojavljuje više puta unutar kratkog intervala u genomu. Formalno, k-gram Pattern formira (L, t) grupu unutar niske Genome ako postoji interval genoma, dužine L, u kome se k-gram pojavljuje barem t puta. \\\\
 
 \textbf{Problem pronalaženja grupa.} Naći k-grame koji
@@ -214,7 +214,7 @@ ukazuje na početni region replikacije?
 
 \subsubsection{Iskrivljeni dijagrami}
 
-S obzirom na to da imamo veliku količinu statističkih podataka, pitamo se kako ih možemo upotrebiti da bismo došli do lokacije oriC-a? U tome nam mogu pomoći \textbf{iskrivljeni dijagrami}(engl. skew diagram). Osnovna ideja je da prođemo kroz genom i da računamo razliku između količine guanina(G) i citozina(C). Ako ova razlika raste, onda možemo pretpostaviti da se krećemo niz polulanac koji ide na desno (u nastavku samo polulanac, smer $5'-> 3'$), a ako razlika počne da se smanjuje, onda pretpostavljamo da smo na obrnutom polulancu ($3' -> 5'$). Zbog procesa koji se naziva deaminacija (gubljenje aminokiselina), svaki polulanac ima manjak citozina u poređenju sa guaninom, a svaki obrnuti polulanac ima manjak guanina u odnosu na citozin. 
+S obzirom na to da imamo veliku količinu statističkih podataka, pitamo se kako ih možemo upotrebiti da bismo došli do lokacije \textit{oriC}-a? U tome nam mogu pomoći \textbf{iskrivljeni dijagrami}(engl. skew diagram). Osnovna ideja je da prođemo kroz genom i da računamo razliku između količine guanina(G) i citozina(C). Ako ova razlika raste, onda možemo pretpostaviti da se krećemo niz polulanac koji ide na desno (u nastavku samo polulanac, smer $5'-> 3'$), a ako razlika počne da se smanjuje, onda pretpostavljamo da smo na obrnutom polulancu ($3' -> 5'$). Zbog procesa koji se naziva deaminacija (gubljenje aminokiselina), svaki polulanac ima manjak citozina u poređenju sa guaninom, a svaki obrnuti polulanac ima manjak guanina u odnosu na citozin. 
 
 \begin{figure}[h]
 \caption{Prikaz kretanja.}
@@ -233,7 +233,7 @@ Posmatrajmo iskrivljeni dijagram bakterije Ešerihija Koli. Lako uočavamo minim
 \begin{figure}[h]
 \caption{Iskrivljeni dijagram Ešerihije koli.}
 \centering
-\includegraphics[width=1\textwidth]{poglavlja/1/slike/Ecoli_oriC.png}
+\includegraphics[width=1\textwidth]{poglavlja/1/slike/Ecoli_\textit{oriC}.png}
 \end{figure} 
 
 Minimalna vrednost iz iskrivljenog dijagrama ukazuje baš na ovaj region:
@@ -244,7 +244,7 @@ Minimalna vrednost iz iskrivljenog dijagrama ukazuje baš na ovaj region:
 \includegraphics[width=1\textwidth]{poglavlja/1/slike/ecoli_region.png}
 \end{figure} 
 
-Uočimo da u ovom regionu nema čestih 9-grama (koji se pojavljuju 3 ili više puta). Iz toga zaključujemo da, iako smo uspeli da nađemo oriC bakterije Ešerihija koli, nismo uspeli da nađemo DNKA boksove. Međutim, pre nego što odustanemo od potrage, osmotrimo još jednom oriC Vibrio colerae, kako bismo pokušali da nađemo način da izmenimo naš algoritam i uspemo da lociramo DNKA boksove u Ešerihiji koli. Veoma brzo, može se uvideti da osim tri pojavljivanja ATGATCAAG i tri pojavljivanja CTTGATCAT, oriC Vibrio cholerae sadrži i dodatna pojavljivanja ATGATCAAC i CATGATCAT koji se razlikuju samo u jednom nukleotidu od gornjih niski. Ovo još više povećava šanse da smo naišli na prave DNKA boksove, a ima i biološkog smisla. Naime, DNKA se može vezati i za nesavršene DNKA boksove, one koji se razlikuju u nekoliko nukleotida.\\\\
+Uočimo da u ovom regionu nema čestih 9-grama (koji se pojavljuju 3 ili više puta). Iz toga zaključujemo da, iako smo uspeli da nađemo \textit{oriC} bakterije Ešerihija koli, nismo uspeli da nađemo DNKA boksove. Međutim, pre nego što odustanemo od potrage, osmotrimo još jednom \textit{oriC} Vibrio colerae, kako bismo pokušali da nađemo način da izmenimo naš algoritam i uspemo da lociramo DNKA boksove u Ešerihiji koli. Veoma brzo, može se uvideti da osim tri pojavljivanja ATGATCAAG i tri pojavljivanja CTTGATCAT, \textit{oriC} Vibrio cholerae sadrži i dodatna pojavljivanja ATGATCAAC i CATGATCAT koji se razlikuju samo u jednom nukleotidu od gornjih niski. Ovo još više povećava šanse da smo naišli na prave DNKA boksove, a ima i biološkog smisla. Naime, DNKA se može vezati i za nesavršene DNKA boksove, one koji se razlikuju u nekoliko nukleotida.\\\\
 
 
 \begin{figure}[h]
@@ -259,10 +259,10 @@ propustima u niski karaktera.\\
 Ulaz: Niska Text i celi brojevi k i d.\\
 Izlaz: Svi najčešći k-grami sa najviše d propusta u niski Text. \\
 
-Pokušajmo, još jednom, sa pronalaskom DNKA boksova kod Ešerihije koli, tako što ćemo naći najčešće 9-grame sa propustima i komplementima u regionu oriC koji nam je predložen minimalnom vrednošću iskrivljenog dijagrama. Pokušaćemo sa malim prozorom koji ili počinje ili se završava ili je centriran na poziciji najmanje iskrivljenosti. Ovakvim izvođenjem pronalazimo TTATCCACA/TGTGGATAA kao najčešći 9-gram. Međutim, ovo nije jedini 9-gram. Za ostale 9-grame još uvek ne znamo čemu služe, ali znamo da nose skrivene informacije, da se grupišu unutar genoma i da većina njih nema veze sa replikacijom. 
+Pokušajmo, još jednom, sa pronalaskom DNKA boksova kod Ešerihije koli, tako što ćemo naći najčešće 9-grame sa propustima i komplementima u regionu \textit{oriC} koji nam je predložen minimalnom vrednošću iskrivljenog dijagrama. Pokušaćemo sa malim prozorom koji ili počinje ili se završava ili je centriran na poziciji najmanje iskrivljenosti. Ovakvim izvođenjem pronalazimo TTATCCACA/TGTGGATAA kao najčešći 9-gram. Međutim, ovo nije jedini 9-gram. Za ostale 9-grame još uvek ne znamo čemu služe, ali znamo da nose skrivene informacije, da se grupišu unutar genoma i da većina njih nema veze sa replikacijom. 
 
 \begin{figure}[h]
-\caption{Prikaz pronađenih niski sa propustima i komplementima u oriC regionu Ešerihije koli.}
+\caption{Prikaz pronađenih niski sa propustima i komplementima u \textit{oriC} regionu Ešerihije koli.}
 \centering
 \includegraphics[width=1\textwidth]{poglavlja/1/slike/ecoli_poslednji.png}
 \end{figure} 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.2.25)  18 MAR 2018 21:40
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.2.25)  21 MAR 2018 17:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -953,6 +953,42 @@ File: lstlang1.sty 2013/08/26 1.5b listings language file
 )
 \c@definicija=\count149
 )
+(/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
+Package: tcolorbox 2014/02/06 version 2.70 text color boxes
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks44
+\verbatim@line=\toks45
+\verbatim@in@stream=\read2
+)
+(/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2013/04/01 v0.3 A new environment syntax
+
+(/usr/share/texlive/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/etex-pkg/etex.sty
+Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
+\et@xins=\count150
+)
+\etb@tempcnta=\count151
+)
+\tcb@titlebox=\box66
+\tcb@upperbox=\box67
+\tcb@lowerbox=\box68
+\tcb@phantombox=\box69
+\c@tcbbreakpart=\count152
+\c@tcblayer=\count153
+\tcb@temp=\box70
+\tcb@temp=\box71
+\tcb@temp=\box72
+\tcb@temp=\box73
+\tcb@out=\write4
+)
 (./bioinformatika.aux (./poglavlja/1/1.aux))
 \openout1 = `bioinformatika.aux'.
 
@@ -1009,17 +1045,17 @@ LaTeX Font Info:    ... okay on input line 5.
 ABD: EveryShipout initializing macros
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count150
+\scratchcounter=\count154
 \scratchdimen=\dimen199
-\scratchbox=\box66
-\nofMPsegments=\count151
-\nofMParguments=\count152
-\everyMPshowfont=\toks44
-\MPscratchCnt=\count153
+\scratchbox=\box74
+\nofMPsegments=\count155
+\nofMParguments=\count156
+\everyMPshowfont=\toks46
+\MPscratchCnt=\count157
 \MPscratchDim=\dimen200
-\MPnumerator=\count154
-\makeMPintoPDFobject=\count155
-\everyMPtoPDFconversion=\toks45
+\MPnumerator=\count158
+\makeMPintoPDFobject=\count159
+\everyMPtoPDFconversion=\toks47
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -1035,7 +1071,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box67
+\AtBeginShipoutBox=\box75
 Package hyperref Info: Link coloring ON on input line 5.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -1044,21 +1080,21 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count156
+\c@section@level=\count160
 )
 LaTeX Info: Redefining \ref on input line 5.
 LaTeX Info: Redefining \pageref on input line 5.
 LaTeX Info: Redefining \nameref on input line 5.
 
 (./bioinformatika.out) (./bioinformatika.out)
-\@outlinefile=\write4
-\openout4 = `bioinformatika.out'.
+\@outlinefile=\write5
+\openout5 = `bioinformatika.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count157
+\c@lstlisting=\count161
  [1
 
 
@@ -1077,8 +1113,8 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 3.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ))
-\tf@toc=\write5
-\openout5 = `bioinformatika.toc'.
+\tf@toc=\write6
+\openout6 = `bioinformatika.toc'.
 
  [1
 
@@ -1105,7 +1141,12 @@ Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                removing `\textasciicaron' on input line 1.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--17
+Underfull \hbox (badness 10000) in paragraph at lines 13--16
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--16
 
  []
 
@@ -1113,7 +1154,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--17
 File: poglavlja/1/slike/Primena.png Graphic file (type png)
 
 <use poglavlja/1/slike/Primena.png>
-Package pdftex.def Info: poglavlja/1/slike/Primena.png used on input line 21.
+Package pdftex.def Info: poglavlja/1/slike/Primena.png used on input line 20.
 (pdftex.def)             Requested size: 292.77629pt x 219.70506pt.
 
 
@@ -1124,7 +1165,7 @@ File: poglavlja/1/slike/Multidisciplinarnost.png Graphic file (type png)
 
 <use poglavlja/1/slike/Multidisciplinarnost.png>
 Package pdftex.def Info: poglavlja/1/slike/Multidisciplinarnost.png used on inp
-ut line 37.
+ut line 36.
 (pdftex.def)             Requested size: 292.77629pt x 261.76363pt.
 
 
@@ -1134,18 +1175,23 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.40 \newpage
+l.39 \newpage
               [1
 
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 47--49
+Underfull \hbox (badness 10000) in paragraph at lines 46--48
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--49
+Underfull \hbox (badness 10000) in paragraph at lines 46--48
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--48
 
  []
 
@@ -1153,14 +1199,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--49
 File: poglavlja/1/slike/DNK.png Graphic file (type png)
 
 <use poglavlja/1/slike/DNK.png>
-Package pdftex.def Info: poglavlja/1/slike/DNK.png used on input line 61.
+Package pdftex.def Info: poglavlja/1/slike/DNK.png used on input line 60.
 (pdftex.def)             Requested size: 209.12683pt x 229.55772pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--66
+Underfull \hbox (badness 10000) in paragraph at lines 63--65
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--69
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--69
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--69
 
  []
 
@@ -1174,97 +1235,113 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.70 
+l.69 
       [2 <./poglavlja/1/slike/Primena.png>]
 <poglavlja/1/slike/Replikacija.png, id=108, 721.69624pt x 337.26pt>
 File: poglavlja/1/slike/Replikacija.png Graphic file (type png)
 
 <use poglavlja/1/slike/Replikacija.png>
 Package pdftex.def Info: poglavlja/1/slike/Replikacija.png used on input line 7
-4.
+3.
 (pdftex.def)             Requested size: 418.25368pt x 195.45654pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--80
+Underfull \hbox (badness 10000) in paragraph at lines 76--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--80
+Underfull \hbox (badness 10000) in paragraph at lines 76--79
+
+ []
+
+[3 <./poglavlja/1/slike/Multidisciplinarnost.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 81--84
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--85
+Underfull \hbox (badness 10000) in paragraph at lines 81--84
 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 81--84
 
- [3 <./poglavlja/1/slike/Multidisciplinarnost.png>]
+ []
+
 <poglavlja/1/slike/Replikacija_bakterija.png, id=114, 606.265pt x 329.23pt>
 File: poglavlja/1/slike/Replikacija_bakterija.png Graphic file (type png)
 
 <use poglavlja/1/slike/Replikacija_bakterija.png>
 Package pdftex.def Info: poglavlja/1/slike/Replikacija_bakterija.png used on in
-put line 89.
+put line 88.
 (pdftex.def)             Requested size: 292.77629pt x 158.99313pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 92--93
+Underfull \hbox (badness 10000) in paragraph at lines 91--92
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 92--93
+Underfull \hbox (badness 10000) in paragraph at lines 91--92
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--96
+Underfull \hbox (badness 10000) in paragraph at lines 93--95
 
  []
 
 
-Overfull \hbox (3.13641pt too wide) in paragraph at lines 97--112
-[]\OT1/cmr/m/n/10 53++!305))6*;4826)4+.)4+);806*;48!8`6 0))85;]8*:+*8!83(88)5*!
-;46(;88*96*?;8 )*+(;485);5*!2 
+Overfull \hbox (69.2422pt too wide) in paragraph at lines 101--111
+[]\OT1/cmtt/m/n/10 53++!305))6*;4826)4+.)4+);806*;48!8`6 0))85;]8*:+*8!83(88)5*
+!;46(;88*96*?;8 )*+(;485);5*!2 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--112
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 97--112
+Underfull \hbox (badness 10000) in paragraph at lines 101--111
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--112
+Underfull \hbox (badness 10000) in paragraph at lines 101--111
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--111
 
  []
 
 [4 <./poglavlja/1/slike/DNK.png>]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 116.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 115.
 
-Overfull \hbox (6.97221pt too wide) in paragraph at lines 122--127
+Underfull \hbox (badness 10000) in paragraph at lines 124--127
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--127
+
+ []
+
+
+Overfull \hbox (6.97221pt too wide) in paragraph at lines 121--127
 \OT1/cmr/m/n/10 me[]du svim k-gramima. Na pri-mer, \OT1/cmr/bx/n/10 AC-TAT \OT1
 /cmr/m/n/10 je naj^^Tce^^Ts^^Sci 5-gram u tek-stu Text = ACA\OT1/cmr/bx/n/10 AC
 TAT\OT1/cmr/m/n/10 GCA 
  []
 
 
-Overfull \hbox (1.00847pt too wide) in paragraph at lines 122--127
+Overfull \hbox (1.00847pt too wide) in paragraph at lines 121--127
 \OT1/cmr/bx/n/10 ACTAT\OT1/cmr/m/n/10 CGGGACA\OT1/cmr/bx/n/10 ACTAT\OT1/cmr/m/n
 /10 CCT, a \OT1/cmr/bx/n/10 ATA \OT1/cmr/m/n/10 je naj^^Tce^^Ts^^Sci 3-gram u T
 ext = CG\OT1/cmr/bx/n/10 ATATA\OT1/cmr/m/n/10 TCC\OT1/cmr/bx/n/10 ATA\OT1/cmr/m
@@ -1272,17 +1349,12 @@ ext = CG\OT1/cmr/bx/n/10 ATATA\OT1/cmr/m/n/10 TCC\OT1/cmr/bx/n/10 ATA\OT1/cmr/m
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--127
+Underfull \hbox (badness 10000) in paragraph at lines 121--127
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--127
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 122--127
+Underfull \hbox (badness 10000) in paragraph at lines 121--127
 
  []
 
@@ -1304,7 +1376,7 @@ r^^Tsavanja al-go-ritma Fre-qu-en-tWords $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (\O
 MS/cmsy/m/n/10 j\OML/cmm/m/it/10 Text\OMS/cmsy/m/n/10 j[] ^^C
  []
 
-<poglavlja/1/slike/Tablica_VC.png, id=135, 844.15375pt x 216.81pt>
+<poglavlja/1/slike/Tablica_VC.png, id=136, 844.15375pt x 216.81pt>
 File: poglavlja/1/slike/Tablica_VC.png Graphic file (type png)
 
 <use poglavlja/1/slike/Tablica_VC.png>
@@ -1312,13 +1384,17 @@ Package pdftex.def Info: poglavlja/1/slike/Tablica_VC.png used on input line 14
 0.
 (pdftex.def)             Requested size: 418.25368pt x 107.42548pt.
 
-<poglavlja/1/slike/9_VC.png, id=136, 892.33376pt x 209.78375pt>
+<poglavlja/1/slike/9_VC.png, id=137, 892.33376pt x 209.78375pt>
 File: poglavlja/1/slike/9_VC.png Graphic file (type png)
 
 <use poglavlja/1/slike/9_VC.png>
 Package pdftex.def Info: poglavlja/1/slike/9_VC.png used on input line 148.
 (pdftex.def)             Requested size: 418.25368pt x 98.32947pt.
 
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 151--152
 
  []
@@ -1328,12 +1404,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 151--152
 
  []
 
-[6 <./poglavlja/1/slike/Tablica_VC.png> <./poglavlja/1/slike/9_VC.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 153--154
 
  []
 
-<poglavlja/1/slike/Komplementarni.png, id=147, 690.58pt x 362.35374pt>
+[6 <./poglavlja/1/slike/Tablica_VC.png>]
+<poglavlja/1/slike/Komplementarni.png, id=146, 690.58pt x 362.35374pt>
 File: poglavlja/1/slike/Komplementarni.png Graphic file (type png)
 
 <use poglavlja/1/slike/Komplementarni.png>
@@ -1350,18 +1427,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 163--164
 
  []
 
-<poglavlja/1/slike/OriC_TP.png, id=148, 860.21375pt x 216.81pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7 <./poglavlja/1/slike/9_VC.png> <./poglavlja/1/slike/Komplementarni.png>]
+<poglavlja/1/slike/OriC_TP.png, id=154, 860.21375pt x 216.81pt>
 File: poglavlja/1/slike/OriC_TP.png Graphic file (type png)
 
 <use poglavlja/1/slike/OriC_TP.png>
 Package pdftex.def Info: poglavlja/1/slike/OriC_TP.png used on input line 172.
 (pdftex.def)             Requested size: 418.25368pt x 105.41737pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[7 <./poglavlja/1/slike/Komplementarni.png>]
-<poglavlja/1/slike/TP.png, id=156, 867.24pt x 221.82875pt>
+<poglavlja/1/slike/TP.png, id=155, 867.24pt x 221.82875pt>
 File: poglavlja/1/slike/TP.png Graphic file (type png)
 
 <use poglavlja/1/slike/TP.png>
@@ -1374,121 +1451,120 @@ Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                removing `\textasciicaron' on input line 197.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--201
+Underfull \hbox (badness 10000) in paragraph at lines 199--209
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--201
+Underfull \hbox (badness 10000) in paragraph at lines 199--209
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--201
+Underfull \hbox (badness 10000) in paragraph at lines 199--209
 
  []
 
 [8 <./poglavlja/1/slike/OriC_TP.png> <./poglavlja/1/slike/TP.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 202--212
-
- []
-
 <poglavlja/1/slike/Polulanci_CG.png, id=164, 808.01875pt x 500.87125pt>
 File: poglavlja/1/slike/Polulanci_CG.png Graphic file (type png)
 
 <use poglavlja/1/slike/Polulanci_CG.png>
 Package pdftex.def Info: poglavlja/1/slike/Polulanci_CG.png used on input line 
-220.
+222.
 (pdftex.def)             Requested size: 418.25368pt x 259.26993pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 <poglavlja/1/slike/skew.png, id=165, 785.93625pt x 218.8175pt>
 File: poglavlja/1/slike/skew.png Graphic file (type png)
 
 <use poglavlja/1/slike/skew.png>
-Package pdftex.def Info: poglavlja/1/slike/skew.png used on input line 226.
+Package pdftex.def Info: poglavlja/1/slike/skew.png used on input line 228.
 (pdftex.def)             Requested size: 418.25368pt x 116.45016pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9 <./poglavlja/1/slike/Polulanci_CG.png>]
-<poglavlja/1/slike/Ecoli_oriC.png, id=173, 798.985pt x 455.7025pt>
+<poglavlja/1/slike/Ecoli_oriC.png, id=166, 798.985pt x 455.7025pt>
 File: poglavlja/1/slike/Ecoli_oriC.png Graphic file (type png)
 
 <use poglavlja/1/slike/Ecoli_oriC.png>
 Package pdftex.def Info: poglavlja/1/slike/Ecoli_oriC.png used on input line 23
-4.
+6.
 (pdftex.def)             Requested size: 418.25368pt x 238.55203pt.
 
-<poglavlja/1/slike/ecoli_region.png, id=174, 790.955pt x 231.86626pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<poglavlja/1/slike/ecoli_region.png, id=167, 790.955pt x 231.86626pt>
 File: poglavlja/1/slike/ecoli_region.png Graphic file (type png)
 
 <use poglavlja/1/slike/ecoli_region.png>
 Package pdftex.def Info: poglavlja/1/slike/ecoli_region.png used on input line 
-242.
+244.
 (pdftex.def)             Requested size: 418.25368pt x 122.60902pt.
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 245--246
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 245--246
+ [9]
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
 
  []
 
-<poglavlja/1/slike/nesavrseni1.png, id=175, 798.985pt x 227.85126pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
+
+ []
+
+[10 <./poglavlja/1/slike/Polulanci_CG.png> <./poglavlja/1/slike/skew.png> <./po
+glavlja/1/slike/ecoli_region.png>]
+<poglavlja/1/slike/nesavrseni1.png, id=181, 798.985pt x 227.85126pt>
 File: poglavlja/1/slike/nesavrseni1.png Graphic file (type png)
 
 <use poglavlja/1/slike/nesavrseni1.png>
 Package pdftex.def Info: poglavlja/1/slike/nesavrseni1.png used on input line 2
-51.
+53.
 (pdftex.def)             Requested size: 418.25368pt x 119.27602pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 254--259
+Underfull \hbox (badness 10000) in paragraph at lines 258--262
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 254--259
+Underfull \hbox (badness 10000) in paragraph at lines 256--262
 
  []
 
-[10 <./poglavlja/1/slike/skew.png> <./poglavlja/1/slike/Ecoli_oriC.png>]
-<poglavlja/1/slike/ecoli_poslednji.png, id=182, 818.05624pt x 197.73875pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--262
+
+ []
+
+[11 <./poglavlja/1/slike/Ecoli_oriC.png> <./poglavlja/1/slike/nesavrseni1.png>]
+<poglavlja/1/slike/ecoli_poslednji.png, id=188, 818.05624pt x 197.73875pt>
 File: poglavlja/1/slike/ecoli_poslednji.png Graphic file (type png)
 
 <use poglavlja/1/slike/ecoli_poslednji.png>
 Package pdftex.def Info: poglavlja/1/slike/ecoli_poslednji.png used on input li
-ne 265.
+ne 268.
 (pdftex.def)             Requested size: 418.25368pt x 101.10188pt.
- [11 <./poglavlja/1/slike/ecoli_region.png> <./poglavlja/1/slike/nesavrseni1.pn
-g> <./poglavlja/1/slike/ecoli_poslednji.png>]
+ [12 <./poglavlja/1/slike/ecoli_poslednji.png>]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 273.
- (./poglavlja/1/kodovi/1.py) (./poglavlja/1/kodovi/3.py [12]
+nput line 278.
+ (./poglavlja/1/kodovi/1.py) (./poglavlja/1/kodovi/3.py [13]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [13])
-(./poglavlja/1/kodovi/4.py) (./poglavlja/1/kodovi/5.py [14]
+ [14])
+(./poglavlja/1/kodovi/4.py) (./poglavlja/1/kodovi/5.py [15]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [15]
+ [16]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [16]))
-[17] [18
-
-
-]
+ [17]))
+[18]
 No file bioinformatika.bbl.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 50.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 50.
@@ -1500,13 +1576,13 @@ Package rerunfilecheck Info: File `bioinformatika.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 50.
  ) 
 Here is how much of TeX's memory you used:
- 21299 strings out of 493304
- 381342 string characters out of 6139871
- 767179 words of memory out of 5000000
- 23976 multiletter control sequences out of 15000+600000
+ 22420 strings out of 493304
+ 401799 string characters out of 6139871
+ 777540 words of memory out of 5000000
+ 25074 multiletter control sequences out of 15000+600000
  9933 words of font info for 38 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 60i,13n,94p,908b,1910s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,13n,94p,949b,1911s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/te
@@ -1521,7 +1597,7 @@ sfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on bioinformatika.pdf (24 pages, 1514847 bytes).
+Output written on bioinformatika.pdf (24 pages, 1519447 bytes).
 PDF statistics:
  613 PDF objects out of 1000 (max. 8388607)
  550 compressed objects within 6 object streams
