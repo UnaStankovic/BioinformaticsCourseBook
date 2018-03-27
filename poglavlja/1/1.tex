@@ -44,7 +44,7 @@ Prikaz preklapanja ovih disciplina možemo videti na slici 1.2.
 \subsection{DNK}
 
 Dezoksiribonukleinska kiselina (akronimi DNK ili DNA, od engl. \textit{ deoxyribonucleic acid}), nukleinska kiselina koja sadrži uputstva za razvoj i pravilno funkcionisanje svih živih organizama. Zajedno sa RNK i proteinima, DNK je jedan od tri glavna tipa makromolekula koji su esencijalni za sve poznate forme života. \\\\
-Sva živa bića svoj genetički materijal nose u obliku DNK, sa izuzetkom nekih virusa koji imaju ribonukleinsku kiselinu (RNK). DNK ima veoma važnu ulogu ne samo u prenosu genetičkih informacija sa jedne na drugu generaciju, već sadrži i uputstva za građenje neophodnih ćelijskih organela, proteina i RNK molekula. DNK segment koji sadrži ova važna uputstva se naziva gen.\\\\
+Sva živa bića svoj genetički materijal nose u obliku DNK, sa izuzetkom nekih virusa koji imaju ribonukleinsku kiselinu (RNK). DNK ima veoma važnu ulogu ne samo u prenosu genetičkih informacija sa jedne na drugu generaciju, već sadrži i uputstva za građenje neophodnih ćelijskih organela, proteina i RNK molekula. DNK segment koji sadrži ova važna uputstva se naziva gen.\\
 
 DNK se sastoji iz dva polimerna lanca koji imaju antiparalelnu orijentaciju, i svaki od njih je sastavljen od azotnih baza:
 \begin{itemize}
@@ -211,19 +211,19 @@ dat, ali ne znamo da pronađemo \textit{oriC} u genomu.
 \subsection{Pronalaženje početnog regiona replikacije}
 
 Zamislimo da pokušavamo da nađemo \textit{oriC} u novom sekvenciranom genomu bakterije. Ako bismo tražili niske poput ATGATCAAG/CTTGATCAT ili CCTACCACC/GGTGGTAGG to nam verovatno ne bi bilo puno od pomoći, jer novi genom može koristiti potpuno drugačiju skrivenu poruku. Posmatrajmo, zato, drugačiji problem: umesto da tražimo grupe određenog k-grama, pokušajmo da nađemo svaki k-gram koji formira grupu u genomu. Nadajmo se da će nam lokacije ovih grupa u genomu pomoći da odredimo lokaciju \textit{oriC}-a.\\Ideja je da pomeramo prozor fiksirane dužine L kroz genom, tražeći region u kome se k-gram pojavljuje više puta uzastopno. Za L ćemo uzeti vrednost 500, koja predstavlja najčešću dužinu \textit{oriC}-a kod bakterija. \\\\
-Definisali smo k-gram kao \textit{grupu}, ako se pojavljuje više puta unutar kratkog intervala u genomu. Formalno, k-gram Pattern formira (L, t) grupu unutar niske Genome ako postoji interval genoma, dužine L, u kome se k-gram pojavljuje barem t puta. \\\\
+Definisali smo k-gram kao \textit{grupu}, ako se pojavljuje više puta unutar kratkog intervala u genomu. Formalno, k-gram $Pattern$ formira $(L, t)$ grupu unutar niske $Genome$ ako postoji interval genoma, dužine $L$, u kome se k-gram pojavljuje barem $t$ puta. \\\\
 \begin{tcolorbox}
 \textbf{Problem pronalaženja grupa.} Naći k-grame koji
 formiraju grupe unutar niske karaktera.\\
-Ulaz. Niska Genome i celi brojevi k (dužina
+\textit{Ulaz:} Niska Genome i celi brojevi k (dužina
 podniske), L (dužina prozora) i t (broj podniski u
 grupi).\\
-Izlaz. Svi k-grami koji formiraju (L, t)-grupe u
+\textit{Izlaz:} Svi k-grami koji formiraju (L, t)-grupe u
 niski Genome.
 \end{tcolorbox}
 
 U genomu bakterije E.coli postoji 1904 različitih 9-
-grama koji formiraju (500,3)-grupe. Koji od njih
+grama koji formiraju $(500,3)$-grupe. Koji od njih
 ukazuje na početni region replikacije?
 
 \subsubsection{Iskrivljeni dijagrami}
@@ -267,12 +267,12 @@ Uočimo da u ovom regionu nema čestih 9-grama (koji se pojavljuju 3 ili više p
 \includegraphics[width=1\textwidth]{poglavlja/1/slike/nesavrseni1.png}
 \end{figure} 
 
-Cilj nam je da sada izmenimo algoritam čestih reči (FrequentWords) tako da možemo da pronađemo DNKA boksove koji su predstavljeni čestim k-gramima, sa mogućim izmenama na pojedinim nukleotidima. Ovaj problem nazvaćemo problem čestih reči sa propustima.\\\\
+Cilj nam je da sada izmenimo algoritam čestih reči ($FrequentWords$) tako da možemo da pronađemo DNKA boksove koji su predstavljeni čestim k-gramima, sa mogućim izmenama na pojedinim nukleotidima. Ovaj problem nazvaćemo problem čestih reči sa propustima.\\\\
 \begin{tcolorbox}
 \textbf{Problem čestih reči sa propustima.} Pronaći najčešće k-grame sa
 propustima u niski karaktera.\\
-Ulaz: Niska Text i celi brojevi k i d.\\
-Izlaz: Svi najčešći k-grami sa najviše d propusta u niski Text. \\
+\textit{Ulaz:} Niska Text i celi brojevi k i d.\\
+\textit{Izlaz:} Svi najčešći k-grami sa najviše d propusta u niski Text. \\
 \end{tcolorbox}
 Pokušajmo, još jednom, sa pronalaskom DNKA boksova kod Ešerihije koli, tako što ćemo naći najčešće 9-grame sa propustima i komplementima u regionu \textit{oriC} koji nam je predložen minimalnom vrednošću iskrivljenog dijagrama. Pokušaćemo sa malim prozorom koji ili počinje ili se završava ili je centriran na poziciji najmanje iskrivljenosti. Ovakvim izvođenjem pronalazimo TTATCCACA/TGTGGATAA kao najčešći 9-gram. Međutim, ovo nije jedini 9-gram. Za ostale 9-grame još uvek ne znamo čemu služe, ali znamo da nose skrivene informacije, da se grupišu unutar genoma i da većina njih nema veze sa replikacijom. 
 
