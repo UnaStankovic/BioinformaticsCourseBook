@@ -94,10 +94,10 @@ Da bismo bolje razumeli \textit{problem skrivene poruke} uzmimo za primer priču
 Naime, u toj priči jedan od likova, Vilijam Legrand (engl. \textit{William Legrand}), treba da dešifruje poruku :\\
 
 \texttt{53++!305))6*;4826)4+.)4+);806*;48!8`6
-0))85;]8*:+*8!83(88)5*!;46(;88*96*?;8
-)*+(;485);5*!2\\:*+(;4956*2(5*4)8`8*;40
+0))85;]8*:+*8!83(88)5*!;46(;88*96*?;8\\
+)*+(;485);5*!2:*+(;4956*2(5*4)8`8*;40
 69285);)6!8)4++;1(+9;48081;8:8+1;48!8
-5;4)485\\!528806*81(+9;48;(88;4(+?34;48
+5;4)\\485!528806*81(+9;48;(88;4(+?34;48
 )4+;161;:188;+?;}\\\\
 On uočava da se $"$;48$"$ pojavljuje veoma često, i da verovatno predstavlja $"$THE$"$, najčešću reč u engleskom jeziku. Znajući to, zamenjuje karaktere odgovarajućim slovima i postepeno dešifruje celu poruku.\\\\
 \texttt{53++!305))6*THE26)H+.)H+)806*THE
@@ -107,7 +107,7 @@ EE*96*?;E)*+\\(THE5)T5*!2:*+(TH956
 +9THE0E1TE:E+1\\THE!E5T4)HE5!52880
 6*E1(+9THET(EETH(+?34THE)H+T161T
 :1EET+?T}\\\\
-Želeli bismo da ovaj princip primenimo na naš problem nalaska oriC-a. Ideja je da uvidimo da li postoje reči koje se neuobičajeno često pojavljuju. Uvedimo termin k-gram da označimo string dužine k i COUNT(Text, Pattern) da označimo broj puta kojih se k-gram Pattern pojavio u tekstu Text. Osnovna ideja je da pomeramo prozor, iste dužine kao k-gram Pattern, niz tekst, usput proveravajući da li se pojavljuje Pattern u nekome od njih. 
+Želeli bismo da ovaj princip primenimo na naš problem nalaska \textit{oriC}-a. Ideja je da uvidimo da li postoje reči koje se neuobičajeno često pojavljuju. Uvedimo termin k-gram da označimo string dužine $k$ i COUNT(Text, Pattern) da označimo broj puta kojih se k-gram $Pattern$ pojavio u tekstu $Text$. Osnovna ideja je da pomeramo prozor, iste dužine kao k-gram $Pattern$, niz tekst, usput proveravajući da li se pojavljuje $Pattern$ u nekome od njih. 
 
 \begin{lstlisting}
 PATTERNCOUNT(Text, Pattern)
@@ -118,21 +118,35 @@ PATTERNCOUNT(Text, Pattern)
 	return count
 \end{lstlisting}
 	
-Za neki Pattern kažemo da je on \textit{najčešći k-gram} u tekstu Text, ako je njegov COUNT najveći među svim k-gramima. Na primer, \textbf{ACTAT} je najčešći 5-gram u tekstu Text = ACA\textbf{ACTAT}GCA\\\textbf{ACTAT}CGGGACA\textbf{ACTAT}CCT, a \textbf{ATA} je najčešći 3-gram u Text = CG\textbf{ATATA}TCC\textbf{ATA}G.\\\\
+Za neki $Pattern$ kažemo da je on \textit{najčešći k-gram} u tekstu $Text$, ako je njegov $COUNT$ najveći među svim k-gramima. Na primer, \textbf{ACTAT} je najčešći 5-gram u tekstu $Text$ = ACA\textbf{ACTAT}GCA\textbf{ACTAT}CGGGACA\textbf{ACTAT}CCT, a \textbf{ATA} je najčešći 3-gram u $Text$ = CG\textbf{ATATA}TCC\textbf{ATA}G.\\\\
 Sada, problem pronalaska čestih reči možemo posmatrati kao računarski problem:\\
 \begin{tcolorbox}
 \textbf{Problem čestih reči:} Pronaći najčešće k-grame u niski karaktera.\\
-Ulaz: Niska Text i ceo broj k.\\
-Izlaz: Svi najčešći k-grami u niski Text. \\\\
+\textit{Ulaz:} Niska Text i ceo broj k.\\
+\textit{Izlaz:} Svi najčešći k-grami u niski Text. \\\\
 \end{tcolorbox}
-Osnovni algoritam za pronalazak čestih k-grama u stringu Text proverava sve k-grame koji se pojavljuju u tom stringu (takvih k-grama ima $|Text|-k+1$) i potom izračunava koliko puta se svaki k-gram pojavljuje. Da bismo implementirali ovaj algoritam, moramo da izgenerišemo niz COUNT, gde je COUNT(i) = COUNT(Text, Pattern) za Pattern = Text(i,k).\\\\
+Osnovni algoritam za pronalazak čestih k-grama u stringu $Text$ proverava sve k-grame koji se pojavljuju u tom stringu (takvih k-grama ima $|Text|-k+1$) i potom izračunava koliko puta se svaki k-gram pojavljuje. Da bismo implementirali ovaj algoritam, moramo da izgenerišemo niz $COUNT$, gde je $COUNT(i) = COUNT(Text, Pattern)$ za $Pattern = Text(i,k)$.\\
+
+\begin{lstlisting}
+FrequentWords(Text, k)
+	FrequentPatterns <- an empty set
+	for i = 0 to |Text| - k
+		Pattern <- the k-mer Text(i,k)
+		COUNT(i) <- PatternCount(Text, Pattern)
+	maxCount <- max value in array COUNT
+	for i = 0 to |Text| - k
+		if COUNT(i) = maxCount
+			add Text(i,k) to FrequentPatterns
+	remove duplicates from FrequentPatterns
+	return FrequentPatterns
+\end{lstlisting}
 
 Pitamo se, sada, kolika je složenost ovakvog pristupa?\\
-Ovaj algoritam, iako uspešno nalazi ono što se od njega traži, nije najefikasniji. S obzirom na to da svaki k-gram zahteva $|Text|-k+1$ provera, svaki od njih zahteva i do k poređenja, pa je broj koraka izvršavanja funkcije PatternCount(Text, Pattern) zapravo $(|Text|-k+1)*k$. Osim toga, FrequentWords mora pozvati PatternCount $|Text|-k+1$ puta (po jednom za svaki k-gram teksta), tako da je ukupan broj koraka \textit{$(|Text|-k+1)*(|Text|-k+1)*k$}.\\Iz navedenog, možemo zaključiti da je ukupna cena izvršavanja algoritma FrequentWords \textbf{$O(|Text|^2*k)$}.
+Ovaj algoritam, iako uspešno nalazi ono što se od njega traži, nije najefikasniji. S obzirom na to da svaki k-gram zahteva $|Text|-k+1$ provera, svaki od njih zahteva i do $k$ poređenja, pa je broj koraka izvršavanja funkcije $PatternCount(Text, Pattern)$ zapravo $(|Text|-k+1)*k$. Osim toga, $FrequentWords$ mora pozvati $PatternCount$ $|Text|-k+1$ puta (po jednom za svaki k-gram teksta), tako da je ukupan broj koraka \textit{$(|Text|-k+1)*(|Text|-k+1)*k$}.\\Iz navedenog, možemo zaključiti da je ukupna cena izvršavanja algoritma $FrequentWords$ \textbf{$O(|Text|^2*k)$}.
 
 \subsubsection{Primer: Pronalazak čestih reči kod bakterije \textit{Vibrio cholerae}} 
 
-Posmatrajmo, najpre, tablicu najčešćih k-grama u \textit{oriC} regionu bakterije \textit{Vibrio cholerae}. Da li nam se čini da se neki k-grami pojavljuju neuobičajeno često? 
+Posmatrajmo, najpre, tablicu najčešćih k-grama u \textit{oriC} regionu bakterije \textit{Vibrio cholerae}. Da li nam se čini da se neki k-grami pojavljuju neuobičajeno često?\\ 
 
 \begin{figure}[h]
 \caption{Tablica najčešćih k-grama u \textit{oriC} regionu bakterije Vibrio cholerae}
@@ -140,7 +154,7 @@ Posmatrajmo, najpre, tablicu najčešćih k-grama u \textit{oriC} regionu bakter
 \includegraphics[width=1\textwidth]{poglavlja/1/slike/Tablica_VC.png}
 \end{figure} 
 
-Na primer, 9-gram \textbf{ATGATCAAG} se pojavljuje tri puta u \textit{oriC} regionu, da li nas to iznenađuje?
+Na primer, 9-gram \textbf{ATGATCAAG} se pojavljuje tri puta u \textit{oriC} regionu, da li nas to iznenađuje?\\
 
 \begin{figure}[h]
 \caption{Prikaz 9-grama ATGATCAAG i njegovog komplementa u \textit{oriC} regionu Vibrio cholerae}
@@ -150,7 +164,7 @@ Na primer, 9-gram \textbf{ATGATCAAG} se pojavljuje tri puta u \textit{oriC} regi
 
 Označili smo najčešće 9-grame, umesto nekih drugih k-grama, jer je eksperimentima pokazano da su DNKA boksovi kod bakterija dugi 9 nukleotida. Verovatnoća da postoji 9-gram koji se pojavljuje 3 ili više puta u proizvoljno generisanom DNK stringu dužine 500 je $1/1300$. Uočimo da postoje četiri različita 9-grama koji se ponavljaju tri ili više puta u ovom regionu, to su: ATGATCAAG, CTTGATCAT, TCTTGATCA i CTCTTGATC.\\\\
 
-Mala verovatnoća da se neki 9-gram toliko puta pojavi u \textit{oriC}-u kolere, govori nam da neki od četiri 9-grama koje smo pronašli može biti potencijalni DNKA boks, koji započinje replikaciju. Ali, koji?\\
+Mala verovatnoća da se neki 9-gram toliko puta pojavi u \textit{oriC}-u kolere, govori nam da neki od četiri 9-grama koje smo pronašli može biti potencijalni DNKA boks, koji započinje replikaciju. Ali, koji?\\\\
 
 Podsetimo se da nukleotidi A i T, kao i C i G, su komplementarni. Ako imamo jednu stranu lanca DNK i neke slobodne nukleotide, možemo lako zamisliti sintezu komplementarnog lanca, kao što se vidi na slici ispod. 
 
