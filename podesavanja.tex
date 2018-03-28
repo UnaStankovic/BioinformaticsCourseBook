@@ -64,6 +64,13 @@
 \newtheorem{zadatak}[definicija]{Zadatak}
 \newtheorem*{dokaz}{Dokaz}
 
+
+\usepackage{mdframed}
+\newtheorem{Problem}{Problem}
+\newenvironment{problem}
+{\begin{mdframed}\begin{Problem}}
+		{\end{Problem}\end{mdframed}}
+
 % dodatne komande
 \newcommand{\blankpage}{\newpage\hbox{}\thispagestyle{empty}\newpage}
 \renewcommand\qedsymbol{\hspace*{\stretch{1}} $\blacksquare$}
