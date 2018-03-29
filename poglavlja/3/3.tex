@@ -134,9 +134,9 @@ Njega treba predstaviti kao graf. Možemo da napravimo po jedan čvor za svaki o
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{poglavlja/3/slike/graf1.png}
+	\includegraphics[width=1\textwidth]{poglavlja/3/slike/hamilton.png}
 	\caption{Graf koji odgovara k-gramskom sastavu niske $TAATGCCATGGGATGTT$.}
-	\label{slika:graf1}
+	\label{slika:hamilton}
 \end{figure} 
 
 Jasno je da postoji više puteva u ovom grafu. Postavlja se pitanje, da li možemo da pronađemo genomsku putanju u ovom grafu, od svih koje postoje?
@@ -157,12 +157,30 @@ U tom slučaju, moramo da se vratimo na početak, a to je predstavljanje k-grams
 
 \section{Rekonstrukcija niske kao Ojlerove putanje}
 
-Mogu da se obeležavaju 3-grami kao čvorovi ili 3-grami kao grane. Kako obeležavamo početni i krajnji čvor grane?
-za granu TAA- Prefiks $TA\rightarrow AA$ Sufiks. Dakle 3-grami su grane a 2-grami su čvorovi.
 
-%% Sada ide animacija o lepljenju identično obeleženih čvorova
+U prethodnoj sekciji k-grame smo predstavili čvorovima u grafu i u njemu tražili Hamiltonov put odnosno put koji obilazi svaki čvor tačno jednom. Videli smo da za taj problem još uvek nije poznat efikasan algoritam pa se sada pitamo kako možemo izmeniti graf tako da ne zahteva traženje Hamiltonove putanje.
 
-\subsection{Problem Ojlerove putanje}
+Ono što se javlja kao ideja jeste obeležavanje grana umesto čvorova. Dakle, svaka grana biće obeležena jednim k-gramom, podniskama trih k-grama. Izlazni čvor biće obeležen prefiksom k-grama te grane, dok će ulazni čvor biti obeležen sufiksom istog tog k-grama. Na slici \ref{slika:ojler} ilustruje ovaj postupak za nisku $TAATGCCATGGGATGTT$.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{poglavlja/3/slike/ojler.png}
+	\caption{Graf koji odgovara 3-gramskom sastavu niske $TAATGCCATGGGATGTT$. Grane su obeležene 3-gramima, a čvorovi prefiksima/sufikisima.}
+	\label{slika:ojler}
+\end{figure} 
+
+
+Primećujemo da su neki čvorovi obleženi identično (npr. imamo tri čvora sa oznakom $AT$). Sve čvorove koji imaju istu oznaku treba spojiti u jedan, pri čemu zadržavamo sve grane koje su ulazile u taj čvor ili su izlazile iz njega. Ponavljamo postupak dokle god imamo čvorove koji imaju istu oznaku i na kraju dobijamo graf koji nazivamo De Brojnov graf. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{poglavlja/3/slike/debrojnov.png}
+	\caption{De Brojnov graf koji odgovara niski $TAATGCCATGGGATGTT$.}
+	\label{slika:debrojnov}
+\end{figure} 
+
+Dobro, došli smo do nove reprezentacije niske pomoću grafa. Gde se sad nalazi naš \textit{Genome}? Kako nam se 3-grami sada nalaze na granama, a ne u čvorovima, potrebno je da pronađemo putanju u grafu koja prolazi sve grane tačno jednom. Takav put nazivamo \textit{Ojlerova putanja}. Srećom, algoritam za pronalaženje Ojlerove putanje u grafu nije NP-kompletan i možemo efikasno da je pronađemo.
+
 
 \begin{problem}[Problem Ojlerove putanje]
 	~\\ Pronaći Ojlerovu putanju u grafu.
@@ -170,15 +188,33 @@ za granu TAA- Prefiks $TA\rightarrow AA$ Sufiks. Dakle 3-grami su grane a 2-gram
 	\\ Izlaz. Putanja koja posećuje svaku granu u grafu tačno jednom.
 \end{problem}
 
-\section{De Brojnovi grafovi}
 
-Konstruisali smo de Brojnov grav na osnovu genoma, ali u realnim primenama, genom je nepoznat.
+Sada znamo kako možemo da dobijemo nisku kada znamo de Brojnov graf koji odgovara njenom k-gramskom sastavu. Međutim, konstruisali smo de Brojnov graf na osnovu genoma, ali u realnim primenama, genom je nepoznat.
 
 
-%% ide animacija o konstrukciji de brojnovog grafa kad je genom nepoznat
+\section{De Brojnovi grafovi na osnovu kolekcije k-grama}
 
-De Brojnov graf na osnovu kolekcije k-grama.
-Svaka grana je označena jednim k-gramom. Svaki čvor je označen prefiksom/sufiksom izlazne/ulazne grane. Zalepljeni su svi čvorovi sa identičnim oznakama.
+U redu, nije nam poznata niska, ali znamo njen k-gramski sastav. Za svaki k-gram pravimo dva čvora i jednu granu, na prethodno opisani način (\ref{slika:kgrami}).
+Zatim lepimo identične čvorove sve dok ne dobijemo graf čiji svi čvorovi imaju različite oznake. Na slici je dat jedan korak ovog postupka, međutim tu nije kraj jer i dalje postoje čvorovi sa istim oznakama.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\textwidth]{poglavlja/3/slike/debrojnov1.png}
+	\caption{Svaki k-gram prestavljen je pomoću dva čvora i jedne grane.}
+	\label{slika:kgrami}
+\end{figure} 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\textwidth]{poglavlja/3/slike/lepljenje.png}
+	\caption{Postupak lepljenja čvorova. Posao nije završen!}
+	\label{slika:lepljenje}
+\end{figure} 
+
+
+Po završetku postupka dobijamo de Brojnov graf koji je isti kao onaj koji smo dobili kada smo znali nisku. Svaka grana je označena jednim k-gramom. Svaki čvor je označen prefiksom/sufiksom izlazne/ulazne grane. Zalepljeni su svi čvorovi sa identičnim oznakama.
+
+\section{Ojlerova teorema}
 
 \begin{problem}[Problem Ojlerovog ciklusa]
 	~\\ Pronaći ciklus Ojlerovom grafu.
