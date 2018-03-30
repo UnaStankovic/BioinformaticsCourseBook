@@ -222,15 +222,61 @@ Po završetku postupka dobijamo de Brojnov graf koji je isti kao onaj koji smo d
 	\\ Izlaz. Ciklus koja posećuje svaku granu tačno jednom.
 \end{problem}
 
+Svaki Ojlerov graf je balansiran.
+
 \begin{teorema}[Ojlerova teorema]
 	Svaki povezan graf i balansiran graf je Ojlerov.
 \end{teorema}
 
-Kažemo da je graf povezan ako za ma koja dva čvora postoji putanja koja ih povezuje.
+Kažemo da je graf povezan ako za ma koja dva čvora postoji putanja koja ih povezuje. Graf je balansiran ako za svaki čvor važi da mu izlazni stepen jednak ulaznom.
 
 
-%% MRAVI DOKAZUJU OJLEROVU TEOREMU
+\subsection{Dokaz Ojlerove teoreme}
 
+Neka nam je dat povezan balansiran graf. Da bismo pokazali da graf sadrži Ojlerov ciklus, postavićemo mrava na bilo koji od čvorova tog grafa, kao na slici \ref{slika:mrav1}. Zašto baš mrav? Poznato je da mravi nikada ne idu istim putem dva puta pa smo sigurni da će naš mrav proći dvaku granu tačno jednom.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{poglavlja/3/slike/mrav1.png}
+	\caption{Mrav je postavljen u crveni čvor i odatle kreće obilazak povezanog balansiranog grafa.}
+	\label{slika:mrav1}
+\end{figure} 
+
+Puštamo mrava da slučajno odabira grane kojima će se kretati. Ako je veoma pametan, obići će svaku granu jednom i vratiće se u početni čvor. Međutim, velike su šanse da nije veoma pametan i da će se u nekom čvoru zaglaviti - neće imati granu koju već nije obišao.
+
+Da li mrav može da se zaglavi u bilo kom čvoru? Ispostavlja se da može da se zaglavi u početnom čvoru (jer je graf balansiran). U trenutku kada se zaglavio on je napravio ciklus. Samo, taj ciklus nije Ojlerov je rjoš uvek nije obišao sve grane. Ideja je da odabere drugačiji početni čvor iz kog će krenuti obilazak. Koji čvor će izabrati? Treba da izabere čvor koji ima izlaznih grana koje još uvek nije obišao (\ref{slika:mrav2}). 
+
+Sada, mrav pokušava ispočetka iz novog čvora. Prvo obilazi ciklus koji je već pronašao u prethodnom pokušaju, a zatim nastavlja obilazak preko neposećenih grana. Na taj način, ciklus se uvećava dok se ne dođe do Ojlerovog. Ukoliko se ponovo zaglavi \ref{slika:mrav3} ponovo bira novi početni čvor, obilazi pronađeni ciklus (koji i dalje nije Ojlerov) i tako sve dok ne uspe da obiđe sve grane.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{poglavlja/3/slike/mrav2.png}
+	\caption{Mrav se zaglavio i pokušava ponovo iz drugog čvora koji pripada ciklusu i ima izlazne grane koje nisu posećene.}
+	\label{slika:mrav2}
+\end{figure} 
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{poglavlja/3/slike/mrav3.png}
+	\caption{Mrav se ponovo zaglavio i pokušava novog čvora.}
+	\label{slika:mrav3}
+\end{figure} 
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{poglavlja/3/slike/mrav4.png}
+	\caption{Mrav je konačno uspeo da pronađe dobar početni čvor i Ojlerov ciklus. Grane su obeležene redosledom kojim su posećene.}
+	\label{slika:mrav4}
+\end{figure} 
+
+
+Dokaz Ojlerove teoreme daje primer konstruktivan dokaz, koji ne dokazuje samo željeni rezultat, već pruža metod za konstrukciju onoga što nam je potrebno. Ukratko, pratili smo kretanje mrava dok nije pronašao Ojlerov ciklus u povezanom balansiranom grafu, što je sumirano u sledećem algoritmu.
+
+
+% ovo treba prepraviti da ne bude pseudokod
 \begin{verbatim}
 EulerianCycle(BalancedGraph)
 form a Cycle by randomly walking in BalancedGraph (avoiding already visited edges)
@@ -241,14 +287,35 @@ Cycle \leftarrow Cycle'
 return Cycle
 \end{verbatim}
 
+Ovaj algoritam radi u linearnom vremenu. Da bi se zaista postigla ta efikasnost, potrebne su efikasne struktutre podataka za održavanje ciklusa koje mrav pronalazi kao i za liste neiskorišćenih grana za svaki čvor i lista čvorova u trenutnom ciklusu koji imjau neiskorišćene grane.
+
+
 \section{Sastavljanje parova očitavanja}
 
-Od očitavanja do de Brojnovog grafa do genoma može se javiti više Ojlerovih putanja u grafu.
+Deluje kao da su svi naši problemi rešeni. Međutim, može se javiti više Ojlerovih putanja u grafu. Srećom, i za ovo imamo jednostavno rešenje.
 
 \subsection{DNK sekvenciranje sa parovima očitavanja} 
 
 Imamo više identičnih kopija genoma i na slučajnim pozicijama sečemo genom na fragmente iste dužine \textit{InsertLength}. Zatim generišemo parove očitavanja: dva očitavanja sa krajeva svakog fragmenta na fiksiranoj udaljenosti.
-Pod uparenim k-gramom podrazumevamo par k-grama na fiksiranom rastojanju d u genomu. Na primer, TCA i TCC na rastojanju d=11 čine jedan upareni k-gram.
+Pod uparenim k-gramom podrazumevamo par k-grama na fiksiranom rastojanju d u genomu.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{poglavlja/3/slike/upareni_kgram.png}
+	\caption{TCA i TCC na rastojanju d=11 čine jedan upareni k-gram.}
+	\label{slika:upareni}
+\end{figure} 
+
+Ako imamo nisku TAATGCCATGGGATGTT, i upareni trigam TAA i GCC, koji je njen upareni k-gramski sastav? Upareni k-gramski sastav sastoji se od svih k-grama te niske i njihovih parova, \ref{slika:upareni3}.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{poglavlja/3/slike/upareni_3gram.png}
+	\caption{PairedComposite niske TAATGCCATGGGATGTT i njegov leksikografski poredak.}
+	\label{slika:upareni3}
+\end{figure} 
+
 
 \begin{problem} [Problem rekonstrukcije niske na osnovu parova očitavanja]
 	~\\ Rekontruisati nisku na osnovu njenih uparenih k-grama.
@@ -256,25 +323,46 @@ Pod uparenim k-gramom podrazumevamo par k-grama na fiksiranom rastojanju d u gen
 	\\ Izlaz. Niska Text takva da je PairedComposition(Text) jednak kolekciji uparenih k-grama. 
 \end{problem}
 
-Kako konstruisati upareni de Brojnov graf na osnovu uparenog k-gramskog sastava?
-Pretpostavimo da je dat genom (niska Genome). Posmatrajmo genom kao putanju u grafu obeleženom na osnovu njegovog uparenog kgramskog sastava.
-\\
-Pretpostavili smo da je dat genom (niska Genome). Posmatrali smo genom kao putanju u grafu obeleženom na osnovu njegovog uparenog k-gramskog sastava
-\\
-Sada pretpostavimo da nije dat genom već samo upareni k-gramski sastav
+Kako konstruisati upareni de Brojnov graf na osnovu uparenog k-gramskog sastava? Postupak je sličan prethodnom slučaju, kada nismo imali parove. Pretpostavimo da je dat genom (niska Genome). Posmatrajmo genom kao putanju u grafu obeleženom na osnovu njegovog uparenog k-gramskog sastava \ref{slika:upareniDeBrojnov}. Svaka grana obeležena je uparenim k-gramom, a svaki čvor uparenim prefiksom, odnosno sufiksom k-grama.
 
-%% animacije, SVUDA ANIMACIJE!!!!!
 
-~\\ Upareni de Brojnov graf na osnovu kolekcije uparenih k-grama:
-\\ – Svaka grana je označena jednim uparenim k-gramom
-\\ – Svaki čvor je označen prefiksima/sufiksima izlazne/ulazne grane
-\\ – Zalepljeni su svi čvorovi sa identičnim oznakama.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{poglavlja/3/slike/upareni_debrojnov.png}
+	\caption{PairedComposite niske TAATGCCATGGGATGTT i njegov leksikografski poredak.}
+	\label{slika:upareniDeBrojnov}
+\end{figure} 
+
+Posao nije gotov! Potrebno je zalepiti čvorove sa istom oznakom, tako da svi čvorovi budu jedinstveno obeleženi. Postupak je identičan prethodnom slučaju, kad nismo imali parove. Primetimo da sada imamo mnogo manje lepljenja jer imamo samo dva čvora sa istom oznakom (TG AT), \ref{slika:uparenoLepljenje}.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{poglavlja/3/slike/upareno_lepljenje.png}
+	\caption{Dva čvora sa oznakom TG AT spajaju se u jedan pri čemu se sve grane, incidentne sa tim čvorovima, očuvane.}
+	\label{slika:uparenoLepljenje}
+\end{figure} 
+
+
+Kao i u prethodnom slučaju, pretpostavili smo da je dat genom (niska Genome), što često nije slučaj. Posmatrali smo genom kao putanju u grafu obeleženom na osnovu njegovog uparenog k-gramskog sastava. Sada pretpostavimo da nije dat genom već samo upareni k-gramski sastav. Za svaki upareni k-gram pravimo dva čvora i jednu granu, zatim lepimo identične čvorove, \ref{slika:uparenoLepljenje2}, i na kraju dobijamo upareni de Brojnov graf.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{poglavlja/3/slike/upareno_lepljenje2.png}
+	\caption{Konstrukcija uparenog de Brojnovog grafa na osnovu uparenih k-grama.}
+	\label{slika:uparenoLepljenje2}
+\end{figure} 
+
+
+Dakle, upareni de Brojnov graf, na osnovu kolekcije uparenih k-grama, dobijamo tako što svaku granu označavamo jednim uparenim k-gramom. Zatim, svaki čvor označavamo prefiksima/sufiksima izlazne/ulazne grane. I, na kraju, lepimo čvorove sa identičnim oznakama.
 
 \section{U realnosti}
 
 Ovde smo imali neke nerealne pretpostavke.
 \begin{itemize}
-	\item  Savršena pokrivenost genoma očitavanjima (svaki k-gram iz genoma je očitan)
+	\item  Savršena pokrivenost genoma očitavanjima (svaki k-gram iz genoma je očitan). \\
+	Očitavanja dužine 250 nukleotida dobijena Illumina tehnologijom predstavljaju samo mali deo 250-grama unutar genoma. Rešenje: razbiti dobijena očitavanja na kraće k-grame.
 	\item Očitavanja ne sadrže greške
 	\item Rastojanja između očitavanja u okviru parova očitavanja su egzaktna
 	\item Nesavršena pokrivenost genoma očitavanjima (svaki k-gram iz genoma je očitan)
@@ -282,18 +370,7 @@ Ovde smo imali neke nerealne pretpostavke.
 	\\ Rastojanja između očitavanja u okviru parova očitavanja nisu egzaktna
 \end{itemize}
 
-\subsection{Savršena pokrivenost}
 
-Prva nerealna pretpostavka je savršena pokrivenost.
-\\
-Očitavanja dužine 250 nukleotida dobijena Illumina tehnologijom predstavljaju samo mali deo 250-grama unutar genoma.
-\\
-Rešenje: razbiti dobijena očitavanja na kraće k-grame
-\\
-\\
-Druga nerealna pretpostavka: očitavanja ne sadrže greške.
-
-\newpage
 \section{Zadaci sa vežbi}
 U nastavku će biti predstavljeni zadaci sa vežbi na kursu rađeni u programskom jeziku Python.
 
