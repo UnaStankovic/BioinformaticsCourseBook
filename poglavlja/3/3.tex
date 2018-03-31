@@ -314,84 +314,104 @@ Deluje kao da su svi naši problemi rešeni. Međutim, može se javiti više Ojl
 
 \subsection{DNK sekvenciranje sa parovima očitavanja} 
 
-Imamo više identičnih kopija genoma i na slučajnim pozicijama sečemo genom na fragmente iste dužine \textit{InsertLength}. Zatim generišemo parove očitavanja: dva očitavanja sa krajeva svakog fragmenta na fiksiranoj udaljenosti.
-Pod uparenim k-gramom podrazumevamo par k-grama na fiksiranom rastojanju d u genomu.
+Imamo više identičnih kopija genoma i na slučajnim pozicijama sečemo genom na fragmente iste dužine \textit{InsertLength}. Zatim generišemo \emph{parove očitavanja} -- dva očitavanja sa krajeva svakog fragmenta na jednakoj, fiksiranoj udaljenosti. Pod \emph{uparenim $k$-gramom} podrazumevamo par $k$-grama na fiksiranom rastojanju $d$ u genomu. \emph{Upareni $k$-gramski sastav}, u oznaci $PairedComposition_k(Text)$, sastoji se od svih $k$-grama niske $Text$ i njihovih parova.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\textwidth]{poglavlja/3/slike/upareni_kgram.png}
-	\caption{TCA i TCC na rastojanju d=11 čine jedan upareni k-gram.}
+	\caption{\texttt{TCA} i \texttt{TCC} na rastojanju $d=11$ čine jedan upareni 3-gram.}
 	\label{slika:upareni}
 \end{figure} 
 
-Ako imamo nisku TAATGCCATGGGATGTT, i upareni trigam TAA i GCC, koji je njen upareni k-gramski sastav? Upareni k-gramski sastav sastoji se od svih k-grama te niske i njihovih parova, \ref{slika:upareni3}.
-
+Dajmo jedan primer. Neka imamo nisku \texttt{TAATGCCATGGGATGTT}, i upareni 3-gram \texttt{TAA} i \texttt{GCC}. Upareni $k$-gramski sastav date niske prikazan je na slici \ref{slika:upareni3}.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\textwidth]{poglavlja/3/slike/upareni_3gram.png}
-	\caption{PairedComposite niske TAATGCCATGGGATGTT i njegov leksikografski poredak.}
+	\caption{\emph{PairedComposition} niske \texttt{TAATGCCATGGGATGTT} i njegov leksikografski poredak.}
 	\label{slika:upareni3}
 \end{figure} 
 
+Sada mo\v zemo formulisati naredni problem.
 
-\begin{problem} [Problem rekonstrukcije niske na osnovu parova očitavanja]
-	~\\ Rekontruisati nisku na osnovu njenih uparenih k-grama.
-	\\ Ulaz. Kolekcija uparenih k-grama.
-	\\ Izlaz. Niska Text takva da je PairedComposition(Text) jednak kolekciji uparenih k-grama. 
+\begin{problem}[Problem rekonstrukcije niske na osnovu parova očitavanja]
+	Rekonstruisati nisku na osnovu njenih uparenih $k$-grama. \\
+	Ulaz: Kolekcija uparenih $k$-grama.
+	Izlaz: Niska $Text$ takva da je $PairedComposition_k(Text)$ jednak kolekciji uparenih $k$-grama. 
 \end{problem}
 
-Kako konstruisati upareni de Brojnov graf na osnovu uparenog k-gramskog sastava? Postupak je sličan prethodnom slučaju, kada nismo imali parove. Pretpostavimo da je dat genom (niska Genome). Posmatrajmo genom kao putanju u grafu obeleženom na osnovu njegovog uparenog k-gramskog sastava \ref{slika:upareniDeBrojnov}. Svaka grana obeležena je uparenim k-gramom, a svaki čvor uparenim prefiksom, odnosno sufiksom k-grama.
-
+Kako konstruisati upareni De Brojnov graf na osnovu uparenog $k$-gramskog sastava? Postupak je sličan prethodnom slučaju, kada nismo imali parove. Pretpostavimo da je dat genom (niska $Genome$). Posmatrajmo genom kao putanju u grafu obeleženom na osnovu njegovog uparenog $k$-gramskog sastava (videti sliku \ref{slika:upareniDeBrojnov}). Svaka grana obeležena je uparenim $k$-gramom, a svaki čvor uparenim prefiksom, odnosno, sufiksom $k$-grama.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\textwidth]{poglavlja/3/slike/upareni_debrojnov.png}
-	\caption{PairedComposite niske TAATGCCATGGGATGTT i njegov leksikografski poredak.}
+	\caption{Graf koji odgovara uparenom 3-gramskom sastavu niske \texttt{TAATGCCATGGGATGTT}.}
 	\label{slika:upareniDeBrojnov}
 \end{figure} 
 
-Posao nije gotov! Potrebno je zalepiti čvorove sa istom oznakom, tako da svi čvorovi budu jedinstveno obeleženi. Postupak je identičan prethodnom slučaju, kad nismo imali parove. Primetimo da sada imamo mnogo manje lepljenja jer imamo samo dva čvora sa istom oznakom (TG AT), \ref{slika:uparenoLepljenje}.
-
+Potrebno je zalepiti čvorove sa istom oznakom, tako da svi čvorovi budu jedinstveno obeleženi. Postupak je identičan prethodnom slučaju, odnosno, kada nismo imali parove. Primetimo da sada imamo mnogo manje lepljenja jer imamo samo dva čvora sa istom oznakom (\texttt{TG} \texttt{AT}), (videti sliku \ref{slika:uparenoLepljenje}).
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\textwidth]{poglavlja/3/slike/upareno_lepljenje.png}
-	\caption{Dva čvora sa oznakom TG AT spajaju se u jedan pri čemu se sve grane, incidentne sa tim čvorovima, očuvane.}
+	\caption{Dva čvora sa oznakom (\texttt{TG AT}) spajaju se u jedan pri čemu su sve grane, incidentne sa tim čvorovima, očuvane.}
 	\label{slika:uparenoLepljenje}
 \end{figure} 
 
-
-Kao i u prethodnom slučaju, pretpostavili smo da je dat genom (niska Genome), što često nije slučaj. Posmatrali smo genom kao putanju u grafu obeleženom na osnovu njegovog uparenog k-gramskog sastava. Sada pretpostavimo da nije dat genom već samo upareni k-gramski sastav. Za svaki upareni k-gram pravimo dva čvora i jednu granu, zatim lepimo identične čvorove, \ref{slika:uparenoLepljenje2}, i na kraju dobijamo upareni de Brojnov graf.
-
+Kao i u prethodnom slučaju, pretpostavili smo da je dat genom (niska $Genome$), što često nije slučaj. Posmatrali smo genom kao putanju u grafu obeleženom na osnovu njegovog uparenog $k$-gramskog sastava. Sada pretpostavimo da nije dat genom već samo upareni $k$-gramski sastav. Za svaki upareni $k$-gram pravimo dva čvora i jednu granu, zatim lepimo identične čvorove (videti \ref{slika:uparenoLepljenje2}), i na kraju dobijamo upareni De Brojnov graf, kao onaj na slici \ref{slika:uparenoLepljenje}.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\textwidth]{poglavlja/3/slike/upareno_lepljenje2.png}
-	\caption{Konstrukcija uparenog de Brojnovog grafa na osnovu uparenih k-grama.}
+	\caption{Konstrukcija uparenog De Brojnovog grafa na osnovu uparenih $k$-grama.}
 	\label{slika:uparenoLepljenje2}
 \end{figure} 
 
-
-Dakle, upareni de Brojnov graf, na osnovu kolekcije uparenih k-grama, dobijamo tako što svaku granu označavamo jednim uparenim k-gramom. Zatim, svaki čvor označavamo prefiksima/sufiksima izlazne/ulazne grane. I, na kraju, lepimo čvorove sa identičnim oznakama.
+Dakle, upareni De Brojnov graf, na osnovu kolekcije uparenih $k$-grama, dobijamo tako što svaku granu označavamo jednim uparenim $k$-gramom. Zatim, svaki čvor označavamo prefiksima, odnosno, sufiksima odgovaraju\'ce izlazne, odnosno, ulazne grane, redom. Na kraju, lepimo čvorove sa identičnim oznakama.
 
 \section{U realnosti}
 
-Ovde smo imali neke nerealne pretpostavke.
+Ovde smo imali neke nerealne pretpostavke:
+
 \begin{itemize}
-	\item  Savršena pokrivenost genoma očitavanjima (svaki k-gram iz genoma je očitan). \\
-	Očitavanja dužine 250 nukleotida dobijena Illumina tehnologijom predstavljaju samo mali deo 250-grama unutar genoma. Rešenje: razbiti dobijena očitavanja na kraće k-grame.
-	\item Očitavanja ne sadrže greške
-	\item Rastojanja između očitavanja u okviru parova očitavanja su egzaktna
-	\item Nesavršena pokrivenost genoma očitavanjima (svaki k-gram iz genoma je očitan)
-	\\ Očitavanja ne sadrže greške
-	\\ Rastojanja između očitavanja u okviru parova očitavanja nisu egzaktna
+	\item Savršena pokrivenost genoma očitavanjima (svaki $k$-gram iz genoma je očitan). Očitavanja dužine 250 nukleotida dobijena \emph{Illumina} tehnologijom predstavljaju samo mali deo 250-grama unutar genoma. Rešenje je u razbijanju dobijenih očitavanja na kraće $k$-grame.
+	
+	\item Očitavanja ne sadrže greške. U ovom slu\v caju, ako bismo razbili na manje $k$-grame, onda bismo dobili vi\v se niski koje imaju pogre\v sno o\v citavanje. Postavljamo pitanje kako se ovakvi slu\v cajevi manifestuju u konstrukciji DeBrojnovog grafa. Dolazi do stvaranja \emph{balon\v ci\'ca} (engl. \emph{bubble}) u grafu (videti sliku \ref{slika:baloncic}). Jednostavan je slu\v caj kada govorimo o gre\v sci na jednom o\v citavanju, me\dj utim, ukoliko postoji vi\v se gre\v saka, onda dolazi do \emph{eksplozije balon\v ci\'ca} (videti sliku \ref{slika:eksplozija baloncica}).
+	
+	\item Rastojanja između očitavanja u okviru parova očitavanja su egzaktna.
+	
+	\item itd.
 \end{itemize}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{poglavlja/3/slike/baloncic.png}
+	\caption{Primer pojave balon\v ci\'ca u De Brojnovom grafu usled pojave gre\v ske u o\v citavanju nukleotida \texttt{T} nukleotidom \texttt{C}.}
+	\label{slika:baloncic}
+\end{figure} 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{poglavlja/3/slike/eksplozija-baloncica.png}
+	\caption{Eksplozija balon\v ci\'ca.}
+	\label{slika:eksplozija baloncica}
+\end{figure}
 
 \section{Zadaci sa vežbi}
 \setexamplecodestyle
 
 U nastavku će biti predstavljeni zadaci sa vežbi na kursu rađeni u programskom jeziku Python.
 
+\subsection{Maximal Non Branching Path}
 
+\lstinputlisting[language=Python]{poglavlja/3/kodovi/1.py}
+
+\subsection{All Euler Cycles}
+
+\lstinputlisting[language=Python]{poglavlja/3/kodovi/2.py}
+
+\subsection{String Spelled By Gapped Patterns}
+
+\lstinputlisting[language=Python]{poglavlja/3/kodovi/3.py}
+
+\blankpage
