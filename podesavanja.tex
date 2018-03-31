@@ -39,21 +39,42 @@
 
 % za napredne kodove - koristi se okruzenje "lstlisting"
 \usepackage{listings}
-\lstset{
-	basicstyle=\ttfamily,
-	columns=fullflexible,
-	keepspaces=true,
-	showstringspaces=false,
-	escapechar=\%,
-	tabsize=4,
-	language=Python,
-	breaklines=true,
-	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
-	frame=L,
-   	keywordstyle=\bfseries\color{green!40!black},
-   	commentstyle=\itshape\color{purple!40!black},
-   	identifierstyle=\color{blue},
-   	stringstyle=\color{orange}
+% na pocetku svakog POGLAVLJA potrebno je pozvati narednu komandu
+\newcommand{\setbookcodestyle}{
+	\lstset{
+		basicstyle=\ttfamily,
+		columns=fullflexible,
+		keepspaces=true,
+		showstringspaces=false,
+		escapechar=\%,
+		tabsize=4,
+		breaklines=true,
+		postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+		frame=None,
+		keywordstyle=\color{black},
+	   	commentstyle=\color{black},
+	   	identifierstyle=\color{black},
+	   	stringstyle=\color{black}
+	}
+}
+% na pocetku svake sekcije koja sadrzi KODOVE SA VEZBI potrebno je pozvati narednu komandu
+\newcommand{\setexamplecodestyle}{
+	\lstset{
+		basicstyle=\ttfamily,
+		columns=fullflexible,
+		keepspaces=true,
+		showstringspaces=false,
+		escapechar=\%,
+		tabsize=4,
+		language=Python,
+		breaklines=true,
+		postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+		frame=L,
+	   	keywordstyle=\bfseries\color{green!40!black},
+	   	commentstyle=\itshape\color{purple!40!black},
+	   	identifierstyle=\color{blue},
+	   	stringstyle=\color{orange}
+	}
 }
 
 % dodatna okruzenja

@@ -1,198 +1,203 @@
 \chapter{Kako složiti genomsku slagalicu od milion delova?}
+\setbookcodestyle
+
+Kao i do sada, iz naslova ovog poglavlja nam verovatno nije jasno o kakvom problemu je re\v c. U ovom poglavlju predstavi\'cemo dati problem i prikazati kako mo\v zemo primeniti grafovske algoritme nad problemom slaganja genomske slagalice. Poglavlje \'cemo zapo\v ceti pri\v com o sekvenciranju genoma. Do sada smo videli \v sta za nas zna\v ci pojam DNK -- da se podsetimo, to je niska karaktera nad azbukom $\Sigma = \{A, C, G, T\}$. Biolo\v ski posmatrano, DNK je molekul koji se nalazi u svakoj \'celiji svakog organizma i da je u njemu zapisan na\v cin pravilnog razvoja i funkcionisanja svakog organizma. 
 
 \section{Šta je sekvenciranje genoma?}
 
-Sa biološke strane, genom jednog organizma predstavlja njegov genetski materijal. Kod većine organizama, genetski materijal je sadržan u DNK. Kod čoveka, genom sadrži oko tri milijarde nukleotida. Genomi nekih organizama su i 100 puta veći od humanog genoma. 
+Sa biološke strane, genom jednog organizma predstavlja njegov genetski materijal. Pod genetskim materijalom smatramo materijal koji se nasle\dj uje i koji svi predstavnici jedne vrste dele u velikoj meri. Kod većine organizama, genetski materijal je sadržan u DNK, odnosno, genom je ekvivalentan sa DNK molekulima. Kod nekih drugih organizama koji su u manjini, kao \v sto su, na primer, virusi, va\v zi da oni ne sadr\v ze DNK i njihov genetski materijal se nalazi u ribonukleinskoj kiselini -- RNK -- o kojoj \'ce biti re\v ci u nastavku. 
 
-Sa računarske strane, genom je niska karaktera nad azbukom $\{A, C, G, T\}$.
+Kod čoveka, genom sadrži oko tri milijarde nukleotida. Dakle, sa računarske strane posmatrano genom je niska karaktera nad azbukom $\Sigma = \{A, C, G, T\}$. Kompleksnost organizma nije u relaciji sa veli\v cinom genoma. Genomi nekih organizama su i stotinu puta veći od humanog genoma. Na primer, jedna vrsta amebe ima 670 milijardi nukleotida ili jedna vrsta kaktusa koja raste u Japanu ima 150 milijardi nukleotida.
 
-% nije mi jasan veliki razmak koji se napravi  u tekstu na ovom mestu xD
+Sekvenciranje genoma podrazumeva otkrivanje izgleda genoma. U pitanju je eksperimentalan proces -- da bismo saznali \v sta se nalazi u sastavu jednog genoma, potreban nam je uzorak tkiva odgovaraju\'ce vrste. U nastavku dajemo kratak pregled razdvoja sekvenciranja genoma.
 
 \subsection{Kratka istorija sekvenciranja genoma}
 
-1977. godine Walter Gilbert i Frederick Sanger razvijaju nezavisne metode sa sekvenciranje DNK, za koje su, 1098. godine, podelili su Nobelovu nagradu.
-Njihove metode za sekvenciranje su bile veoma skupe - 3 milijarde dolara za sekvenciranje humanog genoma.
-\\
-\\
-Krajem 2000-tih Sanger metodom je sekvencioniran veliki broj genoma. Visoka cena je bila ograničavajući faktor i za dalji napredak je bila neophodna nova tehnologija sekvencioniranja.
-\\
-\\
-\textbf{NGS} predstavlja metode nove generacije sekvencioniranja. Krajem 2000-tih, na tržištu se pojavljuju nove mašine za sekvenciranje. \textit{Illumina} smanjuje trošak sekvencioniranja humanog gemona sa 3 milijarde na 10 hiljada dolara. Kompanija \textit{Complete Genomics} otvara genomsku fabriku u Silikonskoj dolini koja sekvencionira stotine genoma mesečno.
-Pekinški genomski institut (BGI - Beijing Genome Institute) preuzima Complete Genomics 2013. godine i postaje najveći svetski centar za sekvenciranje genoma.
-Na slici \ref{slika:cena} prikazano je kako se cena sekvencioniranja menjala godinama.
+Kao \v sto smo videli, sekvenciranje genoma je eksperimentalan proces, za koji je neophodna veoma ozbiljna tehnologija. Pre svega mo\v zemo govoriti o razvoju fizi\v cko-hemijskih tehnika koje bi dovele do mogu\'cnosti saznavanja sastava genoma. Walter Gilbert i Frederick Sanger su 1977. godine razvili nezavisne metode sa sekvenciranje genoma, za koje su, 1980. godine, podelili Nobelovu nagradu. Me\dj utim, iako su njihovi metodi bili pionirski u ovoj oblasti, njihove metode za sekvenciranje su bile veoma skupe -- za sekvenciranje humanog genoma je bilo potrebno 3 milijarde dolara.
 
+Krajem 2000-ih Sanger metodom je sekvencioniran veliki broj genoma. Visoka cena je bila ograničavajući faktor i za dalji napredak je bila neophodna nova tehnologija sekvencioniranja. \emph{NGS} (skr. \emph{Net Generation Sequencing}) predstavlja metode nove generacije sekvencioniranja, odnosno, novu generaciju ma\v sina sekvencera koji vr\v se sekvencioniranje. \emph{Illumina}, jedan od proizvo\dj a\v ca sekvencera, smanjuje trošak sekvencioniranja humanog gemona sa 3 milijarde na 10 hiljada dolara. Kompanija \emph{Complete Genomics} otvara genomsku fabriku u Silikonskoj dolini koja sekvencionira stotine genoma mesečno. Pekinški genomski institut (\emph{Beijing Genome Institute}, skr. \emph{BGI}) preuzima Complete Genomics 2013. godine i postaje najveći svetski centar za sekvenciranje genoma. Na slici \ref{slika:cena} prikazano je kako se cena sekvencioniranja menjala godinama.
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
-	\includegraphics[width=1\textwidth]{poglavlja/3/slike/cena_sekvencioniranja.png}
+	\includegraphics[width=0.95\textwidth]{poglavlja/3/slike/cena_sekvencioniranja.png}
 	\caption{Cena sekvencioniranja kroz istoriju.}
 	\label{slika:cena}
 \end{figure} 
 
-
-
 \subsection{Sekvenciranje ličnih genoma}
 
-Genomi se kod različitih ljudi razlikuju na malom broju pozicija (u proseku sadrže jednu mutaciju na hiljadu nukleotida). Ova razlika je odgovorna za različite visine kod ljudi, da li će imati sklonost ka visokom holesterolu ili ne, za veliki broj genetskih bolesti, itd.
-\\
-\\
-2010: Nicholas Volker je postao prvo ljudsko biće čiji je život spašen zahvaljujući genomskom sekvencioniranju.
-Lekari nisu mogli da postave tačnu dijagnozu i morali su da ga podvrgnu velikom broju operacija pokušavajući da je utvrde. Sekvenciranje je otkrilo retku mutaciju na jednom genu (XIAP) koja je bila povezana sa oštećenjem njegovog imunog sistema. Ovo otkriće je navelo lekare na adekvatnu terapiju koja je rešila problem.
+Prirodno je zapitati se vrednosti dobitka poznavanja sastava genoma. \v Sto je ti\v ce biljaka, neke od primena sekvenciranja su: razvoj novih biljnih vrsta u poljoprivredi, odre\dj ivanje pogodnog podneblja za neku biljnu vrstu, u farmaciji, i dr. Me\dj utim, najzna\v cajnija primena je u sekvenciranju li\v cnih genoma.
+
+Genomi se kod različitih ljudi razlikuju na malom broju pozicija (u proseku sadrže jednu mutaciju na hiljadu nukleotida). Ova razlika je odgovorna za, na primer, različite visine kod ljudi, da li će imati sklonost ka visokom holesterolu ili ne, za veliki broj genetskih bolesti, itd.
+
+Godine 2010. Nicholas Volker je postao prvo ljudsko biće čiji je život spašen zahvaljujući genomskom sekvencioniranju. Lekari nisu mogli da postave tačnu dijagnozu i morali su da ga podvrgnu velikom broju operacija pokušavajući da je utvrde. Sekvenciranje je otkrilo retku mutaciju na jednom genu (XIAP) koja je bila povezana sa oštećenjem njegovog imunog sistema. Ovo otkriće je navelo lekare na adekvatnu terapiju koja je rešila problem.
 
 \section{Eksplozija u štampariji}
 
-Zamislite da imamo hiljadu kopija istog izdanja novina na jednoj gomili, a ispod njih postavljen je dinamit. Upalimo fitilj i zamislimo da nije sve samo izgorelo već da se raspršilo u milione delića papira. Kako možemo da iskoristimo te deliće da bismo saznali koje su bile vesti iz tog izdanja? Ovaj problem nazvaćemo \textbf{Problem novina} (\ref{slika:eksplozija}). 
+Razmotrimo slede\'ci primer. Neka imamo hiljadu kopija istog izdanja novina na jednoj gomili, a ispod njih postavljen je dinamit. Upalimo fitilj i zamislimo da nije sve samo izgorelo već da se raspršilo u milione delića papira. Kako možemo da iskoristimo te deliće da bismo saznali koje su bile vesti iz tog izdanja? Ovaj problem nazvaćemo \emph{Problem novina} (videti sliku \ref{slika:eksplozija}). 
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=1\textwidth]{poglavlja/3/slike/eksplozija.png}
-	\caption{Problem novina poslužiće nam u razumevalju problema slaganja genoma.}
+	\caption{Problem novina poslužiće nam u razumevanju problema slaganja genoma.}
 	\label{slika:eksplozija}
 \end{figure} 
 
-
 Problem novina je mnogo teži nego što izgleda. Kako smo imali više kopija istog izdanja, i kako smo izgubili neki deo informacija prilikom eksplozije, ne možemo samo da prilepimo deliće novina kao da su slagalica. Umesto toga, potrebno je da preklopimo delove različitih novina kako bismo rekonstruisali jedan primerak.
 
-
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=1\textwidth]{poglavlja/3/slike/delici.png}
 	\caption{Spajanje delova različitih novina koji se jednim delom preklapaju.}
 	\label{slika:delici}
 \end{figure} 
 
+Određivanje redosleda nukleotida u genomu, odnosno sekvenciranje genoma, predstavlja bitan problem u bioinformatici. Ve\'c smo pomenuli da dužine genoma variraju -- humani genom je dugačak oko 3 milijarde nukleotida, dok je genom jednoćelijskog organizma \emph{Amoeba dubia} čak 200 puta duži. 
 
-Kakve sad to veze ima sa našim problemom? Određivanje redosleda nukleotida u genomu, odnosno sekvenciranje genoma, predstavlja bitan problem u bioinformatici. Dužine genoma variraju: humani genom je dugačak oko 3 milijarde nukleotida, dok je genom jendoćelijskog organizma Amoeba dubia čak 200 puta duži. 
+Razmotrimo sada povezanost problema novina i sekvenciranja genoma. Kopije izdanja u problemu novina odgovaraju ono predstavlja ulaz u sekvencerima -- uzorak tkiva. Moderne mašine za sekvenciranje ne mogu da pročitaju ceo genom nukleotid po nukleotid od početka do kraja (kao što bismo pročitali knjigu). Mogu samo da iseckaju genom i generišu njegova kratka \emph{očitavanja} (engl. \emph{reads}). Kako to zapravo funkcioniše? 
 
+Na slici \ref{slika:sekvenciranje} ilustrovan je proces sekvenciranja. Sekvencer dobija milione kopija istog genoma. Zatim vrši očitavanja čime dobijamo deliće odnosno kratke podniske. Neki delovi odnosno očitavanja biće izgubljena (kao delići novina u eksploziji, dakle gubimo deo informacija). Očitavanja su izmešana i ono što nam sekvencer daje je zapravo kolekcija podniski koje treba spojiti u jednu. Sastavljanje genoma nije isto kao i slaganje slagalice -- moramo da koristimo preklapajuća očitavanja da bismo rekonstruisali genom.
 
-Moderne mašine za sekvenciranje (sekvenceri) ne mogu da pročitaju ceo genom nukleotid po nukleotid od početka do kraja (kao što bismo pročitali knjigu).
-Mogu samo da iseckaju genom i generišu njegova kratka očitavanja. Kako to zapravo funkcioniše (\ref{slika:sekvenciranje})? Sekvencer dobija milione kopija istog genoma. Zatim vrši očitavanja čime dobijamo deliće odnosno kratke podniske. Neki delovi odnosno očitavanja biće izgubljena (kao delići novina u eksploziji, dakle gubimo deo informacija). Očitavanja su izmešana i ono što nam sekvencer daje je zapravo kolekcija podniski koje treba spojiti u jednu. Sastavljanje genoma nije isto kao i slaganje slagalice: moramo da koristimo preklapajuća očitavanja da bismo rekonstruisali genom.
-
-
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=1\textwidth]{poglavlja/3/slike/sekvencioniranje.png}
 	\caption{Ilustracija problema.}
 	\label{slika:sekvenciranje}
 \end{figure} 
 
-
 \section{Problem sekvenciranja genoma}
 
-\begin{problem}
-	[Problem sekvencioniranja genoma] Rekonstruisati genom na osnovu očitavanja.
-	\\ Ulaz. Kolekcija niski Reads.
-	\\ Izlaz. Niska Genome rekonstruisana na osnovu Reads.
+Do sada smo videli \v sta predstavlja sekvenciranje genoma, koja je njegova biolo\v ska podloga i kako se on defini\v se kao biolo\v ski problem. Pre\dj imo sada na formulisanje ra\v cunarskog problema sekvenciranja genoma kao problem rekonstrukcije niske.
+
+\begin{problem}[Problem sekvencioniranja genoma] 
+	Rekonstruisati genom na osnovu očitavanja. \\
+	Ulaz: Kolekcija niski \emph{Reads}.
+	Izlaz: Niska \emph{Genome} rekonstruisana na osnovu \emph{Reads}.
 \end{problem}
 
-% ovo dopuniti sa snimka pošto nema ni u knjizi baš
-Ovo nije dobro definisan problem. 
+Ovo nije dobro definisan problem. Potrebno je uvesti dodatne pojmove kako bismo uspeli da problem sekvencioniranja genoma predstavimo kao problem rekonstrukcije niske.
 
+Defini\v semo pojam \emph{$k$-gramski sastav niske} na slede\'ci na\v cin. $k$-gramski sastav niske $Text$, u oznaci $Composition_k(Text)$, predstavlja kolekciju podniski dužine $k$ niske $Text$, pri \v cemu su u kolekciju uključeni duplikati. Na primer, neka je $Text=TAATGCCATGGGATGTT$. Njen $3$-gramski sastav niske $Text$ izgleda:
 
-\subsection{k-gramski sastav niske}
+\newpage
+\begin{lstlisting}
+Composition_3(TAATGCCATGGGATGTT) =
+              TAA 
+               AAT 
+                ATG
+                 TGC
+                  GCC
+                   CCA
+                    CAT
+                     ATG
+                      TGG
+                       GGG
+                        GGA
+                         GAT
+                          ATG
+                           TGT
+                            GTT
+\end{lstlisting}
 
-k-gramski sastav niske $Text$ ($Composition_k(Text)$) predstavlja kolekcija podnsiki dužine $k$ niske $Text$, uključujući duplikate. Na primer:
+\noindent odnosno, ako kolekciju uredimo po leksikografskom pore\dj enju:
 
-
-% ovo sigurno može lepše xD (slajd 32)
-\begin{align*}
-	Composition_3(TAATGCCATGGGATGTT) =& \\
-	TAA AAT ATG TGC GCC CCA CAT ATG TGG GGG GGA GAT ATG TGT GTT =& \\
-	AAT ATG ATG ATG CAT CCA GAT GCC GGA GGG GTT TAA TGC TGG TGT
-\end{align*}
+\begin{lstlisting}
+Composition_3(TAATGCCATGGGATGTT) =
+AAT ATG ATG ATG CAT CCA GAT GCC GGA GGG GTT TAA TGC TGG TGT
+\end{lstlisting}
 
 Sada možemo malo bolje da definišemo problem.
 
-\begin{problem}
-	[Problem rekonstrukcije niske] Rekonstruisati nisku na osnovu njenog k-gramskog sastava.
-	\\ Ulaz. Kolekcija k-grama.
-	\\ Izlaz. Niska Genome takva da je $Composition_k(Genome)$ ekvivalentno kolekciji k-grama
+\begin{problem}[Problem rekonstrukcije niske] 
+	Rekonstruisati nisku na osnovu njenog $k$-gramskog sastava. \\
+	Ulaz: Kolekcija $k$-grama. \\
+	Izlaz: Niska \emph{Genome} takva da je $Composition_k(Genome)$ ekvivalentno kolekciji $k$-grama.
 \end{problem}
 
+Zapo\v cnimo prvo sa naivnim pristupom re\v savanju ovog problema. Odaberimo jedan $k$-gram za početni. Zatim nižemo ostale tako da se sufiks poslednjeg odabranog poklopi sa prefiksom nekog od preostalih $k$-grama. Pri tome, ako ima više takvih $k$-grama, biramo proizvoljan jedan. Na ovaj način možemo doći do rešenja, ali je veoma skupo. Pri tome, velika je šansa da ćemo se negde zaglaviti (tj. nijedan od preostalih $k$-grama neće biti kandidat za nadovezivanje na tekuću nisku) ili zbog izbora početnog $k$-grama ili zbog izbora nekog od preostalih $k$-grama kada je postojalo više odgovarajućih. Sledeći primer ilustruje ovaj problem.
 
-Naivni pristup ovom problemu bio bi da odaberemo jedan k-gram za početni. Zatim nižemo ostale tako da se sufiks poslednjeg odabranog poklopi sa prefiksom nekog od preostalih k-grama. Pri tome, ako ima više takvih k-grama, biramo jedan, bilo koji, Na ovaj način možemo doći do rešenja, ali je veoma skupo. Pri tome, velika je šansa da ćemo se negde zaglaviti (tj. nijedan od preostalih k-grama neće biti kandidat za nadovezivanje na tekuću nisku) ili zbog izbora početnog k-grama ili zbog izbora nekog od preostalih k-grama kada je postojalo više odgovarajućih. Sledeći primer ilustruje ovaj problem:
-
-Neka nam je dat sledeći 3-gramski sastav: 
-$$AAT ATG ATG ATG CAT CCA GAT GCC GGA GGG GTT TAA TGC TGG TGT$$
-
-Treba rekonstruisati nisku koja ima takav sastav. Biramo početni 3-gram, neka to bude na primer $TAA$. Zatim na njega treba nadovezati 3-gram koji počinje njegovim sufiksom dužine 2, odnosno onaj 3-gram koji ima prefiks $AA$. U našem slučaju, postoji jedan takav 3-gram i njega nadovezujemo na tekuću nisku, tako da sada imamo $TAAT$. Zatim biramo 3-gram čiji je prefiks $AT$. Ovog puta imamo 3 kandidata, ali, na našu sreću, sva tri su isti 3-grami, $ATG$. U takvom slučaju nije bitno koji smo odabrali, jer su svi jednaki. Nadovezujemo ga na tekuću nisku i dobijamo $TAATG$. Tražimo 3-grame sa prefiksom $TG$, koji do sad nisu upotrebljeni. Ponovo pronalazimo 3 kandidata. Međutim, u ovom slučaju, svi kandidati predstavljaju različite 3-grame, a to su $TGC$, $TGG$ i $TGT$. Naivni pristup kaže da biramo jedan od njih, i recimo da smo odabrali $TGT$ i dobili nisku $TAATGT$. Sada nam je potrebam 3-gram sa prefiksom $GT$ i tu dolazi do zaglavljivanja! 
-Imamo još 3-grama koji nisu iskorišćeni za rekonstrukciju niske, ali nijedan ne možemo da iskoristimo u ovom trenutku! U takvim situacijama treba se vratiti u nazad do koraka u kom je bilo više kandidata.
-
+Neka nam je dat sledeći 3-gramski sastav: \texttt{AAT ATG ATG ATG CAT CCA GAT GCC GGA GGG GTT TAA TGC TGG TGT}. Treba rekonstruisati nisku koja ima takav sastav. Biramo početni 3-gram, neka to bude na primer \texttt{TAA}. Zatim na njega treba nadovezati 3-gram koji počinje njegovim sufiksom dužine 2, odnosno onaj 3-gram koji ima prefiks \texttt{AA}. U našem slučaju, postoji jedan takav 3-gram i njega nadovezujemo na tekuću nisku, tako da sada imamo \texttt{TAAT}. Zatim biramo 3-gram čiji je prefiks \texttt{AT}. Ovog puta imamo 3 kandidata, ali, na našu sreću, sva tri su isti 3-grami, \texttt{ATG}. U takvom slučaju nije bitno koji smo odabrali, jer su svi jednaki. Nadovezujemo ga na tekuću nisku i dobijamo \texttt{TAATG}. Tražimo 3-grame sa prefiksom \texttt{TG}, koji do sad nisu upotrebljeni. Ponovo pronalazimo 3 kandidata. Međutim, u ovom slučaju, svi kandidati predstavljaju različite 3-grame, a to su \texttt{TGC}, \texttt{TGG} i \texttt{TGT}. Naivni pristup kaže da biramo jedan od njih, i recimo da smo odabrali \texttt{TGT} i dobili nisku \texttt{TAATGT}. Sada nam je potreban 3-gram sa prefiksom \texttt{GT} i tu dolazi do zaglavljivanja. Imamo još 3-grama koji nisu iskorišćeni za rekonstrukciju niske, ali nijedan ne možemo da iskoristimo u ovom trenutku. U takvim situacijama treba se vratiti u nazad do koraka u kom je bilo više kandidata.
 
 \section{Rekonstrukcija niske kao problem Hamiltonove putanje}
 
 Videli smo da nam naivni pristup ne odgovara i moramo smisliti bolje rešenje. Mogli bismo da iskoristimo znanja iz teorije grafova za rešavanje ovakvog problema. U tom slučaju, prvi zadatak je da našu nisku predstavimo u vidu grafa.
 
-
 \subsection{Genom kao putanja}
 
-Vratimo se na prethodni primer. Dat nam je k-gramski sastav niske :
-$$Composition_3(TAATGCCATGGGATGTT) =$$
-$$ TAA AAT ATG TGC GCC CCA CAT ATG TGG GGG GGA GAT ATG TGT GTT$$
+Vratimo se na prethodni primer. Dat nam je naredni 3-gramski sastav:
+\begin{lstlisting}
+Composition_3(TAATGCCATGGGATGTT) =
+              TAA 
+               AAT 
+                ATG
+                 TGC
+                  GCC
+                   CCA
+                    CAT
+                     ATG
+                      TGG
+                       GGG
+                        GGA
+                         GAT
+                          ATG
+                           TGT
+                            GTT
+\end{lstlisting}
 
-Njega treba predstaviti kao graf. Možemo da napravimo po jedan čvor za svaki od k-grama. Zatim, potrebne su nam grane koje će povezati te čvorove. Dvs čvora su povezana usmerenom granom ako izlazni čvor ima sufiks jednak prefiksu ulaznog čvora te grane, kao što je prikazano na slici \ref{slika:graf1}.
+Ovakav 3-gramski sastav mo\v zemo predstaviti kao graf na slede\'ci na\v cin. Svakom \v cvoru u grafu odgovara jedan od $k$-grama. Zatim, potrebne su nam grane koje će povezati te čvorove. Dva čvora su povezana usmerenom granom ako izlazni čvor ima sufiks koji je jednak prefiksu ulaznog čvora te grane, kao što je prikazano na slici \ref{slika:hamilton}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{poglavlja/3/slike/hamilton.png}
-	\caption{Graf koji odgovara k-gramskom sastavu niske $TAATGCCATGGGATGTT$.}
+	\caption{Graf koji odgovara 3-gramskom sastavu niske $TAATGCCATGGGATGTT$.}
 	\label{slika:hamilton}
 \end{figure} 
 
-Jasno je da postoji više puteva u ovom grafu. Postavlja se pitanje, da li možemo da pronađemo genomsku putanju u ovom grafu, od svih koje postoje?
+Jasno je da postoji više puteva u ovom grafu. Postavlja se pitanje -- da li možemo da pronađemo genomsku putanju u ovom grafu, od svih koje postoje?
 
-Podsetimo se šta je Hamiltonova putanja. Hamiltonova putanja je putanja koja posećuje svaki čvor u grafu tačno jednom. To je upravo ono što nam je potrebno za rešavanje problema. Svaki čvor predstavlja jedan k-gram i porebno nam je da svi k-grami budu uključeni u rekonstruisanu nisku tačno jednom.
+Podsetimo se šta je Hamiltonova putanja. Hamiltonova putanja je putanja koja posećuje svaki čvor u grafu tačno jednom. To je upravo ono što nam je potrebno za rešavanje problema. Svaki čvor predstavlja jedan $k$-gram i potrebno nam je da svi $k$-grami budu uključeni u rekonstruisanu nisku tačno jednom.
 
-\begin{problem}
-	[Problem Hamiltonove putanje]
-	Naći Hamiltonovu putanju u grafu.
-	\\ Ulaz. Graf.
-	\\Izlaz. Putanja koja posećuje svaki čvor u grafu tačno jednom.
+\begin{problem}[Problem Hamiltonove putanje]
+	Naći Hamiltonovu putanju u grafu. \\
+	Ulaz: Graf. \\
+	Izlaz: Putanja koja posećuje svaki čvor u grafu tačno jednom.
 \end{problem}
 
-Iako deluje kao da smo rešili sve probleme, zapravo smo naišli na još jednu veliku prepreku. Naime, pronalaženje Hamiltonovog puta u grafu je NP-kompletan problem, što znači da ne postoji efikasan algoritam koji to radi.
-
-U tom slučaju, moramo da se vratimo na početak, a to je predstavljanje k-gramskog sastava grafom.
-
+Iako deluje kao da smo rešili sve probleme, zapravo smo naišli na još jednu veliku prepreku. Naime, pronalaženje Hamiltonovog puta u grafu je NP-kompletan problem, što znači da ne postoji efikasan algoritam koji to radi. U tom slučaju, moramo da se vratimo na početak, a to je predstavljanje $k$-gramskog sastava grafom.
 
 \section{Rekonstrukcija niske kao Ojlerove putanje}
 
+U prethodnoj sekciji $k$-grame smo predstavili čvorovima u grafu i u njemu tražili Hamiltonov put, odnosno, put koji obilazi svaki čvor tačno jednom. Videli smo da za taj problem još uvek nije poznat efikasan algoritam pa se sada pitamo kako možemo izmeniti graf tako da ne zahteva traženje Hamiltonove putanje.
 
-U prethodnoj sekciji k-grame smo predstavili čvorovima u grafu i u njemu tražili Hamiltonov put odnosno put koji obilazi svaki čvor tačno jednom. Videli smo da za taj problem još uvek nije poznat efikasan algoritam pa se sada pitamo kako možemo izmeniti graf tako da ne zahteva traženje Hamiltonove putanje.
+Ono što se javlja kao ideja jeste obeležavanje grana umesto čvorova. Dakle, svaka grana biće obeležena jednim $k$-gramom. Izlazni čvor biće obeležen prefiksom $k$-grama te grane, dok će ulazni čvor biti obeležen sufiksom istog tog $k$-grama. Slika \ref{slika:ojler} ilustruje ovaj postupak za nisku $TAATGCCATGGGATGTT$.
 
-Ono što se javlja kao ideja jeste obeležavanje grana umesto čvorova. Dakle, svaka grana biće obeležena jednim k-gramom, podniskama trih k-grama. Izlazni čvor biće obeležen prefiksom k-grama te grane, dok će ulazni čvor biti obeležen sufiksom istog tog k-grama. Na slici \ref{slika:ojler} ilustruje ovaj postupak za nisku $TAATGCCATGGGATGTT$.
-
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=1\textwidth]{poglavlja/3/slike/ojler.png}
-	\caption{Graf koji odgovara 3-gramskom sastavu niske $TAATGCCATGGGATGTT$. Grane su obeležene 3-gramima, a čvorovi prefiksima/sufikisima.}
+	\caption{Graf koji odgovara 3-gramskom sastavu niske $TAATGCCATGGGATGTT$. Grane su obeležene 3-gramima, a čvorovi 2-gramima koji predstavljaju prefikse i sufikse.}
 	\label{slika:ojler}
 \end{figure} 
 
+Primećujemo da su neki čvorovi obleženi identično (na primer, imamo tri čvora sa oznakom $AT$). Sve čvorove koji imaju istu oznaku treba spojiti u jedan, pri čemu zadržavamo sve grane koje su ulazile u taj čvor ili su izlazile iz njega. Ponavljamo postupak dokle god imamo čvorove koji imaju istu oznaku i na kraju dobijamo graf koji nazivamo \emph{De Brojnov graf}. Slika \ref{slika:debrojnov} ilustruje De Brojnov graf dobijen ovom procedurom od polaznog grafa sa slike \ref{slika:ojler}. 
 
-Primećujemo da su neki čvorovi obleženi identično (npr. imamo tri čvora sa oznakom $AT$). Sve čvorove koji imaju istu oznaku treba spojiti u jedan, pri čemu zadržavamo sve grane koje su ulazile u taj čvor ili su izlazile iz njega. Ponavljamo postupak dokle god imamo čvorove koji imaju istu oznaku i na kraju dobijamo graf koji nazivamo De Brojnov graf. 
-
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
-	\includegraphics[width=0.6\textwidth]{poglavlja/3/slike/debrojnov.png}
+	\includegraphics[width=0.55\textwidth]{poglavlja/3/slike/debrojnov.png}
 	\caption{De Brojnov graf koji odgovara niski $TAATGCCATGGGATGTT$.}
 	\label{slika:debrojnov}
 \end{figure} 
 
-Dobro, došli smo do nove reprezentacije niske pomoću grafa. Gde se sad nalazi naš \textit{Genome}? Kako nam se 3-grami sada nalaze na granama, a ne u čvorovima, potrebno je da pronađemo putanju u grafu koja prolazi sve grane tačno jednom. Takav put nazivamo \textit{Ojlerova putanja}. Srećom, algoritam za pronalaženje Ojlerove putanje u grafu nije NP-kompletan i možemo efikasno da je pronađemo.
-
+Ovime smo dobili novu reprezentaciju niske pomoću grafa. Prirodni se postavlja naredno pitanje -- gde se nalazi niska \textit{Genome} u ovoj reprezentaciji grafa? Kako nam se 3-grami sada nalaze na granama, a ne u čvorovima, potrebno je da pronađemo putanju u grafu koja prolazi sve grane tačno jednom. Takav put nazivamo \emph{Ojlerova putanja}. Srećom, algoritam za pronalaženje Ojlerove putanje u grafu nije NP-kompletan i možemo efikasno da je pronađemo.
 
 \begin{problem}[Problem Ojlerove putanje]
-	~\\ Pronaći Ojlerovu putanju u grafu.
-	\\ Ulaz. Graf.
-	\\ Izlaz. Putanja koja posećuje svaku granu u grafu tačno jednom.
+	Pronaći Ojlerovu putanju u grafu. \\
+	Ulaz: Graf. \\
+	Izlaz: Putanja koja posećuje svaku granu u grafu tačno jednom.
 \end{problem}
 
+Sada znamo kako možemo da dobijemo nisku kada znamo De Brojnov graf koji odgovara njenom $k$-gramskom sastavu. Međutim, konstruisali smo De Brojnov graf na osnovu genoma, ali u realnim primenama, genom je nepoznat.
 
-Sada znamo kako možemo da dobijemo nisku kada znamo de Brojnov graf koji odgovara njenom k-gramskom sastavu. Međutim, konstruisali smo de Brojnov graf na osnovu genoma, ali u realnim primenama, genom je nepoznat.
-
-
-\section{De Brojnovi grafovi na osnovu kolekcije k-grama}
+\section{De Brojnovi grafovi na osnovu kolekcije $k$-grama}
 
 U redu, nije nam poznata niska, ali znamo njen k-gramski sastav. Za svaki k-gram pravimo dva čvora i jednu granu, na prethodno opisani način (\ref{slika:kgrami}).
 Zatim lepimo identične čvorove sve dok ne dobijemo graf čiji svi čvorovi imaju različite oznake. Na slici je dat jedan korak ovog postupka, međutim tu nije kraj jer i dalje postoje čvorovi sa istim oznakama.
@@ -210,7 +215,6 @@ Zatim lepimo identične čvorove sve dok ne dobijemo graf čiji svi čvorovi ima
 	\caption{Postupak lepljenja čvorova. Posao nije završen!}
 	\label{slika:lepljenje}
 \end{figure} 
-
 
 Po završetku postupka dobijamo de Brojnov graf koji je isti kao onaj koji smo dobili kada smo znali nisku. Svaka grana je označena jednim k-gramom. Svaki čvor je označen prefiksom/sufiksom izlazne/ulazne grane. Zalepljeni su svi čvorovi sa identičnim oznakama.
 
@@ -372,6 +376,8 @@ Ovde smo imali neke nerealne pretpostavke.
 
 
 \section{Zadaci sa vežbi}
+\setexamplecodestyle
+
 U nastavku će biti predstavljeni zadaci sa vežbi na kursu rađeni u programskom jeziku Python.
 
 
