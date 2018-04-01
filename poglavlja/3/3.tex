@@ -9,13 +9,13 @@ Sa biološke strane, genom jednog organizma predstavlja njegov genetski materija
 
 Kod čoveka, genom sadrži oko tri milijarde nukleotida. Dakle, sa računarske strane posmatrano genom je niska karaktera nad azbukom $\Sigma = \{A, C, G, T\}$. Kompleksnost organizma nije u relaciji sa veli\v cinom genoma. Genomi nekih organizama su i stotinu puta veći od humanog genoma. Na primer, jedna vrsta amebe ima 670 milijardi nukleotida ili jedna vrsta kaktusa koja raste u Japanu ima 150 milijardi nukleotida.
 
-Sekvenciranje genoma podrazumeva otkrivanje izgleda genoma. U pitanju je eksperimentalan proces -- da bismo saznali \v sta se nalazi u sastavu jednog genoma, potreban nam je uzorak tkiva odgovaraju\'ce vrste. U nastavku dajemo kratak pregled razdvoja sekvenciranja genoma.
+Sekvenciranje genoma podrazumeva otkrivanje izgleda genoma. U pitanju je eksperimentalan proces -- da bismo saznali \v sta se nalazi u sastavu jednog genoma, potreban nam je uzorak tkiva odgovaraju\'ce vrste. U nastavku dajemo kratak pregled razvoja sekvenciranja genoma.
 
 \subsection{Kratka istorija sekvenciranja genoma}
 
 Kao \v sto smo videli, sekvenciranje genoma je eksperimentalan proces, za koji je neophodna veoma ozbiljna tehnologija. Pre svega mo\v zemo govoriti o razvoju fizi\v cko-hemijskih tehnika koje bi dovele do mogu\'cnosti saznavanja sastava genoma. Walter Gilbert i Frederick Sanger su 1977. godine razvili nezavisne metode sa sekvenciranje genoma, za koje su, 1980. godine, podelili Nobelovu nagradu. Me\dj utim, iako su njihovi metodi bili pionirski u ovoj oblasti, njihove metode za sekvenciranje su bile veoma skupe -- za sekvenciranje humanog genoma je bilo potrebno 3 milijarde dolara.
 
-Krajem 2000-ih Sanger metodom je sekvencioniran veliki broj genoma. Visoka cena je bila ograničavajući faktor i za dalji napredak je bila neophodna nova tehnologija sekvencioniranja. \emph{NGS} (skr. \emph{Net Generation Sequencing}) predstavlja metode nove generacije sekvencioniranja, odnosno, novu generaciju ma\v sina sekvencera koji vr\v se sekvencioniranje. \emph{Illumina}, jedan od proizvo\dj a\v ca sekvencera, smanjuje trošak sekvencioniranja humanog gemona sa 3 milijarde na 10 hiljada dolara. Kompanija \emph{Complete Genomics} otvara genomsku fabriku u Silikonskoj dolini koja sekvencionira stotine genoma mesečno. Pekinški genomski institut (\emph{Beijing Genome Institute}, skr. \emph{BGI}) preuzima Complete Genomics 2013. godine i postaje najveći svetski centar za sekvenciranje genoma. Na slici \ref{slika:cena} prikazano je kako se cena sekvencioniranja menjala godinama.
+Krajem 2000-ih Sanger metodom je sekvencioniran veliki broj genoma. Visoka cena je bila ograničavajući faktor i za dalji napredak je bila neophodna nova tehnologija sekvencioniranja. \emph{NGS} (skr. \emph{Net Generation Sequencing}) predstavlja metode nove generacije sekvencioniranja, odnosno, novu generaciju ma\v sina sekvencera koji vr\v se sekvencioniranje. \emph{Illumina}, jedan od proizvo\dj a\v ca sekvencera, smanjuje trošak sekvencioniranja humanog genoma sa 3 milijarde na 10 hiljada dolara. Kompanija \emph{Complete Genomics} otvara genomsku fabriku u Silikonskoj dolini koja sekvencionira stotine genoma mesečno. Pekinški genomski institut (\emph{Beijing Genome Institute}, skr. \emph{BGI}) preuzima Complete Genomics 2013. godine i postaje najveći svetski centar za sekvenciranje genoma. Na slici \ref{slika:cena} prikazano je kako se cena sekvencioniranja menjala godinama.
 
 \begin{figure}[h]
 	\centering
@@ -26,7 +26,7 @@ Krajem 2000-ih Sanger metodom je sekvencioniran veliki broj genoma. Visoka cena 
 
 \subsection{Sekvenciranje ličnih genoma}
 
-Prirodno je zapitati se vrednosti dobitka poznavanja sastava genoma. \v Sto je ti\v ce biljaka, neke od primena sekvenciranja su: razvoj novih biljnih vrsta u poljoprivredi, odre\dj ivanje pogodnog podneblja za neku biljnu vrstu, u farmaciji, i dr. Me\dj utim, najzna\v cajnija primena je u sekvenciranju li\v cnih genoma.
+Prirodno je zapitati se o značaju poznavanja sastava genoma. \v Sto je ti\v ce biljaka, neke od primena sekvenciranja su: razvoj novih biljnih vrsta u poljoprivredi, odre\dj ivanje pogodnog podneblja za neku biljnu vrstu, u farmaciji, i dr. Me\dj utim, najzna\v cajnija primena je u sekvenciranju li\v cnih genoma.
 
 Genomi se kod različitih ljudi razlikuju na malom broju pozicija (u proseku sadrže jednu mutaciju na hiljadu nukleotida). Ova razlika je odgovorna za, na primer, različite visine kod ljudi, da li će imati sklonost ka visokom holesterolu ili ne, za veliki broj genetskih bolesti, itd.
 
@@ -71,7 +71,7 @@ Do sada smo videli \v sta predstavlja sekvenciranje genoma, koja je njegova biol
 
 \begin{problem}[Problem sekvencioniranja genoma] 
 	Rekonstruisati genom na osnovu očitavanja. \\
-	Ulaz: Kolekcija niski \emph{Reads}.
+	Ulaz: Kolekcija niski \emph{Reads}. \\
 	Izlaz: Niska \emph{Genome} rekonstruisana na osnovu \emph{Reads}.
 \end{problem}
 
@@ -167,7 +167,7 @@ Iako deluje kao da smo rešili sve probleme, zapravo smo naišli na još jednu v
 
 \section{Rekonstrukcija niske kao Ojlerove putanje}
 
-U prethodnoj sekciji $k$-grame smo predstavili čvorovima u grafu i u njemu tražili Hamiltonov put, odnosno, put koji obilazi svaki čvor tačno jednom. Videli smo da za taj problem još uvek nije poznat efikasan algoritam pa se sada pitamo kako možemo izmeniti graf tako da ne zahteva traženje Hamiltonove putanje.
+U prethodnoj sekciji, $k$-grame smo predstavili čvorovima u grafu i u njemu tražili Hamiltonov put, odnosno, put koji obilazi svaki čvor tačno jednom. Videli smo da za taj problem još uvek nije poznat efikasan algoritam pa se sada pitamo kako možemo izmeniti graf tako da ne zahteva traženje Hamiltonove putanje.
 
 Ono što se javlja kao ideja jeste obeležavanje grana umesto čvorova. Dakle, svaka grana biće obeležena jednim $k$-gramom. Izlazni čvor biće obeležen prefiksom $k$-grama te grane, dok će ulazni čvor biti obeležen sufiksom istog tog $k$-grama. Slika \ref{slika:ojler} ilustruje ovaj postupak za nisku $TAATGCCATGGGATGTT$.
 
@@ -187,7 +187,7 @@ Primećujemo da su neki čvorovi obleženi identično (na primer, imamo tri čvo
 	\label{slika:debrojnov}
 \end{figure} 
 
-Ovime smo dobili novu reprezentaciju niske pomoću grafa. Prirodni se postavlja naredno pitanje -- gde se nalazi niska \textit{Genome} u ovoj reprezentaciji grafa? Kako nam se 3-grami sada nalaze na granama, a ne u čvorovima, potrebno je da pronađemo putanju u grafu koja prolazi sve grane tačno jednom. Takav put nazivamo \emph{Ojlerova putanja}. Srećom, algoritam za pronalaženje Ojlerove putanje u grafu nije NP-kompletan i možemo efikasno da je pronađemo.
+Ovime smo dobili novu reprezentaciju niske pomoću grafa. Prirodno se postavlja naredno pitanje -- gde se nalazi niska \textit{Genome} u ovoj reprezentaciji grafa? Kako nam se 3-grami sada nalaze na granama, a ne u čvorovima, potrebno je da pronađemo putanju u grafu koja prolazi sve grane tačno jednom. Takav put nazivamo \emph{Ojlerova putanja}. Srećom, algoritam za pronalaženje Ojlerove putanje u grafu nije NP-kompletan i možemo efikasno da je pronađemo.
 
 \begin{problem}[Problem Ojlerove putanje]
 	Pronaći Ojlerovu putanju u grafu. \\
@@ -237,11 +237,11 @@ Ka\v zemo da je graf Ojlerov ako sadr\v zi Ojlerov ciklus. Ispostavlja se da pos
 
 \subsection{Dokaz Ojlerove teoreme}
 
-Neka nam je dat povezan balansiran graf. Da bismo pokazali da graf sadrži Ojlerov ciklus, postavićemo mrava na bilo koji od čvorova tog grafa, kao na slici \ref{slika:mrav1}. Zašto baš mrav? Poznato je da mravi nikada ne idu istim putem dva puta pa smo sigurni da će naš mrav proći dvaku granu tačno jednom.
+Neka nam je dat povezan balansiran graf. Da bismo pokazali da graf sadrži Ojlerov ciklus, postavićemo mrava na bilo koji od čvorova tog grafa, kao na slici \ref{slika:mrav1}. Zašto baš mrav? Poznato je da mravi nikada ne idu istim putem dva puta pa smo sigurni da će naš mrav proći svaku granu tačno jednom.
 
 Puštamo mrava da slučajno odabira grane kojima će se kretati. Ako je veoma pametan, obići će svaku granu jednom i vratiće se u početni čvor. Međutim, velike su šanse da nije veoma pametan i da će se u nekom čvoru zaglaviti, odnosno, neće imati granu koju već nije obišao.
 
-Da li mrav može da se zaglavi u bilo kom čvoru? Ispostavlja se da može da se zaglavi u početnom čvoru (jer je graf balansiran). U trenutku kada se zaglavio on je napravio ciklus. Samo, taj ciklus nije Ojlerov jer još uvek nije obišao sve grane. Ideja je da odabere drugačiji početni čvor iz kog će krenuti obilazak. Koji čvor će izabrati? Treba da izabere čvor koji ima izlaznih grana koje još uvek nije obišao (slika \ref{slika:mrav2}). 
+Da li mrav može da se zaglavi u bilo kom čvoru? Ispostavlja se da može da se zaglavi samo u početnom čvoru (jer je graf balansiran). U trenutku kada se zaglavio on je napravio ciklus. Samo, taj ciklus nije Ojlerov jer još uvek nije obišao sve grane. Ideja je da odabere drugačiji početni čvor iz kog će krenuti obilazak. Koji čvor će izabrati? Treba da izabere čvor iz ciklusa koji ima izlaznih grana koje još uvek nije obišao (slika \ref{slika:mrav2}). 
 
 \noindent
 \begin{minipage}{\textwidth}
@@ -306,7 +306,7 @@ begin
 end
 \end{lstlisting}
 
-Ovaj algoritam radi u linearnom vremenu. Da bi se zaista postigla ta efikasnost, potrebne su efikasne struktutre podataka za održavanje ciklusa koje mrav pronalazi kao i za liste neiskorišćenih grana za svaki čvor i lista čvorova u trenutnom ciklusu koji imjau neiskorišćene grane.
+Ovaj algoritam radi u linearnom vremenu. Da bi se zaista postigla ta efikasnost, potrebne su efikasne struktutre podataka za održavanje ciklusa koje mrav pronalazi kao i za liste neiskorišćenih grana za svaki čvor i lista čvorova u trenutnom ciklusu koji imaju neiskorišćene grane.
 
 \section{Sastavljanje parova očitavanja}
 
@@ -336,7 +336,7 @@ Sada mo\v zemo formulisati naredni problem.
 
 \begin{problem}[Problem rekonstrukcije niske na osnovu parova očitavanja]
 	Rekonstruisati nisku na osnovu njenih uparenih $k$-grama. \\
-	Ulaz: Kolekcija uparenih $k$-grama.
+	Ulaz: Kolekcija uparenih $k$-grama. \\
 	Izlaz: Niska $Text$ takva da je $PairedComposition_k(Text)$ jednak kolekciji uparenih $k$-grama. 
 \end{problem}
 
