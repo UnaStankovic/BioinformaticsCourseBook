@@ -2,24 +2,24 @@
 \setbookcodestyle
 
 
-U ovom poglavlju i dalje govorimo o sekvenciranju, ali ćemo proširiti pogled i pokazati različite načini za sekvenciranje peptida. 
+U ovom poglavlju i dalje govorimo o sekvenciranju, ali ćemo proširiti pogled i pokazati različite načine za sekvenciranje peptida. 
 
-\section{Otkriće antibiotika}
+\section{Otkriće antibiotika} \label{otkrice}
 
 Pre svega, krenućemo sa biološkim uvodom. Šta su to antibiotici? Sama reč antibiotik znači ,,onaj koji ubija život'', a tačnije, on predstavlja supstancu koja ubija bakterije. Kada ostavimo pomorandžu dugo negde gde je toplo, ona će da razvije čudne osobine kao što je buđ. Šta to znači? Buđ jeste jedna vrsta antibiotika što znači da se antibiotici nalaze u prirodi i da ih proizvode organizmi iz porodice gljiva (npr. buđi) i bakterija. 
 
-Mi ćemo posmatrati antibiotike na molekularnom nivou koji nam govori od čega su oni zapravo izgrađeni. Od svih antibiotika posmatraćemo \textbf{\textit{tirocidin B1}}, antibiotik koji proizvodi bakterija \textit{Bacillus Brevis}. Tirocidin B1 na molekulskom nivou pripada \textit{peptidima}, kratkim niskama aminokiselina, odnosno malim proteinima. Ovo je skok u odnosu na ono što smo do sada posmatrali -- nukleotidne niske nad četvorostrukom azbukom $\Sigma = \{A, C, G, T\}$, odnosno DNK. Za DNK smo govorili da je najznačajnija supstanca koja se pojavljuje kod živog bića jer se pojavljuje u svakoj ćeliji svakog živog bića i jer sadrži recept (tačnije, nosi informaciju) za pravilno funkcionisanje i razvoj svakog živog bića. Da bi se svako živo biće pravilno razvijalo, neophodno je da sintetiše u tačno određeno vreme određene supstance koje se nazivaju \textit{proteini}. DNK nosi informaciju o tome kako treba neki protein da izgleda, od čega treba da se sastoji. Zašto je to bitno? Na primer, kada je dan, neke biljke treba da vrše fotosintezu, a za vršenje fotosinteze treba u samim ćelijama biljaka da se sintetišu određeni proteini.
+Mi ćemo posmatrati antibiotike na molekularnom nivou koji nam govori od čega su oni zapravo izgrađeni. Od svih antibiotika posmatraćemo \textbf{\textit{tirocidin B1}}, antibiotik koji proizvodi bakterija \textit{Bacillus Brevis}. Tirocidin B1 na molekulskom nivou pripada \textit{peptidima}, kratkim niskama aminokiselina, odnosno malim proteinima. Ovo je skok u odnosu na ono što smo do sada posmatrali -- nukleotidne niske nad četvorostrukom azbukom $\Sigma = \{A, C, G, T\}$, odnosno DNK. Za DNK smo govorili da se pojavljuje u svakoj ćeliji svakog živog bića i da je veoma značajna supstanca jer sadrži recept (tačnije, nosi informaciju) za pravilno funkcionisanje i razvoj svakog živog bića. Da bi se svako živo biće pravilno razvijalo, neophodno je da njegove ćelije proizvode (sintetišu) u tačno određeno vreme određene supstance koje se nazivaju \textit{proteini}. DNK nosi informaciju o tome kako treba neki protein da izgleda, od čega treba da se sastoji. Zašto je to bitno? Na primer, kada je dan, neke biljke treba da vrše fotosintezu, a za vršenje fotosinteze treba u samim ćelijama biljaka da se sintetišu određeni proteini.
 
 Proteini su, nakon nukleinskih kiselina, druga značajna grupa molekula koja sa računarske tačke gledišta takođe predstavlja dugačke niske, ali ne nad azbukom od 4 karaktera, nego nad azbukom od 20 karaktera, a svaki karakter predstavlja molekul koji se naziva \textit{aminokiselina}. Kao i nukleinske kiseline, aminokiseline se predstavljaju velikim latiničnim slovima $ \{V, K, L, F, P, W, N, Q, Y, G, A, I, M, D, E, S, T, C, R, H\}$, a pored toga postoje i troslovne oznake $\{Val, Lys, Leu, Phe, Pro, Trp, Asn, Gln, Tyr, Gly, Ala, Ile, Met, Asp, Glu, Ser, Thr, Cys, Arg, His\}$. U prirodi postoji mnogo više od 20 aminokiselina, ali 20 njih najčešće učestvuje u sastav proteina. DNK upravlja time kada će nastati protein u okviru ćelije. Recept za nastajanje svakog proteina je zapisan u DNK. Kako je taj recept zapisan, videćemo u nastavku.
 
-Proteini se još nazivaju i \textit{polipeptidi}. Dužina proteina je obično od 100 aminokiselina do nekoliko hiljada (proteini su kraći od genomske sekvence). Tirocidin B1 je peptid jer se sastoji iz malog broja aminokiselina, svega deset -- $ V,K,L,F,P,W,F,N,Q,Y$. Problem sekvenciranje antibiotika jeste problem određivanja aminokiselina koje ulaze u sastav tog antibiotika. U prethodnom poglavlju smo sekvencirali genom, ali tehnike iz prethodnog poglavlja nećemo moći da koristimo u sekvenciranju tirocidina B1.
+Proteini se još nazivaju i \textit{polipeptidi}. Dužina proteina je obično od 100 aminokiselina do nekoliko hiljada (proteini su kraći od genomske sekvence). Tirocidin B1 je peptid jer se sastoji iz malog broja aminokiselina, svega deset -- $ V,K,L,F,P,W,F,N,Q,Y$. Problem sekvenciranja antibiotika jeste problem određivanja aminokiselina koje ulaze u sastav tog antibiotika. U prethodnom poglavlju smo sekvencirali genom, ali tehnike iz prethodnog poglavlja nećemo moći da koristimo u sekvenciranju tirocidina B1, što će biti objašnjeno u poglavlju \ref{pravljenje}.
 
 
-\section{Kako bakterije prave antibiotike?}
+\section{Kako bakterije prave antibiotike?} \label{pravljenje}
 
 Pre rešavanja problema sekvenciranja antibiotika, govorićemo o zanimljivoj i kompleksnoj temi, a to je tema -- kako se prave proteini? Već je pomenuto da se u okviru DNK nalazi recept za pravljenje proteina. Sada je vreme da se zapitamo kako je sve to zapisano u DNK pomoću $A, C, G, T$.
 
-Znamo da je DNK dvostruki lanac čiji su krajevi označeni sa 5' i 3' (uvek čitamo lanac od 5' ka 3'). DNK jeste jedna vrsta nukleinskih kiselina koje postoje u ćeliji živih bića. Pored njih, postoje i \textbf{ribonukleinske kiseline}, odnosno \textbf{RNK}. Ribonukleinske kiseline nisu predstavljene dvostrukim lancem, već jednostrukim. One se sastoje od nukleotida $A, C, G, U$. Umesto timina, kod RNK se pojavljuje nukleotid uracil koji se označava sa $U$. 
+Znamo da je DNK dvostruki lanac čiji su krajevi označeni sa 5' i 3' (uvek čitamo lanac od 5' ka 3'). DNK jeste jedna vrsta nukleinskih kiselina koje postoje u ćeliji živih bića. Pored nje, postoje i različite vrste \textbf{ribonukleinskih kiselinina}, odnosno \textbf{RNK}. Ribonukleinske kiseline nisu predstavljene dvostrukim lancem, već jednostrukim. One se sastoje od nukleotida $A, C, G, U$. Umesto timina, kod RNK se pojavljuje nukleotid uracil koji se označava sa $U$. 
 
 DNK se \textbf{\textit{prepisuje}} u RNK. Šta to znači? Da bi nastali proteini, neophodno je da se na osnovu dva lanca od DNK konstruiše RNK molekul. Pošto se RNK molekul sastoji od istih nukleotida kao i DNK, osim timina, onda kažemo da formiranje RNK na osnovu DNK predstavlja jednostavno \textit{prepisivanje} nukleotida iz oba lanca DNK, uz zamenu nukleotida $T$ sa nukleotidom $U$. Drugi naziv za prepisivanje jeste \textit{transkripcija}. Ovo je prvi korak, i dalje nismo došli do aminokiseline, i dalje smo u azbuci nukleotida. RNK predstavlja jedan međukorak između DNK i samog proteina.
 
@@ -51,7 +51,7 @@ Redom, kodone iz RNK preslikavamo u aminokiseline. Ali, kako znamo da je kraj ne
 \newpage
 
 
-Dolazimo do jedne veoma značajne teoreme (ili biološkog aksioma) -- \textbf{centralne dogme molekularne biologije}. Ona govori da se transkripcijom na osnovu DNK može dobiti RNK, a translacijom se iz RNK, na osnovu genetskog koda, dobijaju proteini. Ovu teoriju je predstavio Francis Crick i prikazana je na slici \ref{slika:centralnaDogma}.
+Dolazimo do jednog veoma značajnog biološkog aksioma -- \textbf{centralne dogme molekularne biologije}. Ona govori da se transkripcijom na osnovu DNK može dobiti RNK, a translacijom se iz RNK, na osnovu genetskog koda, dobijaju proteini. Ovu teoriju je predstavio Fransis Krik (eng. \textit{Francis Crick}) i prikazana je na slici \ref{slika:centralnaDogma}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{poglavlja/4/slike/centralnaDog.jpg}
@@ -74,22 +74,22 @@ Ono što želimo da saznamo jeste koje aminokiseline i kojim redom ulaze u sasta
 
 Naš peptid tirocidin B1 jeste \textit{cikličan}. Tih 10 aminokiselina koje ga čine idu nekim redom, ali su one povezane u krug, tako da imamo ukupno 10 različitih \textbf{linearnih reprezentacija} za tirocidin B1 u zavisnosti od toga koja nam je prva aminokiselina bila u samom receptu DNK. Koju god linearnu reprezentaciju pronađemo, rešili smo problem. 
 \\\\
-\indent Ne odustajemo od pronalaženja $30$-grama u genomu bakterije \textit{Bacillus Brevis} koji kodira bar jednu linearnu reprezentaciju od svih 10 koje čine tirocidin B1. Uzememo jako moćan računar, imamo puno vremena. Doći ćemo do jednog čudnog rezultata. Nećemo uspeti da pronađemo nijedan $30$-gram u genomu bakterije \textit{Bacillus Brevis} koji kodira bar jednu linearnu reprezentaciju proteina tirocidina B1. Zašto? Stvari se komplikuju. Na ovom primeru je pokazano da centralna dogma ne važi uvek, odnosno ne važi da svaki protein u ćeliji nastaje na osnovu recepta koji je zapisan u DNK. Centralna dogma govori da se proces transkripcije izvršava pod uticajem enzima koji se zove \textit{RNK polimeraza}, a translacija RNK u protein se vrši u ćelijskoj organeli koja se naziva \textit{ribozom}. Postoje neki proteini koji ne nastaju na ovaj način, nego na specijalan način gde obično sekvenciranje genoma ne može da nam pomogne. Moramo da predložimo novi metod kako možemo da pronađemo odgovarajuću sekvencu aminokiselina. 
+\indent Ne odustajemo od pronalaženja $30$-grama u genomu bakterije \textit{Bacillus Brevis} koji kodira bar jednu linearnu reprezentaciju od svih 10 koje čine tirocidin B1. Pretpostavimo da imamo na raspolaganju veoma moćan računar i neograničeno vreme. Doći ćemo do jednog čudnog rezultata. Nećemo uspeti da pronađemo nijedan $30$-gram u genomu bakterije \textit{Bacillus Brevis} koji kodira bar jednu linearnu reprezentaciju proteina tirocidina B1. Zašto? Stvari se komplikuju. Na ovom primeru je pokazano da centralna dogma ne važi uvek, odnosno ne važi da svaki protein u ćeliji nastaje na osnovu recepta koji je zapisan u DNK. Centralna dogma govori da se proces transkripcije izvršava pod uticajem enzima koji se zove \textit{RNK polimeraza}, a translacija RNK u protein se vrši u ćelijskoj organeli koja se naziva \textit{ribozom}. Postoje neki proteini koji ne nastaju na ovaj način, nego na specijalan način gde obično sekvenciranje genoma ne može da nam pomogne. Moramo da predložimo novi metod kako možemo da pronađemo odgovarajuću sekvencu aminokiselina. 
 
-Edvard Tatum, jedan od većih američkih genetičara, je 1963. godine inhibirao ribozom bakterije \textit{Bacillus Brevis}. Šta ovo znači? S obzirom da se znalo da se u ribozomu vrši translacija RNK u protein, on je onemogućio da se bilo šta desi u ribozomu, isključio je funkcionisanje te organele u ćeliji i očekivao je da se neće stvoriti nijedan protein, pa ni tirocidin B1. Međutim, suprotno očekivanjima, nastavljena je proizvodnja nekih peptida, uključujući i tirocidine. Ovo je bilo izuzetno iznenađujuće otkriće.
+Edvard Tejtum (eng. \textit{Edward Tatum}), jedan od poznatih američkih genetičara, je 1963. godine inhibirao ribozom bakterije \textit{Bacillus Brevis}. Šta ovo znači? S obzirom da se znalo da se u ribozomu vrši translacija RNK u protein, on je onemogućio da se bilo šta desi u ribozomu, isključio je funkcionisanje te organele u ćeliji i očekivao je da se neće stvoriti nijedan protein, pa ni tirocidin B1. Međutim, suprotno očekivanjima, nastavljena je proizvodnja nekih peptida, uključujući i tirocidine. Ovo je bilo izuzetno iznenađujuće otkriće.
 
-Fric Lipman, američko-nemački biohemičar, je 1969. godine  pokazao da tirocidini spadaju u grupu \textbf{ne-ribozomalnih peptida (NRP-ova)}. To su peptidi za čiju sintezu nisu odgovorni ribozomi i RNK polimeraza već enzimi poznati pod nazivom \textbf{NRP sintetaze}, molekuli koji se takođe nalaze u ćeliji i utiču na različite procese koji se dešavaju u njoj. To znači da se stvaranje tirocidina razlikuje od većeg broja proteina u živim bićima. 
+Fric Lipman (eng. \textit{Fritz Lipmann}), američko-nemački biohemičar, je 1969. godine  pokazao da tirocidini spadaju u grupu \textbf{ne-ribozomalnih peptida (NRP-ova)}. To su peptidi za čiju sintezu nisu odgovorni ribozomi i RNK polimeraza već enzimi poznati pod nazivom \textbf{NRP sintetaze}, molekuli koji se takođe nalaze u ćeliji i utiču na različite procese koji se dešavaju u njoj. To znači da se stvaranje tirocidina razlikuje od većeg broja proteina u živim bićima. 
 \\\\
 \indent Kako izgleda sinteza tirocidina B1 pomoću NRP sintetaze? Postoji veliki broj različitih NRP sintetaza, nije samo jedna odgovorna za stvaranje svih mogućih NRP-ova, nego za svaki ne-ribozomalni peptid postoji odgovarajuća NRP sintetaza. Ona NRP sintetaza koja je odgovorna za stvaranje tirocidina B1 se sastoji od 10 različitih podjedinica koje nazivamo \textit{moduli}. Svaki modul je odgovoran za nadovezivanje jedne aminokiseline na budući molekul tirocidina B1. Svaki od modula privuče jednu aminokiselinu i spoji je sa prethodnom, a poslednji korak jeste cirkularizacija -- spajanje aminokiselina nastalih uz pomoć prvog i poslednjeg modula radi kreiranja cikličnog peptida.
 
-\section{Sekvenciranje antibiotika razbijanjem na komade}
+\section{Sekvenciranje antibiotika razbijanjem na komade} \label{razbijanje}
 
-Pošto nam sekvenciranja genomske sekvence i pronalaženje odgovarajuće podniske koja je zadužena za translaciju u aminokiseline odgovarajućeg peptida ne može pomoći u sekvenciranju tirocidina B1 (jer on ne nastaje na osnovu informacije zapisane u DNK) postavljamo pitanje da li postoji način na koji možemo da sekvenciramo antibiotike. Moramo direktno da sekvenciramo peptid. Jedan od načina jeste \textbf{sekvenciranje razbijanjem na komade} i biće predstavljen u ovoj sekciji.
+Pošto nam sekvenciranje genomske sekvence i pronalaženje odgovarajuće podniske koja je zadužena za translaciju u aminokiseline odgovarajućeg peptida ne može pomoći u sekvenciranju tirocidina B1 (jer on ne nastaje na osnovu informacije zapisane u DNK), postavljamo pitanje da li postoji način na koji možemo da sekvenciramo antibiotike. Moramo direktno da sekvenciramo peptid. Jedan od načina jeste \textbf{sekvenciranje razbijanjem na komade} i biće predstavljen u ovoj sekciji.
 \\\\
 
-\indent U sekvenciranju antibiotika može nam pomoći mašina, skupa molekularna vaga, koja se naziva \textbf{maseni spektrometar}. Šta on radi? Za početak ćemo da se zapitamo kako možemo da merimo težinu, tačnije masu molekula. 
+\indent U sekvenciranju antibiotika može nam pomoći mašina koja se naziva \textbf{maseni spektrometar} i koju možemo opisati kao skupu molekularnu vagu. Šta on radi? Za početak ćemo da se zapitamo kako možemo da merimo težinu, tačnije masu molekula. 
 
-Pošto se molekuli sastoje od atoma, prvo treba da govorimo o masi pojedinačnog atoma. U atomima postoje protoni, neutroni i elektroni. Protoni i neutroni su približno iste mase, dok su elektroni izuzetno mali i gotovo zanemarljive mase. Zato, kada govorimo o masi jednog atoma, tako nešto  svodimo na masu protona, odnosno neutrona koji učestvuju u izgradnji konkretnog atoma koji posmatramo, pa se i masa molekula može svesti na računanje mase protona, odnosno neutrona. Maseni spektrometar vraća masu molekula izračunatu u \textbf{Daltonima}. 
+Pošto se molekuli sastoje od atoma, prvo treba da govorimo o masi pojedinačnog atoma. U atomima postoje protoni, neutroni i elektroni. Protoni i neutroni su približno iste mase, dok su elektroni izuzetno mali i gotovo zanemarljive mase. Zato masu jednog atoma možemo svesti na masu protona, odnosno neutrona koji učestvuju u izgradnji konkretnog atoma koji posmatramo, pa se i masa molekula može izračunati kao suma masa atoma koji ga čine. Maseni spektrometar vraća masu molekula izračunatu u \textbf{Daltonima}. 
 \begin{center}
 $1 \quad Dalton (Da) \approx masa \quad jednog \quad protona/neutrona$ \\
 $Masa \quad molekula \approx suma \quad masa \quad protona/neutrona$
@@ -164,13 +164,15 @@ Vidimo da u ovom algoritmu ispitujemo sve kandidate (peptide sa istom masom kao 
 	\label{slika:kolikoPeptida}
 \end{figure} 
 
+
 Vidimo da je ovaj algoritam grube sile eksponencijalne složenosti. Pod uslovom da imamo dovoljno brz računar, ovako nešto bismo i mogli da izračunamo. Ali, šta bi bili nedostaci ovog algoritma grube sile? Možemo da imamo dva peptida sa istom masom, a da su potpuno različiti. Na primer, peptid $NQEL$ i peptid $TMDH$ imaju masu 484. Kako možemo da isključimo pogrešan peptid? Za oba ova peptida možemo da generišemo teorijski spektar. Ispostavlja se da su njihovi spektri potpuno različiti. Želimo da ovu informaciju iskoristimo u sledećem pristupu rešavanja problema sekvenciranja ciklopeptida. Cilj nam je da ne idemo grubom silom već da ogroman broj kandidata od samog početka odstranimo.
+\newpage
 
-\subsection{Branch-and-Bound algoritam za sekvenciranje ciklopeptida}
+\subsection{\textit{Branch-and-Bound} algoritam za sekvenciranje ciklopeptida}
 
-U ovom pristupu postepeno konstruišemo kandidate za rešenja od manjih linearnih peptida za razliku od prethodnog pristupa u kome smo odmah generisali ceo peptid koji postaje kandidat. Na taj način ćemo smanjiti ukupan broj linearnih peptida koje posmatramo. Ovakav pristup se koristi kod \textbf{Branch-and-Bound algoritama} koji će biti opisani u nastavku.
+U ovom pristupu postepeno konstruišemo kandidate za rešenja od manjih linearnih peptida za razliku od prethodnog pristupa u kome smo odmah generisali ceo peptid koji postaje kandidat. Na taj način ćemo smanjiti ukupan broj linearnih peptida koje posmatramo. Ovakav pristup se koristi kod \textbf{\textit{Branch-and-Bound} algoritama} koji će biti opisani u nastavku.
 
-Kod Branch-and-Bound algoritama u celokupnom prostoru svih mogućih rešenja vršimo nekakva odsecanja. Počnemo od kratkog peptida dužine jedan, pa ga proširimo na sve moguće načine, odnosno, dodamo po jednu aminokiselinu i od toga napravimo sve moguće kandidate dužine dva. To je \textit{branch grana} i predstavljena je na slici \ref{slika:branch}. \textit{Bound grana} bi od postojećih kandidata, nastalih u branch granama, isključila neke potencijalne kandidate. Bound grana je predstavljena na slici \ref{slika:bound}. Postupak proširivanja i odsecanja ponavljamo sve dok ne dođemo do odgovarajućih vrednosti. Na ovaj način će nam ostati mnogo manje kandidata za rešenja nego u prethodnom pristupu grube sile.
+Kod \textit{Branch-and-Bound} algoritama u celokupnom prostoru svih mogućih rešenja vršimo nekakva odsecanja. Počnemo od kratkog peptida dužine jedan, pa ga proširimo na sve moguće načine, odnosno, dodamo po jednu aminokiselinu i od toga napravimo sve moguće kandidate dužine dva. To je \textit{branch grana} i predstavljena je na slici \ref{slika:branch}. \textit{Bound grana} bi od postojećih kandidata, nastalih u \textit{branch} granama, isključila neke potencijalne kandidate. \textit{Bound} grana je predstavljena na slici \ref{slika:bound}. Postupak proširivanja i odsecanja ponavljamo sve dok ne dođemo do odgovarajućih vrednosti. Na ovaj način će nam ostati mnogo manje kandidata za rešenja nego u prethodnom pristupu grube sile.
 
 \begin{minipage}{\textwidth}
 	\centering
@@ -178,7 +180,7 @@ Kod Branch-and-Bound algoritama u celokupnom prostoru svih mogućih rešenja vr�
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\textwidth]{poglavlja/4/slike/branch.png}
-			\caption{Branch grane algoritma Branch-and-Bound.}
+			\caption{\textit{Branch} grane algoritma \textit{Branch-and-Bound}.}
 			\label{slika:branch}
 		\end{figure} 
 	\end{minipage}
@@ -187,7 +189,7 @@ Kod Branch-and-Bound algoritama u celokupnom prostoru svih mogućih rešenja vr�
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\textwidth]{poglavlja/4/slike/bound.png}
-			\caption{Bound grane algoritma Branch-and-Bound.}
+			\caption{\textit{Bound} grane algoritma \textit{Branch-and-Bound}.}
 			\label{slika:bound}
 		\end{figure} 
 	\end{minipage}
@@ -198,13 +200,15 @@ Primenimo ovaj algoritam na konkretan problem. Recimo da nam je dat spektar
 \begin{center}
  0 97 97 99 101 103 196 198 198 200 202 295 297 299 299 301 394 396 398 400 400 497.
  \end{center} 
-\noindent  Vidimo da se u datom spektru nalaze mase nekih aminokiselina, što nam govori koje aminokiseline ulaze u sastav traženog peptida. Te aminokiseline su $P,V,T,C$ sa masama $97,99, 101, 103$. Ovo znači da možemo da počnemo ne sa svih 20 aminokiselina, nego sa 4 unigrama $P,V,T,C$. Ovo je unapred jedna bound grana jer smo 20 aminokiselina sveli na 4 kandidata aminokiselina. Zatim idemo na branch granu, širimo unigrame u sve moguće bigrame: $PA$, $PC$, $PD$,..$PY$, $VA$, $VC$, $VD$,...,$VY$, $TA$, $TC$, $TD$,..., $TY$, $CA$, $CC$, $CD$,..., $CY$. Proširujemo sa svih 20 aminokiselina jer ćemo kasniji videti da ovako zadati spektar jeste čisto teorijski spektar, a maseni spektrometar skoro nikada u praksi ne vraća teorijski spektar već spektar sa nekakvim greškama. Kako možemo da skratimo ovu listu, kako možemo da izvršimo korak bound u ovom trenutku? Posmatramo da li postoje odgovarajući bigrami koji se takođe pojavljuju u spektru. Zbog toga uvodimo pojam \textbf{konzistentnosti}.
+\noindent  Vidimo da se u datom spektru nalaze mase nekih aminokiselina, što nam govori koje aminokiseline ulaze u sastav traženog peptida. Te aminokiseline su $P,V,T,C$ sa masama $97,99, 101, 103$. Ovo znači da možemo da počnemo ne sa svih 20 aminokiselina, nego sa 4 unigrama $P,V,T,C$. Ovo je unapred jedna \textit{bound} grana jer smo 20 aminokiselina sveli na 4 kandidata aminokiselina. Zatim idemo na branch granu, širimo unigrame u sve moguće bigrame: $PA$, $PC$, $PD$,..$PY$, $VA$, $VC$, $VD$,...,$VY$, $TA$, $TC$, $TD$,..., $TY$, $CA$, $CC$, $CD$,..., $CY$. Proširujemo sa svih 20 aminokiselina jer ćemo kasniji videti da ovako zadati spektar jeste čisto teorijski spektar, a maseni spektrometar skoro nikada u praksi ne vraća teorijski spektar već spektar sa nekakvim greškama. Kako možemo da skratimo ovu listu, kako možemo da izvršimo korak \textit{bound} u ovom trenutku? Posmatramo da li postoje odgovarajući bigrami koji se takođe pojavljuju u spektru. Zbog toga uvodimo pojam \textbf{konzistentnosti}.
 
 \begin{definicija}
-$PV$ je \textbf{konzistentno} sa spektrom ukoliko se masa od $P$, masa od $V$ i masa od $PV$ nalaze u spektru.
+Za proizvoljan podpeptid $p_{1},..,p_{n}$ kažemo da je \textbf{konzistentan} sa spektrom $S$ ukoliko se svaka masa iz teorijskog spektra podpeptida  $p_{1},..,p_{n}$ nalazi u spektru $S$.
 \end{definicija}
 
-\noindent Konzistentnost ćemo koristiti u bound koraku, tačnije, izbacićemo sve bigrame koji nisu konzistentni sa spektrom. Tako dobijemo listu konzistentnih bigrama $PV$, $PT$, $PC$, $VP$, $VT$, $VC$, $TP$, $TV$, $CP$, $CV$ koju proširujemo u sve moguće $3$-grame, a zatim svodimo na listu samo konzistentnih $3$-grama. Postupak ponavljamo. Kada dođemo do liste konzistentnih pentagrama $PVCPT$, $PTPVC$, $PTPVC$, $PCVPT$, $VPTPC$, $VCPTP$, $TPVCP$, $TPCVP$, $CPTPV$, $CVPTP$ vidimo da zapravo svi oni pokazuju na jedan isti ciklični peptid.
+Na primer, $PV$ je \textbf{konzistentno} sa spektrom ukoliko se masa od $P$, masa od $V$ i masa od $PV$ nalaze u spektru.
+
+Konzistentnost ćemo koristiti u \textit{bound} koraku, tačnije, izbacićemo sve bigrame koji nisu konzistentni sa spektrom. Tako dobijemo listu konzistentnih bigrama $PV$, $PT$, $PC$, $VP$, $VT$, $VC$, $TP$, $TV$, $CP$, $CV$ koju proširujemo u sve moguće $3$-grame, a zatim svodimo na listu samo konzistentnih $3$-grama. Postupak ponavljamo. Kada dođemo do liste konzistentnih pentagrama $PVCPT$, $PTPVC$, $PTPVC$, $PCVPT$, $VPTPC$, $VCPTP$, $TPVCP$, $TPCVP$, $CPTPV$, $CVPTP$ vidimo da zapravo svi oni pokazuju na jedan isti ciklični peptid.
 
 Pseudokod opisanog algoritma dat je u nastavku.
 \begin{lstlisting}
@@ -225,11 +229,11 @@ begin
 end
 \end{lstlisting}
 
-Ispostavlja se da ovaj Branch-and-Bound algoritam može biti eksponencijalan za neke peptide, ali da je ovaj algoritam u praksi veoma brz.
+Podsetimo se da je složenost algoritma grube sile, koji ovde pokušavamo da poboljšamo, eksponencijalna. Ispostavlja se da \textit{Branch-and-Bound} algoritam takođe može biti eksponencijalne složenosti za neke peptide, ali je u praksi veoma brz.
 
 
 
-\section{Prilagođavanje sekvenciranje za spektre sa greškama}
+\section{Prilagođavanje sekvenciranje za spektre sa greškama} \label{greskeSpektri}
 
 Spektar koji smo do sada definisali jeste teorijski spektar. Za razliku od njega, spektar koji izlazi iz masenog spektrometra, \textbf{eksperimentalni spektar}, često sadrže greške. O kakvim greškama se govori biće prikazano pomoću slike \ref{slika:ekspSpektar}.
 
@@ -244,7 +248,7 @@ Spektar koji smo do sada definisali jeste teorijski spektar. Za razliku od njega
 
 \textbf{Nedostajuće mase} jesu mase koje su na slici \ref{slika:ekspSpektar} prikazane plavom bojom. To su mase koje se nalaze u okviru teorijskog spektra, ali ne i u okviru eksperimentalnog spektra.
 
-Zbog pojave ovih otežavajućih okolnosti, tj. grešaka u spektru, neophodno je da smislimo novi algoritam jer se kod dva predložena algoritma teorijski spektar peptida morao slagati sa eksperimentalnim spektrom. Sada moramo da olabavimo taj uslov pa uvodimo pojam \textbf{skor peptida}.
+Zbog pojave ovih otežavajućih okolnosti, tj. grešaka u spektru, neophodan je novi algoritam jer se kod dva predložena algoritma teorijski spektar peptida morao u potpunosti poklapati sa spektrom peptida koji je predstavljao rešenje problema. Sada moramo da olabavimo taj uslov pa uvodimo pojam \textbf{skor peptida}.
 
 \begin{definicija}
 \textbf{Skor peptida} pokazuje koliko masa njegov teorijski spektar deli sa eksperimentalnim spektrom.
@@ -252,9 +256,9 @@ Zbog pojave ovih otežavajućih okolnosti, tj. grešaka u spektru, neophodno je 
 
 \noindent Tako, za sliku \ref{slika:ekspSpektar}, skor iznosi 11. Želimo da skor bude što veći.
 
-S obzirom da imamo nov način upoređivanja, moramo da unapredimo naš Branch-and-Bound algoritam, konkretno korak odsecanja. 
+S obzirom da imamo nov način upoređivanja, moramo da unapredimo naš \textit{Branch-and-Bound} algoritam, konkretno korak odsecanja. 
 
-Uzmimo primer golfa. U golfu, kada igrači prođu prvi krug takmičenja, u sledeći krug prolaze dalje samo igrači koji su konkurentni, oni koji imaju šanse da nešto osvoje. To znači da možemo da kažemo da nam je odsecanje takvo da, na primer, prva tri igrača sa najboljim skorom idu dalje, a ukoliko imamo još neke igrače koji imaju isti skor kao poslednji igrač, onda i oni prolaze dalje. Znači, zadržavaju se tri najbolja igrača ,,with ties''. Ovakav sistem primenjen na Branch-and-Bound algoritam prikazan je u sledećem pseudokodu.
+Uzmimo primer golfa. U golfu, kada igrači prođu prvi krug takmičenja, u sledeći krug prolaze dalje samo igrači koji su konkurentni, oni koji imaju šanse da nešto osvoje. To znači da možemo da kažemo da nam je odsecanje takvo da, na primer, prva tri igrača sa najboljim skorom idu dalje, a ukoliko imamo još neke igrače koji imaju isti skor kao poslednji igrač, onda i oni prolaze dalje. Znači, zadržavaju se tri najbolja igrača \textit{,,with ties''}. Ovakav sistem primenjen na \textit{Branch-and-Bound} algoritam prikazan je u sledećem pseudokodu.
 
 \begin{lstlisting}
 LeaderboardCyclopeptideSequencing(Spectrum, N)
@@ -297,7 +301,7 @@ begin
 end
 \end{lstlisting}
 
-\noindent Leaderboard pristup omogućava da bolje definišemo za esperimentalni spektar kod Branch-and-Bound algoritma onu bound fazu kada treba da izbacimo neke kandidate. 
+\noindent \textit{Leaderboard} pristup omogućava da bolje definišemo za esperimentalni spektar kod \textit{Branch-and-Bound} algoritma onu bound fazu kada treba da izbacimo neke kandidate. 
 
 \subsection{Testiranje na spektru tirocidina B1}
 
@@ -307,15 +311,15 @@ Kada primenimo \textit{LeaderboardCyclopeptideSequencing} na spektar sa 10\% lo�
 
 Ovo znači da \textit{LeaderboardCyclopeptideSequencing} algoritam radi dobro kada nam je eksperimentalni spektar malo različit od teorijskog.
 
-\section{Od 20 do više od 100 aminokiselina}
+\section{Od 20 do više od 100 aminokiselina} \label{viseAmino}
 
 U ovoj sekciji biće reči o poboljšanju našeg algoritma uz uvođenje premisa koje postoje u stvarnosti, a koje smo do sada zanemarivali da bismo dali neke početne načine za rešavanje.
 
-Kada smo govorili o proteinima, rekli smo da 20 aminokiselina najčešće učestvuje u njihovoj izgradnji i da su za nas, sa računarske tačke gledišta, proteini niske nad azbukom od 20 karaktera i da postoji još veliki broj aminokiselina nezavisno od izgradnje proteina u ćelijama živih bića. U gentskom kodu postoje kodovi samo za tih 20 aminokiselina, i u tabeli celobrojnih masa aminokiselina postoje mase samo za iste te aminokiseline. S obzirom da u ovom poglavlju razmatramo NRP peptide, peptide koji ne nastaju prema pravilima centralne dogme,  onda ovi peptidi mogu da sadrže i neke nestandardne aminokiseline, one aminokiseline koje se ne nalaze među standardnih 20 aminokiselina. Na primer, tirocidin B sadrži nestandardnu aminokiselinu \textit{Ornitin (Orn)}. Za Ornitin ne postoji nukleotidni triplet u okviru genetskog koda na osnovu koga se ova aminokiselina dobija i ne postoji celobrojna masa u tabeli celobrojnih masa za aminokiseline. Možemo da pretpostavimo da bilo koji ceo broj između 57 i 200 (koliko nam iznosi najmanja i najveća masa standardnih aminokiselina) može biti masa neke nestandardne aminokiseline. Ovako nešto može da izgleda kao grubo ograničenje, ali je eksperimentalno potvrđeno da većina masa svih mogućih aminokiselina pripada ovom intervalu.
+Kada smo govorili o proteinima, rekli smo da 20 aminokiselina najčešće učestvuje u njihovoj izgradnji i da su za nas, sa računarske tačke gledišta, proteini niske nad azbukom od 20 karaktera i da postoji još veliki broj aminokiselina nezavisno od izgradnje proteina u ćelijama živih bića. U gentskom kodu postoje kodovi samo za tih 20 aminokiselina, i u tabeli celobrojnih masa aminokiselina postoje mase samo za iste te aminokiseline. S obzirom da u ovom poglavlju razmatramo NRP peptide, peptide koji ne nastaju prema pravilima centralne dogme,  onda ovi peptidi mogu da sadrže i neke nestandardne aminokiseline, one aminokiseline koje se ne nalaze među standardnih 20 aminokiselina. Na primer, tirocidin B sadrži nestandardnu aminokiselinu \textit{Ornitin (Orn)}. Za Ornitin ne postoji nukleotidni triplet u okviru genetskog koda na osnovu koga se ova aminokiselina dobija i ne postoji celobrojna masa u tabeli celobrojnih masa za aminokiseline. S ozbirom na to, možemo da pretpostavimo da bilo koji ceo broj između 57 i 200 (koliko nam iznosi najmanja i najveća masa standardnih aminokiselina) može biti masa neke nestandardne aminokiseline. Ovako nešto može da izgleda kao grubo ograničenje, ali je eksperimentalno potvrđeno da većina masa svih mogućih aminokiselina pripada ovom intervalu.
 
-Spektar u kome nismo ograničeni na tabelu od samo 18 celobrojnih masa, već uzimamo u obzir da bilo koji celi broj između 57 i 200 može da označava neku aminokiselinu, označavamo sa \textbf{prošireni spektar}. Kada primenimo Leaderboard algoritam na prošireni spektar sa 10\% lažnih i nedostajućih masa, peptid koji dobijemo $  VKLFPWFN-98-65 $ sadrži neke vrednosti za mase koje ne odgovaraju nijednoj aminokiselini. Pošto Leaderboard algoritam ovde ne daje ispravne vrednosti, moramo da primenimo jedan sasvim novi princip.
+Spektar u kome nismo ograničeni na tabelu od samo 18 celobrojnih masa, već uzimamo u obzir da bilo koji celi broj između 57 i 200 može da označava neku aminokiselinu, nazivamo \textbf{prošireni spektar}. Kada primenimo Leaderboard algoritam na prošireni spektar sa 10\% lažnih i nedostajućih masa, peptid koji dobijemo $  VKLFPWFN-98-65 $ sadrži neke vrednosti za mase koje ne odgovaraju nijednoj aminokiselini. Pošto Leaderboard algoritam ovde ne daje ispravne vrednosti, moramo da primenimo jedan sasvim novi princip.
 
-\section{Spektralna konvolucija}
+\section{Spektralna konvolucija} \label{konvolucija}
 
 Kod algoritma sa proširenim spektrom podrazumeva se da svi celi brojevi između 57 i 200 odgovaraju masama aminokiselina. To znači da razmatramo 144 ili više (znamo da jednoj masi može da odgovara više aminokiselina, a sa druge strane postoje vrednosti kojima ne odgovara nijedna) aminokiselina u koje spadaju i standardne i nestandardne aminokiseline. Želimo da smanjimo broj aminokiselina koje razmatramo. 
 
@@ -351,9 +355,9 @@ begin
 end
 \end{lstlisting}
 
-Algoritam  \textit{ConvolutionCyclopeptideSequencing} daje tačan rezultat i za spektre sa šumom od 10\% i za spektre sa šumom od 25\%. Ovo govori da je spektralna konvolucija odgovorila na sve izazove koji su postavljeni.
+Algoritam  \textit{ConvolutionCyclopeptideSequencing} daje tačan rezultat i za spektre sa šumom od 10\% i za spektre sa šumom od 25\%, što pokazuje da je spektralna konvolucija odgovorila na sve izazove koji su postavljeni.
 
-\section{Spektri u realnosti}
+\section{Spektri u realnosti} \label{realnost}
 
 Kao što znamo, realnost je obično drugačija. Neke poteškoće iz realnosti smo zanemarivali. Koje?
 \begin{itemize}
@@ -387,3 +391,7 @@ U nastavku će biti predstavljeni zadaci sa vežbi na kursu rađeni u programsko
 \subsection{Cyclopeptide Sequencing}
 
 \lstinputlisting[language=Python]{poglavlja/4/kodovi/CyclopeptideSequencing.py}
+
+\subsection{Leaderboard Cyclopeptide Sequencing}
+
+\lstinputlisting[language=Python]{poglavlja/4/kodovi/LeaderboardCyclopeptideSequencing.py}
