@@ -483,9 +483,23 @@ return %$s_{sink}$%
 \end{itemize}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%jasminaaaaaa%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Od globalnog do lokalnog poravnanja}
 
+Uvedimo sledeće:
+\begin{itemize}
+    \item Skor poravnanja do sada - $\#\textcolor{red}{matches}$ \\
+    \item Skor sa mismatch i indel kaznama - $\#\textcolor{red}{matches} - \textcolor{purple}{\mu} * \#\textcolor{purple}{mismatches} - \sigma * \#\textcolor{blue}{in}\textcolor{green}{dels}$ \\
+\end{itemize}
 
+Primer na slici \ref{slika:matriceSkora}. \\
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{poglavlja/5/slike/matriceSkora.JPG}
+\caption{}
+\label{slika:matriceSkora}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Kažnjavanje insercija i delecija u poravnanju sekvenci}
@@ -562,7 +576,7 @@ Ako imamo putanju poput one na slici \ref{slika:kakoSimulirati}, kako da je pred
 \end{figure}
 
 
-\begin{figure}[]
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{poglavlja/5/slike/simulacija.png}
 \caption{Simulacija Menhetn grafa na 3 nivoa}
@@ -574,7 +588,7 @@ Ako imamo putanju poput one na slici \ref{slika:kakoSimulirati}, kako da je pred
 \section{Prostorno efikasno poravnanje sekvenci}
 
 Zapitajmo se sledeće: \\
-Da li možemo poravnati NPR sintetaze iz dve rayličite bakterije? \\
+Da li možemo poravnati NPR sintetaze iz dve različite bakterije? \\
 \\
 
 Uzmimo u obzir sledeće činjenice:
@@ -585,6 +599,106 @@ Uzmimo u obzir sledeće činjenice:
     \item \textbf{Memorija je često usko grlo pri poređenju dugih sekvenci}
 \end{itemize}
 
+Iz prethodnog zaključujemo da nam prostorna složensot pravi problem i da bi za prosečan racunar ovo bilo nemoguće da izračuna.
+Stoga, potreban nam je drugi pristup koji će nam rešiti problem. Potreban nam je algoritam koji zahteva linearnu prostornu složenost i udvostručenu vremensku složenost. U te svrhe najčešće se koristi algoritam koji radi po principu podeli-pa-vladaj. \\
+
+Uvedimo nove pojmove:
+\begin{itemize}
+    \item Srednja kolona poravnanja (middle) $= \#columns/2$, slika \ref{slika:srednjaKolona}
+    \item Srednji čvor poravnanja - čvor u preseku putanje optimalnog poravnanja i srednje kolone, slika \ref{slika:srednjiCvor}
+\end{itemize}
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{poglavlja/5/slike/srednjaKolona.JPG}
+\caption{Srednja kolona poravnanja}
+\label{slika:srednjaKolona}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{poglavlja/5/slike/srednjiCvor.JPG}
+\caption{Srednji čvor poravnanja}
+\label{slika:srednjiCvor}
+\end{figure}
+
+Koristeći navedene pojmove, demonstrirajmo algoritam \textbf{Podeli-pa-vladaj} za poravnanje sekvenci, slika \ref{slika:podeliPaVladaj}: \\
+
+\begin{lstlisting}
+AlignmentPath(source, sink)
+    find middleNode
+    AlignmentPath(source, middleNode)
+    AlignmentPath(middle, sink)
+\end{lstlisting}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{poglavlja/5/slike/podeliPaVladaj.JPG}
+\caption{Srednja kolona poravnanja}
+\label{slika:podeliPaVladaj}
+\end{figure}
+
+\subsection{Prostorna složenost}
+Za nalaženje najduže putanje u grafu poravnanja traži se čuvanje svih putokaza za - $O(nm)$ prostora. \\
+Međutim, za nalaženje dužine najduže putanje u grafu poravnanja ne traži se čuvanje svih putokaza - $O(n)$ prostora, slika \ref{slika:prostornaSlozenost}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{poglavlja/5/slike/prostornaSlozenost2.JPG}
+\caption{Recikliranje prostora za kolone u grafu poravnanja}
+\label{slika:prostornaSlozenost}
+\end{figure}
+
+Dobijamo da je prostor potreban za algoritam $2*n \sim O(n)$, odnosno, linearan. \\
+
+\subsection{Vremenska složenost}
+
+Neka je \textbf{i-putanja} najduža putanja od svih putanja koja posećuje i-ti čvor u srednjoj koloni i neka je \textbf{$length(i)$} dužina i-putanje.\\
+
+Na slici \ref{slika:iputanja} vidimo da je $length(0)=2$ i $length(4)=4$. \\
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{poglavlja/5/slike/i_putanje.JPG}
+\caption{Računanje length(i)}
+\label{slika:iputanja}
+\end{figure}
+
+
+$length(i)$ možemo računati na sledeći način:
+\begin{center}
+$length(i) = fromSource(i) + toSink(i)$
+\end{center}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{poglavlja/5/slike/i_putanje.JPG}
+\caption{Računanje length(i)}
+\label{slika:iputanja}
+\end{figure}
+
+Na slici \ref{slika:sourceSink} vidimo koliko je potrebno vremena za nalaženje srednjeg čvora - čak $O(nm)$ vremena za nalaženje samo jednog čvora!
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{poglavlja/5/slike/sourceSink.JPG}
+\caption{Računanje vremena za nalaženje srednjeg čvora}
+\label{slika:sourceSink}
+\end{figure}
+
+Svaki problem se može rešiti u vremenu proporcionalnom broju grana tj. površini koju zauzima. \\
+Vreme potrebno za rešavanje naredna dva potproblema: $area/4 + area/4 = area/2$, znači  $O(nm + nm/2)$ vremena za nalaženje 3 čvora. \\
+Dakle, vreme potrebno za nalaženje svih čvorova je: $area + area/2 + area/4 + area/8 + \dots < 2 * area$! Slika \ref{slika:vreme} vizuelno prikazuje vreme potrebno za nalaženje 7 tačaka. \\
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{poglavlja/5/slike/vremenskaSlozenostPPV.JPG}
+\caption{Računanje vremena za nalaženje 7 tačaka}
+\label{slika:vreme}
+\end{figure}
+
+Pokazali smo da je vremenska složenost $2*n*m \sim O(n*m)$. \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Višestruko poravnanje sekvenci}
