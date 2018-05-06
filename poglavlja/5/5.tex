@@ -31,26 +31,22 @@ Ovi primeri navode nas da definisemo dobro poravnanje kao ono koje ima najveći 
 %%%%%%%%%%%%%%%%%%%%%%%% ALEX
 \section{Igra poravnanja i najduža zajednička podsekvenca}
 
-Kod \textbf{Igre poravnavanja} cilj je ukloniti sve simbole iz
+Kod \textbf{Igre poravnanja} cilj je ukloniti sve simbole iz
 sekvenci tako da pritom sakupimo što više poena :
 \begin{itemize}
     \item Uklanjanje prvog simbola iz svake sekvence
-        \begin{itemize}
-            \item 1 poen ako se simboli poklapaju
-            \item 0 ako se simboli ne poklapaju
-        \end{itemize}
+            \item \textcolor{red}{1} poen ako se simboli poklapaju,  \textcolor{purple}{0} ako se simboli ne poklapaju
     \item Uklanjanje prvog simbola iz jedne sekvnce
          \begin{itemize}
             \item 0 poena
         \end{itemize}
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
-\includegraphics[width=\textwidth]{poglavlja/5/slike/igraPoravnavanja.png}
-\caption{Igra poravnavanja}
+\includegraphics[width=0.7\textwidth]{poglavlja/5/slike/igraPoravnavanja.png}
+\caption{Igra poravnanja}
 \end{figure} 
-
 
 \textbf{Poravnanje} dve sekvence predstavlja matricu koja ima dva reda:
 
@@ -58,9 +54,9 @@ sekvenci tako da pritom sakupimo što više poena :
     \item red: simboli prve sekvence (redom) eventualno sa ubačenim “-” 
     \item red: simboli druge sekvence (redom) eventualno sa ubačenim “-” 
 \end{enumerate}
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
-\includegraphics[width=\textwidth]{poglavlja/5/slike/poravnanje.png}
+\includegraphics[width=0.4\textwidth]{poglavlja/5/slike/poravnanje.png}
 \caption{Poravnanje}
 \label{slika:poravnavanje}
 \end{figure} 
@@ -68,7 +64,11 @@ sekvenci tako da pritom sakupimo što više poena :
 \subsection{Najduža zajednička podsekvenca}
 
 Poklapanja (matches) u poravnanju dve sekvence ( u primeru \ref{slika:poravnavanje} to je ATGT) formiraju njihovu zajedničku podsekvencu.
-
+\begin{problem}[Problem najduže zajedničke podniske]
+	Naći najdužu zajedničku podsekvencu dve niske. \\
+	Ulaz: Dve niske. \\
+	Izlaz: Najduža zajednička podsekvenca ovih niski
+\end{problem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Problem turiste na Menhetnu}
@@ -147,8 +147,8 @@ Dijagonalne crvene grane odgovaraju poklapanju simbola i imaju skor 1 (\ref{slik
 
 \begin{problem}[Problem vraćanja kusura]
 	Naći minimalan broj novčića neophodnih za vraćanje kusura. \\
-	$Ulaz: Ceo broj money i niz pozitivnih celih brojeva (coin_1, coin_2, ..., coin_d). \\$
-	$Izlaz: Minimalan broj novčića (coin_1, coin_2, ..., coin_d) u apoenima koji rasitnjava sumu money.$
+	Ulaz: Ceo broj money i niz pozitivnih celih brojeva $(coin_1, coin_2, ..., coin_d)$. \\
+	Izlaz: Minimalan broj novčića $(coin_1, coin_2, ..., coin_d)$ u apoenima koji rasitnjava sumu money. \\
 \end{problem}
 
 \subsection{Pohlepni algoritam}
@@ -351,16 +351,17 @@ return %$s_n,_m$%
 
 \subsection{Rekurentna relacija dinamičkog programiranja kod grafa poravnanja}
 
-Gledajući sliku \ref{slika:povratak} možemo da vidimo da se najduži put od (0,0) do (i,j) računa:
+
+Najduži put (slika \ref{slika:povratak}) od (0,0) do (i,j) se računa:
 
 
 $s_i,_j$ = $\max$ $\begin{cases}$
 $s_{i-1},_j$ + 
-$\textcolor{green}{weight of edge "\downarrow"into (i,j)}\\$
+$\textcolor{green}{weight\ of\ edge\ "\downarrow"\ into\ (i,j)}\\$
 $s_i,_{j-1}$ + 
-$\textcolor{blue}{weight of edge "\rightarrow"into (i,j)}\\$
+$\textcolor{blue}{weight\ of\ edge\ "\rightarrow"\ into\ (i,j)}\\$
 $s_{i-1},_{j-1}$ + 
-$\textcolor{red}{weight of edge "\searrow"into (i,j)}$
+$\textcolor{red}{weight\ of\ edge\ "\searrow"\ into\ (i,j)}$
 $\end{cases}$
 
 Što dalje daje :
@@ -374,7 +375,7 @@ $\end{cases}$
 
 
 
-\begin{figure}[]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{poglavlja/5/slike/graf1.png}
 \caption{ Crvene grane težina 1, ostale grane težina 0, $v_i$ i $w_j$ oznake vrste i kolone}
@@ -384,7 +385,7 @@ $\end{cases}$
 
 U slici \ref{slika:backtrack} se vide boldovane grane koje su nastale primenom pravila rekurentne relacije. One predstavljaju putokaze za povratak (backtrack) kod grafa za najdužu zajedničku podsekvencu. 
 
-\begin{figure}[]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{poglavlja/5/slike/backtrack.png}
 \caption{Putokazi za povratak (backtrack)}
@@ -393,19 +394,38 @@ U slici \ref{slika:backtrack} se vide boldovane grane koje su nastale primenom p
 
 \subsection{Računanje putokaza za povratak }
 
-%% FORMULA!!
+$s_i,_j$ $\leftarrow$ $\max$ $\begin{cases}$
+$\textcolor{green}{s_{i-1},_j + 0}\\$
+$\textcolor{blue}{s_i,_{j-1} + 0}\\$
+$\textcolor{red}{s_{i-1},_{j-1} + 1, v_i = w_j}\\$
+$\textcolor{red}{s_{i-1},_{j-1} + 0, v_i \neq w_j}$
+$\end{cases}$
 
-Podsetimo se sada kako bismo rekontruisali putanju preko putokaza kod Menhetn grafa? Krenuli bismo od krajnjeg čvora (sink) i pratili putokaze u obrnutom smeru do početnog čvora (source) \ref{slika:rek3}.
-\begin{figure}[]
+
+$backtrack_i,_j$  $\leftarrow$  $\max$ $\begin{cases}$
+$\textcolor{blue}{ "\rightarrow", s_i,_j = s_{i},_{j-1}}\\$
+$\textcolor{green}{ "\downarrow", s_i,_j = s_{i-1},_j}\\$
+$\textcolor{red}{"\searrow", otherwise}$
+$\end{cases}$
+
+
+Podsetimo se sada kako bismo rekontruisali putanju preko putokaza kod Menhetn grafa? Krenuli bismo od krajnjeg čvora (sink) i pratili putokaze u obrnutom smeru do početnog čvora (source) \ref{slika:rek3}.\\
+\begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\textwidth]{poglavlja/5/slike/rek3.png}
 \caption{Rekonstrukcija putanje preko putokaza kod Menhetn grafa}
 \label{slika:rek3}
 \end{figure}
 
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{poglavlja/5/slike/backtrackNajduzaZajPS.png}
+\caption{Backtracking}
+\label{slika:backNZPS}
+\end{figure}
+Sada na slici \ref{slika:backNZPS} možemo videti povratak (backtracking) kod grafa za najdužu zajedničku podsekvencu.
 
-
-\subsection{Određivanje najduže zajedničke podsekvence (LCS – longest common subsequence) korišćenjem putokaza za povratakc}
+\subsection{Određivanje najduže zajedničke podsekvence (LCS – longest common subsequence) korišćenjem putokaza za povratak}
 
 \begin{lstlisting}
 OutputLCS (backtrack, v, i, j)
@@ -424,7 +444,7 @@ Do sada smo pretpostavljali da graf u kom tražimo
 najdužu putanju ima samo tri vrste grana. Da li se OutputLCS može generalizovati tako da važi i za grafove koji nemaju tako specifičnu
 topologiju?\\
 Kako se rekurentna relacija dinamičkog programiranja menja za ovakav graf? \ref{slika:rekRel}
-\begin{figure}[]
+\begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{poglavlja/5/slike/rekurentaRelDinProg.png}
 \caption{}
@@ -432,18 +452,17 @@ Kako se rekurentna relacija dinamičkog programiranja menja za ovakav graf? \ref
 \end{figure}
 \\
 
-\textit{$s_a$ = $max_{all predecessors b of node a}{s_b+ weight of edge from b to a}$}
+\textit{$s_a$ = $max_{all\ predecessors\ b\ of\ node\ a}$\{$s_b$+ weight of edge from b to a\}}
 \\
 
 Računanje skora za SVE prethodnike \ref{slika:racunanje}.
 
-\begin{figure}[]
+\begin{figure}[h]
 \centering
-\includegraphics[width=0.5\textwidth]{poglavlja/5/slike/racunanje.png}
+\includegraphics[width=0.7\textwidth]{poglavlja/5/slike/racunanje.png}
 \caption{Začarani krug}
 \label{slika:racunanje}
 \end{figure}
-
 
 \begin{itemize}
     \item Kod ovakve rekurentne relacije, važno je da pri računanju $s_a$ imamo izračunate $s_b$ za sve čvorove prethodnike b (čvorovi za koje
@@ -460,7 +479,7 @@ težinskom grafu? Odgovor je \textbf{nije}. Da bismo kod svakog čvora mogli da 
 \begin{itemize}
     \item \textbf{Topološko sortiranje} : Sortiranje čvorova DAG-a u nizu tako da sve grane u takvom nizu idu s leva na desno.
     \item \textbf{ Teorema}: Svaki DAG se može topološki sortirati.
-    \item Topološko sortiranje svakog DAG-a se obavlja za O(edges) koraka.
+    \item Topološko sortiranje svakog DAG-a se obavlja za O(\#edges) koraka.
 \end{itemize}
 
 \textbf{Algoritam za nalaženje najduže putanje u DAG-u>} :
@@ -468,25 +487,24 @@ težinskom grafu? Odgovor je \textbf{nije}. Da bismo kod svakog čvora mogli da 
 \begin{lstlisting}
 LongestPath(Graph, source, sink)
 for each node a in Graph
-     %$s_a$% %$\leftarrow$% -infinity
-%$s_source$% %$\leftarrow$%  0
+     %$s_a$% %$\leftarrow$% -%$\infty$%
+%$s_{source}$% %$\leftarrow$%  0
 topologically order Graph
 for each node a (from source to sink in topological order)
-%$s_a$%  %$\leftarrow$% %$max_{all predecessors b of node a}$% {%$s_b$% + weight of edge from b to a}
+%$s_a$%  %$\leftarrow$% %$max_{all\ predecessors\ b\ of\ node\ a}$% {%$s_b$% + weight of edge from b to a}
 return %$s_{sink}$%
 \end{lstlisting}
 
 
 \begin{itemize}
-    \item Pošto svaka grana učestvuje tačno jednom, složenost je O(edges)
+    \item Pošto svaka grana učestvuje tačno jednom, složenost je O(\#edges)
     \item LongestPath vraća dužinu najdužeg zajedničkog podniza ali ne rekonstruiše putanju
 \end{itemize}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%jasminaaaaaa%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Od globalnog do lokalnog poravnanja}
 
-Uvedimo sledeće:
+\noindent Uvedimo sledeće:
 \begin{itemize}
     \item Skor poravnanja do sada - $\#\textcolor{red}{matches}$ \\
     \item Skor sa mismatch i indel kaznama - $\#\textcolor{red}{matches} - \textcolor{purple}{\mu} * \#\textcolor{purple}{mismatches} - \sigma * \#\textcolor{blue}{in}\textcolor{green}{dels}$ \\
@@ -494,12 +512,165 @@ Uvedimo sledeće:
 
 Primer na slici \ref{slika:matriceSkora}. \\
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{poglavlja/5/slike/matriceSkora.JPG}
 \caption{}
 \label{slika:matriceSkora}
 \end{figure}
+
+Navedimo rekurentnu relaciju dinamičkog programiranja kod grafa poravnanja. Počinjemo od:
+
+$s_i,_j$ = $\max$ $\begin{cases}$
+$s_{i-1},_j$ + 
+$\textcolor{green}{weight\ of\ edge\ "\downarrow"\ into\ (i,j)}\\$
+$s_i,_{j-1}$ + 
+$\textcolor{blue}{weight\ of\ edge\ "\rightarrow"\ into\ (i,j)}\\$
+$s_{i-1},_{j-1}$ + 
+$\textcolor{red}{weight\ of\ edge\ "\searrow"\ into\ (i,j)}$
+$\end{cases}$
+
+Odnosno, \\
+\\
+$s_i,_j$ = $\max$ $\begin{cases}$
+$\textcolor{green}{s_{i-1},_j - \sigma}\\$
+$\textcolor{blue}{s_i,_{j-1} - \sigma}\\$
+$\textcolor{red}{s_{i-1},_{j-1} + 1, v_i = w_j}\\$
+$\textcolor{purple}{s_{i-1},_{j-1} - \mu, v_i \neq w_j}\\$
+$\end{cases}$
+\\
+A uz pomoc funkcije $score()$ može se zapisati i kao: \\
+\\
+
+\begin{figure}[!htb]
+     \begin{minipage}{0.49\textwidth}
+        $s_i,_j$ = $\max$ $\begin{cases}$
+        $\textcolor{green}{s_{i-1},_j + score(v_i, -)}\\$
+        $\textcolor{blue}{s_i,_{j-1} + score(-, w_j)}\\$
+        $\textcolor{red}{s_{i-1},_{j-1} score(v_i, w_j)}\\$
+        $\end{cases}$
+     \end{minipage}
+     \hfill
+     \begin{minipage}{0.49\textwidth}
+       \includegraphics[width=\linewidth]{poglavlja/5/slike/rekurentna.JPG}
+       \caption{}\label{}
+     \end{minipage}
+   \end{figure}
+   
+\subsection{Globalno poravnanje}
+
+\begin{problem}[Problem globalnog poravnanja]
+	Naći poravnanje sa najvišim skorom između dve niske za datu matricu skora. \\
+	Ulaz: Niske v i w, kao i matrica skora score \\
+	Izlaz: Poravnanje niski v i w čiji je skor poravnanja (prema matrici skora) maksimalan od svih mogućih poravnanja v i w. 
+\end{problem}
+
+\noindent Šta bi bili homeobox geni? \\
+\begin{itemize}
+    \item Dva gena u različitim vrstama mogu biti slična u kratkim, konzervativnim regionima, a različita u ostalim delovima.
+    \item Homeobox geni sadrže kratak region homeodomen koji je čvrsto konzerviran među različitim vrstama.
+    \item Globalno poravnanje može da propusti nalaženje homeodomena jer pokušava da poravna sekvence u celosti.
+\end{itemize}
+
+\noindent Uporedimo sledeća dva poravnanja: \\
+\begin{figure}[!htb]
+ \begin{minipage}{0.49\textwidth}
+    \includegraphics[width=\linewidth]{poglavlja/5/slike/globalno.JPG}
+   \caption{}\label{}
+   score = 22(matches) - 2(indent) = 2
+ \end{minipage}
+ \hfill
+ \begin{minipage}{0.49\textwidth}
+   \includegraphics[width=\linewidth]{poglavlja/5/slike/lokalno.JPG}
+   \caption{}\label{}
+   score = 17 (matches) - 30(indent) = -13
+ \end{minipage}
+\end{figure}
+   
+\begin{figure}[!htb]
+ \begin{minipage}{0.49\textwidth}
+    \includegraphics[width=\linewidth]{poglavlja/5/slike/grafik_poravnanje1.JPG}
+   \caption{}\label{}
+ \end{minipage}
+ \hfill
+ \begin{minipage}{0.49\textwidth}
+   \includegraphics[width=\linewidth]{poglavlja/5/slike/grafik_poravnanje2.JPG}
+   \caption{}\label{}
+ \end{minipage}
+\end{figure}
+
+\noindent Ako se zapitamo koje od njih je bolje, iz priloženog zaključujemo da je to lokalno poravnanje.\\
+
+\subsection{Lokalno poravnanje}
+
+Lokalno poravnanje računamo kao globalno poravnanje u pravougaoniku, pogledajmo sliku \ref{slika:pravougaonici}. \\
+
+\begin{figure}[H]
+ \begin{minipage}{0.49\textwidth}
+    \includegraphics[width=\linewidth]{poglavlja/5/slike/lokalno_poravnanje_pravougaonici1.JPG}
+   \caption{}\label{}
+ \end{minipage}
+ \hfill
+ \begin{minipage}{0.49\textwidth}
+   \includegraphics[width=\linewidth]{poglavlja/5/slike/lokalno_poravnanje_pravougaonici2.JPG}
+   \caption{}\label{slika:pravougaonici}
+ \end{minipage}
+\end{figure}
+
+\noindent Da bismo dobili lokalno poravnanje potrebno je da izračunamo globalno poravnanje u okviru svakog pravougaonika.\\
+Algoritam globalnog poravnanja ponovićemo između svaka dva čvora, ne samo između početnog (source) i krajnjeg (sink). \\
+Stoga, broj ponavljanja algoritma će biti $\#nodes ^ 2$ puta. \\
+
+\begin{problem}[Problem lokalnog poravnanja]
+	Naći lokalno poravnanje najvećeg skora između dve niske. \\
+	Ulaz: Niske v i w, kao i matrica skora score \\
+	Izlaz: Podniske niski v i w čije je globalno poravnanje (prema matrici skora) maksimalno među svim globalnim poravnanjima svih podniski niski v i w. 
+\end{problem}
+
+\noindent Zamislimo da postoji taksi koji bi nas besplatno vozio do tačke početka lokalnog poravnanja, i od tačke završetka lokalnog poravnanja pa do kraja. Na taj način ne bismo skupili negativne poene, već samo pozitivne. Ovakva vožnja nam daje samo skor lokalnog poravnanja kao što smo i želeli. \ref{slika:taksiFree}\\
+ 
+ \begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{poglavlja/5/slike/free_taxi.JPG}
+\caption{Besplatne taksi vožnje}
+\label{slika:taksiFree}
+\end{figure} 
+
+Konstruišimo Menhetn graf za problem lokalnog poravnanja: \\
+
+\begin{figure}[H]
+     \begin{minipage}{0.59\textwidth}
+        Kako bi izgledao Menhetn graf za nas problem? \\
+        Dodamo grane težine 0 od (0,0) do svakog čvora, i od svakog čvora do (n,m). \\
+        Ukupan broj dodatih grana je $O(|v|+|w|)$, pa algoritam ostaje brz. \\
+     \end{minipage}
+     \hfill
+     \begin{minipage}{0.39\textwidth}
+       \includegraphics[width=\linewidth]{poglavlja/5/slike/free_taxi_graf.JPG}
+       \caption{Menhetn graf za lokalno poravnanje}\label{}
+    \end{minipage}
+\end{figure}
+
+Problem rešavamo dinamičkim programiranjem: \\
+
+\begin{figure}[H]
+     \begin{minipage}{0.59\textwidth}
+        $s_i,_j$ = $\max$ $\begin{cases}$
+        $s_{i-1},_j$ + 
+        $\textcolor{green}{weight\ of\ edge\ "\downarrow"\ into\ (i,j)}\\$
+        $s_i,_{j-1}$ + 
+        $\textcolor{blue}{weight\ of\ edge\ "\rightarrow"\ into\ (i,j)}\\$
+        $s_{i-1},_{j-1}$ + 
+        $\textcolor{red}{weight\ of\ edge\ "\searrow"\ into\ (i,j)}$
+        $\end{cases}$
+     \end{minipage}
+     \hfill
+     \begin{minipage}{0.39\textwidth}
+       \includegraphics[width=\linewidth]{poglavlja/5/slike/lokalno_poravnanje_0.JPG}
+       \caption{weight of (0,0) into (i,j) = 0}\label{}
+    \end{minipage}
+\end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Kažnjavanje insercija i delecija u poravnanju sekvenci}
@@ -513,7 +684,7 @@ kod lokalnog poravnanja kada možemo imati 100 uzastopnih indela.
     \item Niz od k uzastopnih indela često predstavlja jedan isti evolucioni događaj, ne k različitih, slika \ref{slika:kaznjavanje}
 \end{itemize}
 
-\begin{figure}[]
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{poglavlja/5/slike/kaznjavanjePraznina.png}
 \caption{}
@@ -522,7 +693,7 @@ kod lokalnog poravnanja kada možemo imati 100 uzastopnih indela.
 
 \subsection{Adekvatnije kazne za praznine}
 
-Afina kazna za praznine za prazninu dužine k:  \textbf{$\sigma+\epsilon*(k-1)$}
+\textbf{Afina kazna za praznine} za prazninu dužine k:  \textbf{$\sigma+\epsilon*(k-1)$}
 \begin{itemize}
     \item $\sigma$ kazna za \textbf{otvaranje} praznine
     \item $\epsilon$ kazna za \textbf{proširenje} praznine
@@ -533,7 +704,7 @@ Afina kazna za praznine za prazninu dužine k:  \textbf{$\sigma+\epsilon*(k-1)$}
 
 U slici \ref{slika:modelovanje} prikayano je modelovanje afinih kazni za praznine pomoću dugih grana.
 
-\begin{figure}[]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\textwidth]{poglavlja/5/slike/modelovanjePomocuDugihGrana.png}
 \caption{Modelovanje afinih kazni za praznine pomoću dugih grana}
@@ -542,7 +713,7 @@ U slici \ref{slika:modelovanje} prikayano je modelovanje afinih kazni za praznin
 
 \subsection{Izgradnja Menhetn grafa sa afinim kaznama za praznine}
 
-\begin{figure}[]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{poglavlja/5/slike/MenhettnAifnePraznine.png}
 \caption{Dodali smo $O(n^3)$ grana}
@@ -558,17 +729,17 @@ $O(n^3)$ \ref{slika:afiniMenhetn})
 \end{itemize}
 
 
-\begin{figure}[]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth]{poglavlja/5/slike/triNivoa.png}
 \caption{Podela Menhetna grafa na 3 nivoa}
 \label{slika:triNivoa}
 \end{figure}
 
-Ako imamo putanju poput one na slici \ref{slika:kakoSimulirati}, kako da je predsavimo pomoću Menhetn grafa na 3 nivoa? Rešenje je prikazano na slici \ref{slika:simulacija}
+Ako imamo putanju poput one na slici \ref{slika:kakoSimulirati}, kako da je predstavimo pomoću Menhetn grafa na 3 nivoa? Rešenje je prikazano na slici \ref{slika:simulacija}
 
 
-\begin{figure}[]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{poglavlja/5/slike/kakoSimulirari.png}
 \caption{Kako predstaviti pomoću Menhetn grafa na 3 nivoa?}
@@ -576,9 +747,9 @@ Ako imamo putanju poput one na slici \ref{slika:kakoSimulirati}, kako da je pred
 \end{figure}
 
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
-\includegraphics[width=0.5\textwidth]{poglavlja/5/slike/simulacija.png}
+\includegraphics[width=0.7\textwidth]{poglavlja/5/slike/simulacija.png}
 \caption{Simulacija Menhetn grafa na 3 nivoa}
 \label{slika:simulacija}
 \end{figure}
@@ -594,12 +765,12 @@ Da li možemo poravnati NPR sintetaze iz dve različite bakterije? \\
 Uzmimo u obzir sledeće činjenice:
 \begin{itemize}
     \item NPR sintetaze su obično veoma dugi proteini, približno 20 000 aminokiselina
-    \item Vremenska složenost poravnanja je ~ #edges, odnosno kvadratna
-    \item Prostorna složenost poravnanja je ~ #nodes, odnosno kvadratna
+    \item Vremenska složenost poravnanja je probližno jednaka broju ivica (\#edges), odnosno kvadratna
+    \item Prostorna složenost poravnanja je probližno jednaka broju čvorova (\#nodes), odnosno kvadratna
     \item \textbf{Memorija je često usko grlo pri poređenju dugih sekvenci}
 \end{itemize}
 
-Iz prethodnog zaključujemo da nam prostorna složensot pravi problem i da bi za prosečan racunar ovo bilo nemoguće da izračuna.
+Iz prethodnog zaključujemo da nam prostorna složensot pravi problem i da bi za prosečan racunar ovo bilo nemoguće da izračuna. 
 Stoga, potreban nam je drugi pristup koji će nam rešiti problem. Potreban nam je algoritam koji zahteva linearnu prostornu složenost i udvostručenu vremensku složenost. U te svrhe najčešće se koristi algoritam koji radi po principu podeli-pa-vladaj. \\
 
 Uvedimo nove pojmove:
@@ -609,14 +780,14 @@ Uvedimo nove pojmove:
 \end{itemize}
 
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{poglavlja/5/slike/srednjaKolona.JPG}
 \caption{Srednja kolona poravnanja}
 \label{slika:srednjaKolona}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{poglavlja/5/slike/srednjiCvor.JPG}
 \caption{Srednji čvor poravnanja}
@@ -632,7 +803,7 @@ AlignmentPath(source, sink)
     AlignmentPath(middle, sink)
 \end{lstlisting}
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{poglavlja/5/slike/podeliPaVladaj.JPG}
 \caption{Srednja kolona poravnanja}
@@ -643,14 +814,14 @@ AlignmentPath(source, sink)
 Za nalaženje najduže putanje u grafu poravnanja traži se čuvanje svih putokaza za - $O(nm)$ prostora. \\
 Međutim, za nalaženje dužine najduže putanje u grafu poravnanja ne traži se čuvanje svih putokaza - $O(n)$ prostora, slika \ref{slika:prostornaSlozenost}
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{poglavlja/5/slike/prostornaSlozenost2.JPG}
 \caption{Recikliranje prostora za kolone u grafu poravnanja}
 \label{slika:prostornaSlozenost}
 \end{figure}
 
-Dobijamo da je prostor potreban za algoritam $2*n \sim O(n)$, odnosno, linearan. \\
+Dobijamo da je prostor potreban za algoritam $2*n \sim O(n)$, odnosno, linearan. \\ 
 
 \subsection{Vremenska složenost}
 
@@ -659,7 +830,7 @@ Neka je \textbf{i-putanja} najduža putanja od svih putanja koja posećuje i-ti 
 Na slici \ref{slika:iputanja} vidimo da je $length(0)=2$ i $length(4)=4$. \\
 
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{poglavlja/5/slike/i_putanje.JPG}
 \caption{Računanje length(i)}
@@ -672,15 +843,15 @@ $length(i)$ možemo računati na sledeći način:
 $length(i) = fromSource(i) + toSink(i)$
 \end{center}
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{poglavlja/5/slike/i_putanje.JPG}
 \caption{Računanje length(i)}
 \label{slika:iputanja}
 \end{figure}
 
-Na slici \ref{slika:sourceSink} vidimo koliko je potrebno vremena za nalaženje srednjeg čvora - čak $O(nm)$ vremena za nalaženje samo jednog čvora!
-\begin{figure}[h]
+Na slici \ref{slika:sourceSink} vidimo koliko je potrebno vremena za nalaženje srednjeg čvora - čak $O(nm)$ vremena za nalaženje samo jednog čvora! 
+\begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{poglavlja/5/slike/sourceSink.JPG}
 \caption{Računanje vremena za nalaženje srednjeg čvora}
@@ -691,7 +862,7 @@ Svaki problem se može rešiti u vremenu proporcionalnom broju grana tj. površi
 Vreme potrebno za rešavanje naredna dva potproblema: $area/4 + area/4 = area/2$, znači  $O(nm + nm/2)$ vremena za nalaženje 3 čvora. \\
 Dakle, vreme potrebno za nalaženje svih čvorova je: $area + area/2 + area/4 + area/8 + \dots < 2 * area$! Slika \ref{slika:vreme} vizuelno prikazuje vreme potrebno za nalaženje 7 tačaka. \\
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{poglavlja/5/slike/vremenskaSlozenostPPV.JPG}
 \caption{Računanje vremena za nalaženje 7 tačaka}
@@ -712,31 +883,34 @@ Pokazali smo da je vremenska složenost $2*n*m \sim O(n*m)$. \\
 
 \subsection{Poravnanje tri A-domena}
 Na slici \ref{slika:poravnavanjaTriA} je prikazano poravnanje tri A-domena
-\begin{figure}[]
+\begin{figure}[h!]
 \centering
-\includegraphics[width=0.8\textwidth]{poglavlja/5/slike/poravnavanjaTriAdomena.png}
+\includegraphics[width=\textwidth]{poglavlja/5/slike/poravnavanjaTriAdomena.png}
 \caption{Poravnavanja 3 A-domena}
 \label{slika:poravnavanjaTriA}
 \end{figure}
 
 \subsection{Generalizacija dvostrukog na višestroko poravnanje}
-
+    
 \begin{itemize}
     \item Poravnanje 2 sekvence je matrica od 2 reda
-    \item Poravnanje 3 sekvence je matrica od 3 reda \ref{slika:poravnavanjeMatrica}
-    \begin{figure}[]
+    \item Poravnanje 3 sekvence je matrica od 3 reda (slika  \ref{slika:poravnavanjeMatrica})
+    \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.5\textwidth]{poglavlja/5/slike/poravnanjeMatrica.png}
+    \includegraphics[width=0.3\textwidth]{poglavlja/5/slike/poravnanjeMatrica.png}
+    \caption{}
     \label{slika:poravnavanjeMatrica}
     \end{figure}
     \item Funkcija skora treba da dodeljuje visok skor poravnanjima sa konzerviranim kolonama
 \end{itemize}
 
+
+
 \subsection{Poravnanja = 3-D putanje}
 
 Poravnanje sekvenci ATGC, AATC i ATGC \ref{slika:3d}
 
-\begin{figure}[]
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{poglavlja/5/slike/3dPoravnanja.png}
 \caption{Poravnanje sekvenci ATGC, AATC i ATGC}
@@ -744,6 +918,122 @@ Poravnanje sekvenci ATGC, AATC i ATGC \ref{slika:3d}
 \end{figure}
 
 \subsection{2-D poravnanje u odnosu na 3-D poravnanje}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{poglavlja/5/slike/2d3d.png}
+\caption{}
+\label{slika:2d3d}
+\end{figure}
+2-D poravnanje u odnosu na 3-D poravnanje prikazano na slici \ref{slika:2d3d}.
+
+\subsection{Rekurentna relacija dinamičkog programiranja
+za višestruko poravnanje}
+
+
+
+$s_i,_j,_k$ = $\max$ $\begin{cases}$
+
+$s_{i-1},_{j-1},_{k-1}$+ $\delta(v_i, w_j, u_k)\\$
+$s_{i-1},_{j-1},_k$+ $\delta(v_i, w_j, -)\\$
+$s_{i-1},_j,_{k-1}$+ $\delta(v_i, -, u_k)\\$
+$s_i,_{j-1},_{k-1}$+ $\delta(-, w_j, u_k)\\$
+$s_{i-1},_{j},_k$+ $\delta(v_i,-, -)\\$
+$s_{i},_{j-1},_k$+ $\delta(-, w_j, -)\\$
+$s_{i},_{j},_{k-1}$+ $\delta(-, -, u_k)\\$
+$\end{cases}$
+
+$\delta$(x, y, z) - element 3-D matrice skora
+
+\subsection{Vremenska složenost dinamičkog algoritma
+za višestruko poravnanje}
+
+\begin{itemize}
+    \item Kao kod dvostrukog poravnanja, vremenska složenost je proporcionalna broju grana O(\#edges)
+    \item Za 3 sekvence n, vremenska složenost je proporcionalna 7$n^3$
+    \item Za poravnanje k sekvenci, potrebno je izgraditi kdimenzionalni Menhetn graf sa: 
+    \begin{itemize}
+        \item  $n^k$ čvorova
+        \item većina čvorova će imati $2^k – 1$ ulaznih grana
+        \item Vremenska složenost: O($2^kn^k$)
+    \end{itemize}
+\end{itemize}
+
+
+Višestruko poravnanje uključuje i dvostruko poravnanje, slika \ref{slika:visestrukoDvostruko}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{poglavlja/5/slike/visestrukoDvostruko.png}
+\caption{}
+\label{slika:visestrukoDvostruko}
+\end{figure}
+
+\subsection{Da li se višestruko poravnanje može izgraditi iz dvostrukog?}
+Za dati skup proizvoljnih dvostrukih poravnanja, možemo li konstruisati višestruko poravnanje iz kog su izvedeni (slika \ref{slika:dvostruka})?
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{poglavlja/5/slike/dvostruka.png}
+\caption{}
+\label{slika:dvostruka}
+\end{figure}
+
+\subsection{Profilna reprezentacija višestrukog poravnanja}
+
+Na slici \ref{slika:profilVisetruko} prikazana profilna reprezentacija višestrukog poravnanja.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{poglavlja/5/slike/profilVisestruko.png}
+\caption{}
+\label{slika:profilVisetruko}
+\end{figure}
+
+
+\begin{itemize}
+    \item Do sada smo poravnavali \textbf{sekvencu u odnosu na sekvencu.}
+    \begin{itemize}
+        \item Možemo li poravnati \textbf{sekvencu u odnosu na profil}?
+        \item Možemo li poravnati \textbf{profil u odnosu na profil}?
+    \end{itemize}
+   
+\end{itemize}
+
+
+\subsection{Višestruko poravnanje: pohlepni pristup}
+
+\begin{itemize}
+    \item Izabrati najsličnije sekvence i kombinovati ih u profil
+     \item Tako bismo smanjili broj sekvenci sa k na k-2 i jedan profil
+    \item Iterirati
+\end{itemize}
+
+Primer pohlepnog pristupa:
+\begin{itemize}
+    \item Sekvence: GATTCA, GTCTGA, GATATT, GTCAGC
+    \item 6 dvostrukih poravnanja (\textcolor{red}{match}+1, \textcolor{ForestGreen}{in}\textcolor{blue}{dels} i \textcolor{purple}{mismatches -1}) slika \ref{slika:sestDvostrukih}
+    \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{poglavlja/5/slike/sestDvostrukih.png}
+    \caption{}
+    \label{slika:sestDvostrukih}
+    \end{figure}
+    \item Pošto su $s_2$ i $s_4$ najbliže, od njih pravimo profil
+    
+     \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.4\textwidth]{poglavlja/5/slike/profil.png}
+    \caption{}
+    \label{slika:profil}
+    \end{figure}
+    \item Novi skup od 3 sekvence za poravnanje:\\
+            $s_1$ GATTCA\\
+            $s_3$ GATATT\\
+            $s_2,_4$ \textcolor{ForestGreen}{GTC}\textcolor{red}{t/a}\textcolor{ForestGreen}{G}\textcolor{red}{a/c}
+
+\end{itemize}
+%%% dodati tekst
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
