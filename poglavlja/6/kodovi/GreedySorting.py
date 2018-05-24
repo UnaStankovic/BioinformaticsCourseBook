@@ -10,16 +10,15 @@ def reversal(P, start, stop):
     
     return P
     
-
 def greedy_sorting(P):
     approx_reversal_distance = 0
     
     print(P)
     
     for k in range(len(P)):
-        if P[k] !=  k+1: #jer brojimo od 1
+        if P[k] !=  k+1:
             i = find(P, k, k+1)
-            P = reversal(P, k, i) #apply red iz algoritma
+            P = reversal(P, k, i)
             approx_reversal_distance += 1
             print(P)
                         
