@@ -20,6 +20,7 @@ def greedy_sorting(P):
             i = find(P, k, k+1)
             P = reversal(P, k, i)
             approx_reversal_distance += 1
+            
             print(P)
                         
             if P[k] < 0:
@@ -33,7 +34,7 @@ def greedy_sorting(P):
 def main():
    # P = [+1, -7, +6, -10, +9, -8, +2, -11, -3, +5, +4]
    # P = [+6, -7, +1, -10, +9, -8, +2, -11, -3, +5, +4]
-    P = [-2, -5, +3, -4, +1]
+    P = [-2, -5, +3, +4, +1]
     
     print(greedy_sorting(P))
     
