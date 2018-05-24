@@ -17,7 +17,7 @@ def colored_edges(P):
 	for chromosome in P:
 		nodes = chromosome_to_cycle(chromosome)
 		for j in range(len(chromosome)):
-			# Obojene grane su neusmerene pa dodajemo oba smera
+			# Obojene grane su neusmerene, pa dodajemo oba smera
 			edges.append((nodes[2*j+1], nodes[(2*j+2) % len(nodes)]))
 			edges.append((nodes[(2*j+2) % len(nodes)],nodes[2*j+1]))
 			
@@ -30,11 +30,11 @@ def chromosome_to_cycle(chromosome):
 	for j in range(len(chromosome)):
 		i = chromosome[j]
 		if i > 0: 
-			nodes[2*j] = 2*i -1
-			nodes[2*j+1] = 2*i
+			nodes[2*j] = 2*i - 1
+			nodes[2*j + 1] = 2*i
 		else:
 			nodes[2*j] = -2*i
-			nodes[2*j+1] = -2*i-1
+			nodes[2*j + 1] = -2*i - 1
 	return nodes
 	
 	
