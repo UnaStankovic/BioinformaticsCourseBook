@@ -1,9 +1,8 @@
-# za zadat 1 hromozom treba da izdfvojimo crvene grane
+# za zadat hromozom treba da izdvojimo crvene grane
 def chromosome_to_cycle(chromosome):
 
     nodes = [0 for i in range(2*len(chromosome))]
-    #gde je -1 u knjizi u algoritmu, pisemo -2
-     
+    
     for j in range(len(chromosome)):
         i = chromosome[j]
         if i > 0:
@@ -29,7 +28,6 @@ def color_edges(P):
         
     
     return edges
-    
     
 def main():
     print(color_edges([[1,-2,-3,4]]))
