@@ -1,7 +1,6 @@
 def chromosome_to_cycle(chromosome):
 
     nodes = [0 for i in range(2*len(chromosome))]
-    #gde je -1 u knjizi u algoritmu, pisemo -2
      
     for j in range(len(chromosome)):
         i = chromosome[j]
@@ -15,7 +14,6 @@ def chromosome_to_cycle(chromosome):
     
     return nodes
           
-            
 def main():
     print(chromosome_to_cycle([1, -2, -3, 4]))
     
