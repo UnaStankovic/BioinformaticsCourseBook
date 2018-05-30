@@ -10,13 +10,15 @@ Koja \v{z}ivotinja nam je donela SARS? Kako smo se prvobitno zarazili? Kako se S
 \section{Izbijanje epidemije}
 \label{sec:izbijanjeepidemije}
 
-Kao jedna od bolesti koja se najbr\v{z}e \v{s}irila po svetu, ova misteriozna bolest je uspela da iz Hong Konga pre\dj e preko Tihog Okeana za svega sedam dana, gde je nasuprot njoj bolestima kao \v{s}to je Kuga bilo neophodno da pro\dj e \v{c}etiri godine da bi samo pre\v{s}la iz Istanbula do Kijeva, a HIV-u je bilo potrebno da pro\dj e dve decenije da bi obi\v{s}la ceo svet! Kada je utv\dj eno za novu bolest da je u pitanju virus, prime\'ceno je posmatraju\'ci je pod mikroskopom da pripada porodici Korona virusa, virusa koji izgledaju kao pomra\v{c}enje sunca \ref{fig:slika1} (sun\v{c}eva korona), po \v{c}emu je i dobio ime. Korona virusi su ve\'c bili poznati nau\v{c}nicima i lekarima, samo \v{s}to je bilo \v{c}udno \v{s}to nikada koronu virus nije imao \v{c}ovek, ve\'c samo \v{z}ivotinje. Korona virusi pripadaju virusima koji sadr\v{z}e RNK-a umesto DNK-a. Kod RNK-a je mnogo ve\'ci nivo mutacija nego kod DNK-a, \v{s}to zna\v{c}i da prilikom udvajanja virusa mnogo ce\v{s}\'ce dolazi do gre\v{s}ke pri replikaciji. Ostaje pitanje, koja \v{z}ivotinja, koja je oboljevala od ovog virusa, je uspela da prenese tu bolest ljudima tokom evolucije? Na osnovu simptoma ova bolest je dobila naziv: Te\v{s}ki akutni respiratorni sindrom (eng. Severe Acute Respiratory Syndrome, SARS). 
+Kao jedna od bolesti koja se najbr\v{z}e \v{s}irila po svetu, ova misteriozna bolest je uspela da iz Hong Konga pre\dj e preko Tihog Okeana za svega sedam dana, gde je nasuprot njoj bolestima kao \v{s}to je Kuga bilo neophodno da pro\dj e \v{c}etiri godine da bi samo pre\v{s}la iz Istanbula do Kijeva, a HIV-u je bilo potrebno da pro\dj e dve decenije da bi obi\v{s}la ceo svet! Kada je utvr\dj eno za novu bolest da je u pitanju virus, prime\'ceno je posmatraju\'ci je pod mikroskopom da pripada porodici Korona virusa, virusa koji izgledaju kao pomra\v{c}enje sunca \ref{fig:pkv}. (sun\v{c}eva korona), po \v{c}emu je i dobio ime. Korona virusi su ve\'c bili poznati nau\v{c}nicima i lekarima, samo \v{s}to je bilo \v{c}udno \v{s}to je nikada nije imao \v{c}ovek, ve\'c samo \v{z}ivotinje. Korona virusi pripadaju virusima koji sadr\v{z}e RNK-a umesto DNK-a. Kod RNK-a je mnogo ve\'ci nivo mutacija nego kod DNK-a, \v{s}to zna\v{c}i da prilikom udvajanja virusa mnogo ce\v{s}\'ce dolazi do gre\v{s}ke pri replikaciji. Ostaje pitanje, koja \v{z}ivotinja, koja je oboljevala od ovog virusa, je uspela da prenese tu bolest ljudima tokom evolucije? Na osnovu simptoma ova bolest je dobila naziv: Te\v{s}ki akutni respiratorni sindrom (eng. Severe Acute Respiratory Syndrome, SARS). 
 
-\begin{figure}[h]
-\centering
+\begin{figure}[h!]
+\begin{center}
 \includegraphics[width=0.5\textwidth]{poglavlja/7/slike/slika1.png}
+\end{center}
 \caption{Prikaz korona virusa}
-\end{figure} 
+\label{fig:pkv}
+\end{figure}
 
 \section{Transformacija matrice rastojanja u evolutivno stablo}
 \label{sec:transformacijamatrice}
@@ -28,16 +30,18 @@ Na osnovu vi\v{s}estrukog poravnanja dobijamo matricu rastojanja iz koje \v{z}el
 Defini\v{s}imo najpre \v{s}ta predstavlja svaki element ove matrice:
 
 \begin{definicija}
-Jedan element matrice u oznaci $D_i,j$ predstavlja broj razli\v{c}itih simbola u \textit{i}-tom i \textit{j}-tom redu vi\v{s}estrukog poravnanja.
+Jedan element matrice u oznaci $D_{i,j}$ predstavlja broj razli\v{c}itih simbola u \textit{i}-tom i \textit{j}-tom redu vi\v{s}estrukog poravnanja.
 \end{definicija}
 
-Na slici \ref{fig:slika2} je prikazana konstrukcija matrice rastojanja.
+Na slici \ref{fig:pkmr} je prikazana konstrukcija matrice rastojanja.
 
-\begin{figure}[h]
-\centering
+\begin{figure}[h!]
+\begin{center}
 \includegraphics[width=0.75\textwidth]{poglavlja/7/slike/slika2.png}
+\end{center}
 \caption{Prikaz konstrukcije matrice rastojanja}
-\end{figure} 
+\label{fig:pkmr}
+\end{figure}
 
 \subsection{Stabla}
 \label{subsec:stabla}
@@ -48,13 +52,15 @@ Stablo je povezani acikli\v{c}ni graf. Za povezana acikli\v{c}na stabla se mo\v{
 	\item Svako stablo sa n \v{c}vorova sadr\v{z}i ta\v{c}no n - 1 grana.
 \end{itemize}
 
-U evolutivnom stablu listovi predstavljaju dana\v{s}nje vrste, dok unutra\v{s}nji \v{c}vorovi predstavljaju izumrle vrste. Koreni \v{c}vor predstavlja najdaljeg zajedni\v{c}kog predaka. Na slici \ref{fig:slika3.png} se mo\v{z}e videti primer evolutivnog stabla koji odgovara matrici.
+U evolutivnom stablu listovi predstavljaju dana\v{s}nje vrste, dok unutra\v{s}nji \v{c}vorovi predstavljaju izumrle vrste. Koreni \v{c}vor predstavlja najdaljeg zajedni\v{c}kog predaka. Na slici \ref{fig:pmrioes} se mo\v{z}e videti primer evolutivnog stabla koji odgovara matrici.
 
-\begin{figure}[h]
-\centering
+\begin{figure}[h!]
+\begin{center}
 \includegraphics[width=0.75\textwidth]{poglavlja/7/slike/slika3.png}
+\end{center}
 \caption{Prikaz matrice rastojanja i njenog odgovaraju\'ceg evolutivnog stabla}
-\end{figure} 
+\label{fig:pmrioes}
+\end{figure}
 
 Uvodimo pojam rastojanja izme\dj u dva lista \textit{i} i \textit{j} u evolutivnom stablu u oznaci $d_{i, j}$:
 \begin{tcolorbox}
@@ -72,7 +78,7 @@ Za dato evolutivno stablo, matricu koja opisuje rastojanja izme\dj u njegovih li
 \end{definicija}
 
 \begin{teorema}
-Matrica \textit{D} je aditivna akko za proizvoljna \v{c}etiri indeksa u matrici \textit{i, j} I \textit{k, l} va\v{z}i:
+Matrica \textit{D} je aditivna akko za proizvoljna \v{c}etiri indeksa u matrici \textit{i, j} i \textit{k, l} va\v{z}i:
 
 \begin{center}
 \textit{$D_{ij}$ + $D_{kl}$ \textless= $D_{ik}$+$D_{jl}$ = $D_{il}$ + $D_{jk}$}
@@ -80,12 +86,15 @@ Matrica \textit{D} je aditivna akko za proizvoljna \v{c}etiri indeksa u matrici 
 
 \end{teorema}
 
-Na osnovu ove teoreme i definicije mo\v{z}emo zaklju\v{c}iti na koji na\v{c}in da pove\v{z}emo listove u evolutivnom stablu \ref{fig:slika4.png}.
-\begin{figure}[h]
-\centering
+Na osnovu ove teoreme i definicije mo\v{z}emo zaklju\v{c}iti na koji na\v{c}in da pove\v{z}emo listove u evolutivnom stablu \ref{fig:pples}.
+
+\begin{figure}[h!]
+\begin{center}
 \includegraphics[width=0.75\textwidth]{poglavlja/7/slike/slika4.png}
+\end{center}
 \caption{Prikaz povezivanja listova u evolutivnom stablu}
-\end{figure} 
+\label{fig:pples}
+\end{figure}
 
 Po\v{s}to je za jednu matricu mogu\'ce konstruisati vi\v{s}e evolutivnih stabala, uvek je bolje izabrati prosto stablo. 
 
@@ -110,34 +119,57 @@ Konstruisati evolutivno stablo na osnovu aditivne matrice rastojanja. \\
 
 Primetimo da minimalna pozitivna vrednost matrice rastojanja odgovara listovima u stablu koje povezuje zajedni\v{c}ki roditelj. Takve listove nazivamo \textbf{susednim listovima}.\\
 
-U primeru \ref{fig:slika5} foka i kit su susedi (jer dele istog roditelja).
+U primeru \ref{fig:psl} foka i kit su susedi (jer dele istog roditelja).
 
-\begin{figure}[h]
-\centering
+\begin{figure}[h!]
+\begin{center}
 \includegraphics[width=0.75\textwidth]{poglavlja/7/slike/slika5.png}
+\end{center}
 \caption{Prikaz susednih listova}
-\end{figure} 
+\label{fig:psl}
+\end{figure}
 
 \begin{teorema}
 Za svako prosto stablo sa bar dva \v{c}vora postoji bar jedan par susednih listova.
 \end{teorema}
+Dakle, mo\v{z}emo pretpostaviti da \'cemo uvek imati par susednih listova. Mi znamo da su \textit{kit} i \textit{foka} susedni listovi i da dele zajedni\v{c}kog roditelja, me\dj utim, ne znamo koja se vrednost pridru\v{z}uje svakoj od ovih grana. Da bismo dobili rastojanje izme\dj u susednih listova \textit{i} i \textit{j} od roditelja \textit{m} potrebno je da imamo jo\v{s} neki list unutar takvog stabla, recimo list \textit{k}. Razmatramo slede\'ca rastojanja: $d_{i,k}, d_{j, k}, d_{i,j}$ su rastojanja izme\dj u listova koja su data u matrici rastojanja, dok rastojanja $d_{i, m} i d_{j, m}$ koja predstavljaju rastojanja izme\dj u lista i unutra\v{s}njeg \v{c}vora, nisu data \ref{fig:filstab}.\\
+Da bismo dobili rastojanje izme\dj u \v{c}ora \textit{i} i \v{c}vora \textit{j} treba da pratimo ljubi\v{c}asto i plavo rastojanje \ref{fig:filstab}. Sli\v{c}no ra\v{c}unamo i $d_{i, k}$ i $d_{j, k}$, a $d_{k, m}$ dobijamo sabiranjem kao na slici \ref{fig:filstab}. Sa velikim \textbf{D} ($D_{i, k}, D_{j, k}, D_{i, j}$) ozna\v{c}avamo elemente matrice rastojanja, dok sa malim \textbf{d} ozna\v{c}avamo rastojanje izme\dj u bilo koja dva \v{c}ora u evolutivnom stablu. \\
+Kada znamo rastojanje od $d_{k,m}$ sada mo\v{z}emo da dobijemo $d_{i,m}$ kao: ($D_{i, k} + D_{i, j} – D_{j, k}$) / 2. Analogno dobijamo i za drugog suseda $d_{j, m}$.\\
+Obratimo pa\v{z}nju da je \v{c}vor \textit{k} proizvoljan - bilo koji list koji je razli\v{c}it od listova \v{c}ija rastojanja do roditeljskog \v{c}vora tra\v{z}imo.\\
 
-Ovakav pristup \footnote{Ceo pristup pogledati na slajdovima sa predavanja.} nije moguce primeniti za svaku matricu, u tim situacijama koristimo \textit{AdditivePhylogeny} algoritam.
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{poglavlja/7/slike/slika7.png}
+\end{center}
+\caption{Prikaz rekonstrukcije filogenetskog stabla na osnovu rastojanja}
+\label{fig:filstab}
+\end{figure}
+
+Posmatrajmo sada opet evolutivno stablo. Foka \'ce biti \v{c}vor \textit{i}, \textit{j} \'ce biti susedan \v{c}vor kit. Za \textit{k} mo\v{z}emo uzeti po algoritmu, bilo koji \v{c}vor, biramo \v{s}impanzu. Sada va\v{z}i: 
+\begin{center}
+$d_{Seal, m} = (D_{Seal, Chimp} + D_{Seal, Whale} – D_{Whale, Chimp}) / 2$
+\end{center}
+
+Ovakav rekurzivni pristup \footnote{Ceo pristup, radi boljeg razumevanja, pogledati na slajdovima sa predavanja.} nije moguce primeniti za svaku matricu, u tim situacijama koristimo \textit{AdditivePhylogeny} algoritam.
 
 \section{AdditivePhylogeny algoritam}
 \label{addalg}
 
-\begin{figure}[h]
-\centering
+\begin{figure}[h!]
+\begin{center}
 \includegraphics[width=0.5\textwidth]{poglavlja/7/slike/slika6.png}
+\end{center}
 \caption{Primer matrice za koju ne mo\v{z}emo primeniti prethodni pristup}
-\end{figure} 
+\label{fig:pmzknppp}
+\end{figure}
 
-Na slici \ref{fig:slika6.png} mo\v{z}emo videti da je minimalni element $D_{j,k}$, a \textit{j} i \textit{k} nisu susedi, zato ne mo\v{z}emo primeniti prethodni pristup. Umesto tra\v{z}enja suseda, poku\v{s}ajmo da izra\v{c}unamo du\v{z}inu krajnjih grana, onih grana koje vode do listova. O du\v{z}inama spolnjih grana govori naredna teorema:
+Na slici \ref{fig:pmzknppp} mo\v{z}emo videti da je minimalni element $D_{j,k}$, a \textit{j} i \textit{k} nisu susedi, zato ne mo\v{z}emo primeniti prethodni pristup, iako je matrica ultrametri\v{c}na. Umesto tra\v{z}enja suseda, poku\v{s}ajmo da izra\v{c}unamo du\v{z}inu krajnjih grana, onih grana koje vode do listova. O du\v{z}inama spolnjih grana govori naredna teorema:
 
 \begin{teorema}
 \textbf{O du\v{z}ini spoljnih grana:} \textit{LimbLength(i)} je jednako minimalnoj vrednosti ($D_{i, k}$ + $D_{i, j}$ - $D_{j, k}$)/2 po svim listovima \textit{j} i \textit{k}.
 \end{teorema}
+
+Isklju\v{c}ujemo pretpostavku koju smo imali kod susednih listova, dakle ra\v{c}unamo rastojanje samo za jedan list, jer ne znamo koji joj je susedni \v{c}vor, pa zato uzimamo sve kombinacije za \textit{j} i \textit{k}. 
 
 Prika\v{z}imo AdditivePhylogeny algoritam:
 
@@ -151,17 +183,10 @@ Prika\v{z}imo AdditivePhylogeny algoritam:
 7. Dodamo list \textit{j} povezujuci ga granom du\v{z}ine LimbLength(\textit{j}) kako bismo formirali Tree(\textit{D}). 
 \end{tcolorbox}
 
-Dobra strana ovog algoritma je da kreira stablo koje odgovara aditivnoj matrici, a lo\v{s}a da ne radi za neaditivne matrice.
+Ta\v{c}ka povezivanja za list \textit{j} je na putanji izme\dj u listova \textit{i} i \textit{k} na rastojanju $D^{bald}_{i, j}$ od \textit{i}. Dakle va\v{z}i: \textit{$D^{bald}_{i, j} + D^{bald}_{j, k} = D^{bald}_{i, k}$}.
 
-\subsection{Povezivanje lista}
-\label{subsec:povezivanjelista}
-
-\begin{teorema}
-\textbf{O du\v{z}ini spoljnih grana:} LimbLength(\textit{i}) je jednako minimalnoj vrednosti ($D_{i, k}$ + $D_{i, j}$ - $D_{j, k}$)/2 po svim listovima \textit{j} i \textit{k}.
-\end{teorema}
+Dobra strana ovog algoritma je da kreira stablo koje odgovara aditivnoj matrici, a lo\v{s}a da ne radi za neaditivne matrice \footnote{Za primer postupka pogledati slajdove sa predavanja}.
  
-Ta\v{c}ka povezivanja za list \textit{j} je na putanji izme\dj u listova \textit{i} i \textit{k} na rastojanju $D^{bald}_{i, j}$ od \textit{i}.
-
 \section{Metod najmanjih kvadrata}
 \label{sec:metodnajmanjihkvadrata}
 
@@ -222,8 +247,8 @@ U prakti\v{c}nim primenama, istra\v{z}iva\v{c}i \v{c}esto pretpostavljaju da sva
 
 Dobra strana ovog algoritma je da kreira stablo za svaku matricu, a lo\v{s}a da stablo ne mora da odgovara aditivnoj matrici.
 
-\subsection{Neighbour-Joining teorema}
-\label{subsec:njt}
+\section{Neighbour-Joining teorema}
+\label{sec:njt}
 
 Za datu matricu rastojanja \textit{D} dimenzije \textit{n x n}, njena \textbf{neighbour-joining} matrica u oznaci \textit{D*} defini\v{s}e se kao:\\
 \begin{center}
@@ -251,10 +276,17 @@ $D^*_{i, j}$ = (n - 2) $\bullet$ $D_{i, j}$ - $TotalDistance_D(i)$ - $TotalDista
 
 Kada vi\v{s}estruko poravnanje zamenimo matricom rastojanja, gubimo informacije o sekvencama iz poravnanja. Zbog toga ne mo\v{z}emo da zaklju\v{c}imo kakva je sekvenca odgovarala vrstama iz unutra\v{s}njih \v{c}vorova.
 
-\subsection{Tabele karakteristika}
-\label{subsec:tk}
+\section{Rekonstrukcija stabla na osnovu karakteristika}
+\label{sec:rsnok}
 
-Pre oko pedeset godina, istra\v{z}iva\v{c}i su konstruisali filogenetska stabla na osnovu anatomsko-fiziolo\v{s}kih osobina organizama koje su nazvane karakteristikama.
+Pre oko pedeset godina, istra\v{z}iva\v{c}i su konstruisali filogenetska stabla na osnovu anatomsko-fiziolo\v{s}kih osobina organizama koje su nazvane \textbf{karakteristikama} \ref{fig:karakt}.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{poglavlja/7/slike/slika10.png}
+\end{center}
+\label{fig:karakt}
+\end{figure}
 
 \subsection{Filogeneza na osnovu karakteristika}
 \label{subsec:fnok}
@@ -279,7 +311,15 @@ Ulaz: Koreno binarno stablo gde je svaki list ozna\v{c}en jednim simbolom.\\
 Izlaz: Oznake za sve ostale \v{c}vorove stabla takve da minimizuju skor parsimonije stabla.
 \end{tcolorbox}
 
-Algoritam dinami\v{c}kog programiranja: Neka je $T_v$ podstablo stabla T sa korenom u \v{c}voru v. Neka je $s_k(v)$ minimalni skor parsimonije stabla $T_v$ za sva mogu\'ca obele\v{z}avanja, pod pretpostavkom da je \v{c}vor v obele\v{z}en simbolom k. Minimalni skor parsimonije stabla jednak je minimalnoj vrednosti $s_k(root)$ po svim simbolima k?. 
+Algoritam dinami\v{c}kog programiranja: Neka je $T_v$ podstablo stabla T sa korenom u \v{c}voru v. Neka je $s_k(v)$ minimalni skor parsimonije stabla $T_v$ za sva mogu\'ca obele\v{z}avanja, pod pretpostavkom da je \v{c}vor v obele\v{z}en simbolom k. Minimalni skor parsimonije stabla jednak je minimalnoj vrednosti $s_k(root)$ po svim simbolima k. Neka je \textit{$\delta_{i, j}$} Kronekerov delta simbol:
+\begin{itemize}
+\item \textit{$\delta_{i, j}$} = 0 ako i = j
+\item \textit{$\delta_{i, j}$} = 1 ina\v{c}e
+\end{itemize}
+Va\v{z}i slede\'ca rekurentna relacija:
+\begin{tcolorbox}
+$s_k(v) = min_{all\ symbols\ i} {s_i(Daughter(v)) + \delta_{i,k}} + min_{all\ symbols\ j} {s_j(Son(v)) + \delta_{j,k}}$
+\end{tcolorbox}
 
 \section{Problem velike parsimonije}
 \label{sec:pvp}
@@ -294,7 +334,26 @@ Ovaj problem je NP-kompletan.
 \subsection{Pohlepna heuristika za veliku parsimoniju}
 \label{phzvp}
 
-Primetimo da uklanjanje jedne unutra\v{s}nje grane, grane koja povezuje dva unutra\v{s}nja \v{c}vora (zajedno sa \v{c}vorovima), dovodi do stvaranja \v{c}etiri podstabla (W, X, Y, Z). Preure\dj enje rasporeda ovih stabala se naziva razmena najbli\v{z}ih suseda.\\
+Primetimo da uklanjanje jedne unutra\v{s}nje grane, grane koja povezuje dva unutra\v{s}nja \v{c}vora (zajedno sa \v{c}vorovima), dovodi do stvaranja \v{c}etiri podstabla (W, X, Y, Z) \ref{fig:pscp}.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{poglavlja/7/slike/slika8.png}
+\end{center}
+\caption{Prikaz stvaranja \v{c}etiri podstabla}
+\label{fig:pscp}
+\end{figure}
+
+Preure\dj enje rasporeda ovih stabala se naziva razmena najbli\v{z}ih suseda \ref{fig:psns}.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{poglavlja/7/slike/slika9.png}
+\end{center}
+\caption{Prikaz razmene najbli\v{z}ih suseda}
+\label{fig:psns}
+\end{figure}
+
 \begin{tcolorbox}
 \textbf{Problem najbli\v{z}ih suseda u stablu:} Za datu granu u binarnom stablu, generisati dva suseda ovog stabla. \\
 Ulaz: Unutra\v{s}nja grana binarnog stabla.\\
