@@ -168,7 +168,7 @@ Podsetimo se šta je Hamiltonova putanja. Hamiltonova putanja je putanja koja po
 
 ~\\
 
-Iako deluje kao da smo rešili sve probleme, zapravo smo naišli na još jednu veliku prepreku. Naime, pronalaženje Hamiltonovog puta u grafu je NP-kompletan problem, što znači da ne postoji algoritam koji ga rešava u pojinomijalnom vremenu. U tom slučaju, moramo da se vratimo na početak, a to je predstavljanje $k$-gramskog sastava grafom.
+Iako deluje kao da smo rešili sve probleme, zapravo smo naišli na još jednu veliku prepreku. Naime, pronalaženje Hamiltonovog puta u grafu je NP-kompletan problem, što znači da ne postoji algoritam koji ga rešava u polinomijalnom vremenu. U tom slučaju, moramo da se vratimo na početak, a to je predstavljanje $k$-gramskog sastava grafom.
 
 \section{Rekonstrukcija niske kao Ojlerove putanje}
 
@@ -220,7 +220,7 @@ Za svaki $k$-gram pravimo dva čvora i jednu granu -- oznaka grane je upravo taj
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\textwidth]{poglavlja/3/slike/lepljenje.png}
-	\caption{Prvi korak u postupku lepljenja čvorova. Napomenimo da postupak nije završen jer treba zalepiti cvorove sa identicnim oznakama (na primer, AT).}
+	\caption{Prvi korak u postupku lepljenja čvorova. Napomenimo da postupak nije završen jer treba zalepiti čvorove sa identičnim oznakama (na primer, AT).}
 	\label{slika:lepljenje}
 \end{figure} 
 
@@ -388,7 +388,7 @@ Dakle, upareni De Brojnov graf, na osnovu kolekcije uparenih $k$-grama, dobijamo
 Ovde smo imali neke nerealne pretpostavke:
 
 \begin{itemize}
-	\item Savršena pokrivenost genoma očitavanjima (svaki $k$-gram iz genoma je očitan). Očitavanja dužine 250 nukleotida dobijena \emph{Illumina} tehnologijom predstavljaju samo mali deo 250-grama unutar genoma. Rešenje je u razbijanju dobijenih očitavanja na kraće $k$-grame (kao na slici \ref{skika:manji kgrami}).
+	\item Savršena pokrivenost genoma očitavanjima (svaki $k$-gram iz genoma je očitan). Očitavanja dužine 250 nukleotida dobijena \emph{Illumina} tehnologijom predstavljaju samo mali deo 250-grama unutar genoma. Rešenje je u razbijanju dobijenih očitavanja na kraće $k$-grame (kao na slici \ref{slika:manji kgrami}).
 	
 	\item Očitavanja ne sadrže greške. U ovom slu\v caju, ako bismo razbili na manje $k$-grame, onda bismo dobili vi\v se niski koje imaju pogre\v sno o\v citavanje. Postavljamo pitanje kako se ovakvi slu\v cajevi manifestuju u konstrukciji DeBrojnovog grafa. Dolazi do stvaranja \emph{balon\v ci\'ca} (engl. \emph{bubble}) u grafu (videti sliku \ref{slika:baloncic}). Jednostavan je slu\v caj kada govorimo o gre\v sci na jednom o\v citavanju, me\dj utim, ukoliko postoji vi\v se gre\v saka, onda dolazi do \emph{eksplozije balon\v ci\'ca} (videti sliku \ref{slika:eksplozija baloncica}).
 	
