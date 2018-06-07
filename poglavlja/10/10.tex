@@ -220,9 +220,9 @@ Primenićemo algoritam dinamičkog programiranja da bismo rešili problem dekodi
 
 \begin{equation}
 \begin{aligned}
-    s_{k, i} &= {\displaystyle \max_{all states l} \{s_{l, i-1} \cdot (weight of edge between nodes (l, i-1) and (k, i))\}} \\
-    & = \max_{all states l} \{s_{l, i-1} \cdot Weight_i(l, k)\}\\
-    & = \max_{all states l} \{s_{l, i-1} \cdot transition_{\pi_{i-1},\pi_i} \cdot emission_{\pi_i}(x_i)\}
+    s_{k, i} &= {\displaystyle \max_{all\,states\,l} \{s_{l, i-1} \cdot (weight\,of\,edge\,between\,nodes\,(l, i-1)\,and\,(k, i))\}} \\
+    & = \max_{all\,states\,l} \{s_{l, i-1} \cdot Weight_i(l, k)\}\\
+    & = \max_{all\,states\,l} \{s_{l, i-1} \cdot transition_{\pi_{i-1},\pi_i} \cdot emission_{\pi_i}(x_i)\}
 \end{aligned}
 \end{equation}
 
@@ -260,25 +260,26 @@ Već smo zaključili da je $ Pr(x) $ jednak sumi $ Pr(x, \pi) $ za sve skrivene 
 
 Neka je $ forward_{k, i} $ proizvod svih putanja od \textit{izvora} do čvora $ (k, i) $ u Viterbi grafu; treba uočiti da je $ forward_sink $ jednak $ Pr(x) $. Da bismo izračunali $ forward_{k, i} $, podelićemo sve putanje koje povezuju \textit{izvor} i čvor $ (k, i) $ na $ |States| $ podskupova, gde svaki podskup sadrži one putanje koje prolaze kroz čvor $ (l, i-1) $ (sa težinom proizvoda  $ forward_{l, i-1} $ ), dok ne dođemo do $ (k, i) $ za neko $ l $ između 1 i $ |States| $. Dakle, $ forward_{k, i} $ je suma $ |States| $ članova, 
 
-
 \begin{equation}
 \begin{aligned}
-    forward_{k, i} &= {\displaystyle \sum_{all states l} forward_{l, i-1} \cdot težina grane koja povezuje (l, i-1) i (k, i)} \\
-    &= {\displaystyle \sum_{all states l} forward_{l, i-1} \cdot Weight_i(l, k)}
-\end{aligned}
+    forward_{k, i} & = {\displaystyle \sum_{all\,states\,l} forward_{l, i-1} \cdot te\check{z}ina\,grane\,koja\,povezuje\,(l, i-1)\,i\,(k, i)} \\
+    &= {\displaystyle \sum_{all\,states\,l} forward_{l, i-1} \cdot Weight_i(l, k)}
+\end{aligned}    
 \end{equation}
+
+
 
 
 Treba primetiti da je jedina razlika između ove jednačine i Viterbi jednačine,
 
 \begin{equation}
-    s_{k, i} =  {\displaystyle \max_{all states l} \{s_{l, i-1} \cdot Weight_i(l, k)\}}, 
+    s_{k, i} =  {\displaystyle \max_{all\,states\,l} \{s_{l, i-1} \cdot Weight_i(l, k)\}}, 
 \end{equation}
 
 je da se maksimizacija u Viterbi algoritmu menja u sumaciju. Sada možemo rešiti problem verovatnoće ishoda računajući $ forward_sink $, što je jednako
 
 \begin{equation}
-    {\displaystyle \sum_{all states k} forward_{k, n}}
+    {\displaystyle \sum_{all\,states\,k} forward_{k, n}}
 \end{equation}
 
 Sada možemo da izračunamo $ Pr(x) $ za emitovani string $ x $, logično pitanje je pronaći najverovatniji takava string. Za problem nepoštenog krupijea, ovo odgovara pronalasku najverovatnije sekvence bacanja novčića za sve moguće sekvence, za fer i otežani novčic koji krupije može koristiti.
