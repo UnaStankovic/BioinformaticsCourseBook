@@ -5,7 +5,7 @@
 
 \vspace{0.5cm}
 
-Cena sekvencioniranja genoma je od 2001. u konstantnom padu, i teži tome da postane potpuno pristupačna običnom čoveku i postane sastavni deo lekarske usluge.
+Cena sekvencionisanja genoma je od 2001. u konstantnom padu, i teži se tome da ono postane potpuno pristupačno običnom čoveku, kao i da bude sastavni deo lekarske usluge.
 
 \begin{figure}[h!]
 \centering
@@ -14,8 +14,9 @@ Cena sekvencioniranja genoma je od 2001. u konstantnom padu, i teži tome da pos
 \label{slika:X}
 \end{figure}
 
-\textbf{Referentni genom} je genom nastao na osnovu genoma 13 različitih pojedinaca. Ideja je bila da se napravi neki "prosečni" ljudski genom.
-
+Oko 1\% dece rodi se sa mentalnom retardacijom, ali uzroci ove pojave i dan-danas nisu razjašnjeni, jer do nje može dovesti niz različitih genetskih poremećaja. Jedan od njih je i Ohdo sindrom, koji izaziva bezličan, "maskoliki" izraz lica. 
+Biolozi su 2011. godine uspeli da pronađu niz zajedničkih mutacija kod pacijenata, koje su kasnije iskorišćene za identifikovanje jedintvene mutacije proteina, odgovorne za nastanak ovog sindroma. Razumevanje suštinskog uzroka Ohdo sindroma samo je jedno od otkrića do kojeg se došlo proučavanjem genetskih poremećaja upotrebom \textbf{mapiranja očitavanja}. 
+Kod ove metode, porede se sekvencionisana očitavanja DNK uzeta od pojedinaca sa \textbf{referentnim ljudskim genomom}. \textbf{Referentni ljudski genomom} zamišljen je da bude "prosečan" ljudski genom izračunat na određenom broju uzoraka. Trenutni referentni genom baziran je na genomima 13 dobrovoljaca iz SAD-a; i dalje se vrši njegovo usavršavanje ispravljanjem grešaka i popunjavanjem rupa (trenutno ih je preko stotinu). U proseku, razlika između individualnog i referentnog genoma je u oko 3 miliona mutacija.
 
 
 \begin{figure}[h!]
@@ -25,7 +26,7 @@ Cena sekvencioniranja genoma je od 2001. u konstantnom padu, i teži tome da pos
 \label{slika:X}
 \end{figure}
 
-U proseku, razlika između individualnog genoma je u oko 3 miliona mutacija.
+
 
 \begin{figure}[h!]
 \centering
@@ -33,6 +34,7 @@ U proseku, razlika između individualnog genoma je u oko 3 miliona mutacija.
 \caption{Razlike u personalnim genomima}
 \label{slika:X}
 \end{figure}
+
 
 Pitanje je kako možemo efikasno sastaviti individualne genome koristeći referentne. Možemo koristiti \textbf{asembliranje}, ali konstrukcija de Brojnovog grafa zahteva mnogo memorije. Možemo koristiti postojeću strukturu referentnog genoma kao pomoć u sekvencioniranju genoma pacijenta.
 \begin{figure}[h!]
@@ -47,7 +49,7 @@ Pitanje je kako možemo efikasno sastaviti individualne genome koristeći refere
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{poglavlja/9/slike/mapiranjeOcitavanja.png}
-\caption{Primer mapiranja očitavanja; gornja niska predstavlja referentni genom, a donje očitavanja individualnog genoma}
+\caption{Primer mapiranja očitavanja; gornja niska predstavlja referentni genom, a donje niske očitavanja individualnog genoma}
 \label{slika:X}
 \end{figure}
 
@@ -87,8 +89,9 @@ Vreme izvršavanja algoritma u slučaju jednostrukog \textit{Pattern}-a je $O(|G
 Međutim, problem je u tome što genomi mogu biti veoma dugi. U slučaju ljudskog genoma (3 GB), ukupna dužina svih očitavanja može biti veća od 1 TB; kao rezltat toga, algoritam složenosti $O(|Genome| * |Patterns|)$ je previše spor.
 
 \subsection{Sufiksna stabla}
-Alternativni način je da paterne organizujemo u strukturu podataka poput usmerenog acikličnog grafa, koju nazivamo \textbf{Trie} i koja ima sledeće osobine:
-
+Razlog velike neefikasnosti prethodnog algoritma jeste u tome što paterni prolaze kroz genom nezavisno jedan od drugog. Ako nisku \textit{Genome} zamislimo kao put, onda bi izvršavanje algoritma grube sile bilo analogno vožnji svakog paterna po putu u zasebnom automobilu. Ono što želimo jeste da sve paterne smestimo u jedan "autobus", čime bi nam bio dovoljan samo jedan prolazak kroz nisku \textit{Genome}. 
+\\Zbog toga paterne organizujemo u strukturu podataka nalik na usmereni aciklički graf, koju nazivamo \textbf{Trie} i koja ima sledeće osobine:
+:
 \begin{itemize}
     \item Trie ima jedinstven čvor sa ulaznim stepenom nula, koji nazivamo koren
     \item Svaka grana Tria je obeležena jednim slovom
@@ -97,6 +100,20 @@ Alternativni način je da paterne organizujemo u strukturu podataka poput usmere
     \item Svaka putanja stabla od korena do lista, ili do čvora sa izlaznim stepenom 0, predstavlja jedan element iz liste \textit{Patterns}
 \end{itemize}
 
+\\\\\\
+Najjednostavniji način konstrukcije strukture Trie jeste iterativno dodavanje niski iz niza \textit{Patterns} u rastuću strukturu.
+\\
+
+Za date niske Text i Trie(Patterns) možemo brzo proveriti da li se neki element niza Patterns predstavlja prefiks niske Text. Dovoljno je da krenemo da spelujemo Text i da slovo po slovo prolazimo kroz Trie od korena naniže. Za svako slovo iz Text-a gledamo da li iz trenutnog čvora postoji grana obeležena tim slovom; ukoliko postoji, nastavljamo sa pretragom; u suprotnom obustavljamo pretragu i zaključujemo da nijedan element niza Patterns nije prefiks niske Text. Ukoliko stignemo do lista, onda je pretraga bila uspešna.
+
+Da bismo pronašli da li se neki patern nalazi u genomu, potrebno je da u \|Text\| iteracija pokrećemo prethodno opisani algoritam, pri čemu u svakoj iteraciji iz niske Text izbacujemo početni simbol, sve dok ona ne postane prazna.
+
+\\
+Iako je prethodno opisani postupak vremenski efikasan, njegova mana leži u velikom zauzeću memorije. Naime, veličina strukture Trie proporcionalna je  ukupnom broju simbola niza Patterns, a pošto veličina kolekcije očitavanja ljudskog genoma može dostići 1 TB, memorija potrebna za čuvanje ove strukture je prevelika.
+\\\\\\\\
+Bolji pristup je da se struktura Trie pravi na osnovu niske Text, tj. genoma. Za ovo će nam biti struktura poznata kao \textbf{sufiksni trie}. \textbf{Sufiksni trie} date niske predstavlja trie formiran na osnovu svih sufiksa te niske. Pre konstrukcije sufiksnog stabla, na kraj niske dodajemo simbol \$, kako bismo kasnije znali kad smo stigli do kraja.
+\\
+Proveru da li se dati patern nalazi u tekstu vršimo tako što tražimo put u sufiksnom stablu, spelujući slova paterna do kraja. Ukoliko dođe do nepoklapanja, pretraga je neuspešna. U suprotnom, pretraga je uspešna.
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{poglavlja/9/slike/sufiksnoStabloNekompresovano.png}
@@ -150,10 +167,7 @@ Sad se postavlja pitanje, kada pronađemo uparivanje, kako da znamo na kojoj poz
 Da bismo smanjili prostornu složenost, možemo kompresovati svaku putanju koja se ne grana u jednu granu. Ovakva struktura podataka naziva se \textbf{sufiksno stablo}.
 
 
-Za svaku nisku \textit{Genome} važi da je ukupan broj čvorova manji od dvostruke dužine niske \textit{Genome}, odnosno $\# nodes < 2|Genome|.$
-$$\# leaves = |Genome|$$
-$$\# internal nodes < |Genome| - 1$$
-
+Za svaku nisku \textit{Genome} važi da je ukupan broj čvorova manji od dvostruke dužine niske \textit{Genome}, tj. $\# nodes < 2|Genome|$. Ovo važi na osnovu činjenice da je broj listova jednak dužini genoma, tj. $\# leaves = |Genome|$, odnosno da je broj unutrašnjih čvorova manji od dužine genoma umanjene za jedan, tj. $\# internal nodes < |Genome| - 1$.
 
 \begin{figure}[h!]
 \centering
@@ -201,7 +215,7 @@ Najveći problem koji se javlja sa prethodnom rešenjem je to što O-notacija ig
 
 Glavna ideja ovog rešenja jeste da se smanji količina memorije potrebna za čuvanje niske Genome. Za ovo su nam potrebne metode za kompresiju niske velikih dužina, što je naizgled sasvim drugačiji problem.
 
-U ovom nekim genomima imamo nekoliko uzastopnih ponavljanjajedneaminokiseline(ranovi, runs): prvo uzastopna ponavljanja aminokiseline G, pa C i tako dalje), a u nekim imamo uzastopna ponavljanja nizova aminokiselina (ripitsi, repeats): prvo uzastopna ponavljanja GAC, pa CATT i tako dalje.
+U ovom genomimu imamo nekoliko uzastopnih ponavljanja jedne aminokiseline (ranovi, runs): prvo uzastopna ponavljanja aminokiseline G, pa C i tako dalje), a u nekim imamo uzastopna ponavljanja nizova aminokiselina (ripitsi, repeats): prvo uzastopna ponavljanja GAC, pa CATT i tako dalje.
 
 Prva ideja pri rešavanju ovog problema jeste da kodiramo dužine ranova.
 \begin{figure}[h!]
@@ -220,7 +234,7 @@ Postavlja se pitanje kako izvesti transformaciju ripita u ranove.
 \label{slika:X}
 \end{figure}
 
-Odgovor na ovo pitanje daje nam Varouz-Vilerova transformacija (BWT).
+Odgovor na ovo pitanje daje nam Varouz-Vilerova transformacija (The Burrows-Wheeler Transform, skraćeno BWT).
 
 
 \begin{figure}[h!]
@@ -313,7 +327,7 @@ Rekonstrukcija niske Genome na osnovu BWT(Genome) zahteva čuvanje |Genome| kopi
 
 \subsection{Efikasnija BWT dekompresija}
 
-Krenemo od \$ (prvi u nizu cikličnih niski) u FirstColumn, vidimo koji je u LastColumn u tom redu, nađemo ga u FirstColumn, onda za taj nađemo koji je u tom redu u LastColumn, itd. U jednom trenutku ćemo doći do \$, u LastColumn i tada smo okrenuli ceo krug i rekonstruisali celu Genome nisku.
+Krenemo od simbola \$ (prvi u nizu cikličnih niski) u FirstColumn, zatim pogledamo koji simbol je u LastColumn u tom redu, nađemo ga u FirstColumn, onda za taj red nađemo koji simbol je u tom redu u LastColumn, itd. U jednom trenutku ćemo doći do \$ u LastColumn i tada smo okrenuli ceo krug i rekonstruisali celu Genome nisku.
 Prostorna složenost je 2|Genome| = O(|Genome|).
 
 
@@ -321,11 +335,11 @@ Prostorna složenost je 2|Genome| = O(|Genome|).
 
 Da se podsetimo, uparivanje šablona korišćenjem sufiksnih stabala zahtevalo je vremensku složenost od O(|Genome| + |Patterns|), prostorna O(|Genome|). Problem je bio što je sufiksno stablo tražilo 20 * |Genome| prostora.
 
-Poboljšanje možemo dobiti ako umesto sufiksnog stabla budemo koristili BWT(Genome) kao strukturu podataka.
+Poboljšanje možemo dobiti ako umesto sufiksnog stabla koristimo BWT(Genome) kao strukturu podataka.
 
-Krenemo od kraja niske koju tražimo i u FirstColumn tražimo taj karakter. Onda u LastColumn tražimo drugi od pozadi karakter od tih kojima je u FirstColumn kojima je u FirstColumn poslednji iz uzorka.
+Postupak se sastoji od toga da krenemo od kraja niske koju tražimo i u FirstColumn nađemo taj karakter. Zatim u odgovarajućem redu u LastColumn tražimo drugi od pozadi karakter od tih kojima je u FirstColumn poslednji iz uzorka.
 
-Zatim nađemo u FirstColumn gde su ti iz LastColumn i gledamo naredni karakter. Ako se poklapa sa trećim od pozadi nastavljamo nastavljamo dalje, ako nema ga. I tako dok ne pređemo ceo uzorak od kraja ka početku.
+Zatim nađemo u FirstColumn gde su ti iz LastColumn i gledamo naredni karakter. Ako se poklapa sa trećim od pozadi, nastavljamo dalje, ako ne, nema ga. I tako dok ne pređemo ceo uzorak od kraja ka početku.
 
 \begin{figure}[h!]
 \centering
@@ -348,11 +362,11 @@ Problem višestrukog uparivanja šablona:\\
 \textbf{Ulaz:} Kolekcija niski Patterns i niska Genome.\\
 \textbf{Izlaz:} Sve pozicije u niski Genome gde se niske iz kolekcije Patterns pojavljuju kao podniske.
 
-Treba da nađemo pozicije. BWT ne daje svoj podatak. Na primer, na gornjem promeru Ana se pojavljuje 3 puta, ali na kojim pozicijama?
+Treba da nađemo pozicije. BWT ne daje ovaj podatak. Na primer, na gornjem primeru Ana se pojavljuje 3 puta, ali na kojim pozicijama?
 
 Na kojim pozicijama se nalazi odredićemo pomoću sufiksnog niza.
 
-Sufiksni niz je niz koji čuva početnu poziciju za svaki sufiks (niz karaktera u svakom redu matrice do simbola \$).
+\textbf{Sufiksni niz} je niz koji čuva početnu poziciju za svaki sufiks (niz karaktera u svakom redu matrice do simbola \$).
 
 
 \begin{figure}[h!]
