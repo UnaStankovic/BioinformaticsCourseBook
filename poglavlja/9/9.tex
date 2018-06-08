@@ -64,7 +64,6 @@ Potrebno je pronaći gde se očitavanja egzaktno poklapaju sa referentnim genomo
 \indent \textbf{Ulaz:} Kolekcija niski \textit{Patterns} i \textit{Genome}. \\
 \indent \textbf{Izlaz:} Sve pozicije u niski \textit{Genome} gde se niske iz kolekcije \textit{Patterns} pojavljuju kao podniske.
 
-\newpage
 \subsection{Moguća rešenja}
 
 Rešenje koje nam prvo pada na pamet je rešavanje problema grubom silom. Algoritam se sastoji u tome da se linearno krećemo kroz genom i proveravamo da li se dati šablon poklapa sa podniskom genoma iste dužine, koja počinje na toj poziciji.
@@ -97,22 +96,17 @@ Razlog velike neefikasnosti prethodnog algoritma jeste u tome što paterni prola
     \item Svaka grana Tria je obeležena jednim slovom
     \item Grane koje izlaze iz jednog čvora obeležene su različitim slovima
     \item Svaki sufiks neke niske dobija se nadovezivanjem slova duž neke putanje grafa, idući od korena naniže
-    \item Svaka putanja stabla od korena do lista, ili do čvora sa izlaznim stepenom 0, predstavlja jedan element iz liste \textit{Patterns}
+    \item Svaka putanja stabla od korena do lista, ili do čvora sa izlaznim stepenom 0, predstavlja jedan element iz liste \textit{Patterns}\\\\
 \end{itemize}
 
-\\\\\\
-Najjednostavniji način konstrukcije strukture Trie jeste iterativno dodavanje niski iz niza \textit{Patterns} u rastuću strukturu.
-\\
+Najjednostavniji način konstrukcije strukture Trie jeste iterativno dodavanje niski iz niza \textit{Patterns} u rastuću strukturu.\\
 
 Za date niske Text i Trie(Patterns) možemo brzo proveriti da li se neki element niza Patterns predstavlja prefiks niske Text. Dovoljno je da krenemo da spelujemo Text i da slovo po slovo prolazimo kroz Trie od korena naniže. Za svako slovo iz Text-a gledamo da li iz trenutnog čvora postoji grana obeležena tim slovom; ukoliko postoji, nastavljamo sa pretragom; u suprotnom obustavljamo pretragu i zaključujemo da nijedan element niza Patterns nije prefiks niske Text. Ukoliko stignemo do lista, onda je pretraga bila uspešna.
 
-Da bismo pronašli da li se neki patern nalazi u genomu, potrebno je da u \|Text\| iteracija pokrećemo prethodno opisani algoritam, pri čemu u svakoj iteraciji iz niske Text izbacujemo početni simbol, sve dok ona ne postane prazna.
+Da bismo pronašli da li se neki patern nalazi u genomu, potrebno je da u $\|Text\|$ iteracija pokrećemo prethodno opisani algoritam, pri čemu u svakoj iteraciji iz niske Text izbacujemo početni simbol, sve dok ona ne postane prazna.\\
 
-\\
-Iako je prethodno opisani postupak vremenski efikasan, njegova mana leži u velikom zauzeću memorije. Naime, veličina strukture Trie proporcionalna je  ukupnom broju simbola niza Patterns, a pošto veličina kolekcije očitavanja ljudskog genoma može dostići 1 TB, memorija potrebna za čuvanje ove strukture je prevelika.
-\\\\\\\\
-Bolji pristup je da se struktura Trie pravi na osnovu niske Text, tj. genoma. Za ovo će nam biti struktura poznata kao \textbf{sufiksni trie}. \textbf{Sufiksni trie} date niske predstavlja trie formiran na osnovu svih sufiksa te niske. Pre konstrukcije sufiksnog stabla, na kraj niske dodajemo simbol \$, kako bismo kasnije znali kad smo stigli do kraja.
-\\
+Iako je prethodno opisani postupak vremenski efikasan, njegova mana leži u velikom zauzeću memorije. Naime, veličina strukture Trie proporcionalna je  ukupnom broju simbola niza Patterns, a pošto veličina kolekcije očitavanja ljudskog genoma može dostići 1 TB, memorija potrebna za čuvanje ove strukture je prevelika.\\\\
+Bolji pristup je da se struktura Trie pravi na osnovu niske Text, tj. genoma. Za ovo će nam biti struktura poznata kao \textbf{sufiksni trie}. \textbf{Sufiksni trie} date niske predstavlja trie formiran na osnovu svih sufiksa te niske. Pre konstrukcije sufiksnog stabla, na kraj niske dodajemo simbol \$, kako bismo kasnije znali kad smo stigli do kraja.\\
 Proveru da li se dati patern nalazi u tekstu vršimo tako što tražimo put u sufiksnom stablu, spelujući slova paterna do kraja. Ukoliko dođe do nepoklapanja, pretraga je neuspešna. U suprotnom, pretraga je uspešna.
 \begin{figure}[h!]
 \centering
@@ -244,8 +238,6 @@ Odgovor na ovo pitanje daje nam Varouz-Vilerova transformacija (The Burrows-Whee
 \label{slika:X}
 \end{figure}
 
-\newpage
-
 Ideja kod ovog algoritma je da se na početku formiraju sve ciklične rotacije date niske.
 
 \begin{figure}[h!]
@@ -260,7 +252,7 @@ Zatim se vrši sortiranje svih dobijenih niski leksikografski (\$ je na početku
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.4]{poglavlja/9/slike/BWTPoslednjaKolona.png}
-\caption{Pohlepno sortiranje}
+\caption{}
 \label{slika:X}
 \end{figure}
 
@@ -411,10 +403,13 @@ Na kraju ovog primera pronašli smo 5 3-grama sa najviše jednim nepoklapanjem (
 
 \setexamplecodestyle
 \subsection{TrieConstruction}
-%\lstinputlisting[language=Python]{poglavlja/9/kodovi/TrieConstruction.py}
+\lstinputlisting[language=Python]{poglavlja/9/kodovi/TrieConstruction.py}
 
-\subsection{SufixReconstruction}
-%\lstinputlisting[language=Python]{poglavlja/9/kodovi/SufixReconstruction.py}
+\subsection{SufixArray}
+\lstinputlisting[language=Python]{poglavlja/9/kodovi/SufixArray.py}
+
+\subsection{SufixArray_multiple}
+\lstinputlisting[language=Python]{poglavlja/9/kodovi/SufixArray_multiple.py}
 
 \subsection{BWT}
-%\lstinputlisting[language=Python]{poglavlja/9/kodovi/BWT.py}
+\lstinputlisting[language=Python]{poglavlja/9/kodovi/BWT.py}
